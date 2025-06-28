@@ -1,0 +1,38 @@
+<div>
+  <div>
+    <img src="../../../../../assets/icons/close-vector.png" (click)="closeDialog()">
+  </div>
+  <p class="profile-title">{{'PROFILE_PICTURE' | translate}}</p>
+  <p clas="pick-text">{{'PICK' | translate}}</p>
+
+  <div class="py-2 pl-0 row">
+    <div *ngFor="let img of imgJson">
+      <div class="col-xs-4 p-2" (click)="selectProfile(img.url)">
+        <img [src]="img.url">
+      </div>
+    </div>
+  </div>
+
+  <p class="ml-2">{{'OR' | translate}}</p>
+  <form [formGroup]="createUserForm">
+    <div class="flex mt-3">
+      <div class="camera-bg p-2" (click)="openGallery(); $event.stopPropagation()"
+        (keydown.enter)="openGallery(); $event.stopPropagation()">
+
+        <img class="camer-icon" src="../../../../../assets/imgs/camera.png">
+
+        <input id="uploadProfile" name="uploadProfileName" type="file" #uploadProfilePic class="hidden"
+          (change)="uploadProfileImg($event.target.files[0]); uploadProfilePic.value = null" style="display: none;"
+          [accept]="imageTypes.toString()" />
+      </div>
+      <!-- <div class="my-auto mx-3" (click)="uploadProfilePic.click(); $event.stopPropagation()"
+        (keydown.enter)="uploadProfilePic.click(); $event.stopPropagation()">
+        <p class="add-own-img">{{'ADD_IMAGE' | translate}}</p>
+      </div> -->
+      <div class="my-auto mx-3" (click)="openGallery(); $event.stopPropagation()"
+        (keydown.enter)="openGallery(); $event.stopPropagation()">
+        <p class="add-own-img">{{'ADD_IMAGE' | translate}}</p>
+      </div>
+    </div>
+  </form>
+</div>

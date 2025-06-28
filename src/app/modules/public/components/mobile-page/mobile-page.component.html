@@ -1,0 +1,90 @@
+<!-- <div class="content">
+  <ws-mobile-home></ws-mobile-home>
+</div> -->
+
+<!--latest course-->
+<!-- <div>
+  <ng-container [wsResolverWidget]="pageLayout">
+  </ng-container>
+</div>  -->
+
+<!-- <app-ekshamata-footer></app-ekshamata-footer> -->
+
+<!-- <div class="flex justify-center items-center flex-col">
+  <h2 class="mb-0 mt-1">  {{ 'SUPPORT_BY' | translate }}</h2>
+</div>
+<section class="home-footer-container">
+  
+  <div class="flex justify-center items-center flex-col logos">
+    <a class="padding-remove-small uptsu">
+      <img src="./assets/imgs/UPTSU.png" class="uptsu-logo" />
+      <span>UP-TSU</span>
+    </a>
+  </div>
+</section> -->
+
+<!-- <ng-container>
+  <app-footer></app-footer>
+</ng-container> -->
+
+<!--featured course-->
+<!-- <section class="px-4 flex flex-col">
+  <div class="line-label" i18n>
+    <span>{{ "FEATURED" | translate }}</span>
+  </div>
+  <ng-container *ngIf="!featuredCourse">
+    <app-skeleton-card></app-skeleton-card>
+  </ng-container>
+  <ng-container
+    *ngIf="featuredCourse && featuredCourse.length > 0"
+    style="background-color: #fff"
+  >
+    <div
+      *ngFor="
+        let course of viewAllcourses
+          ? featuredCourse
+          : featuredCourse.slice(0, 10)
+      "
+    >
+      <ws-mobile-course-view
+        [courseData]="course"
+        [showCompentencyDetails]="true"
+        [displayConfig]="displayConfig"
+      ></ws-mobile-course-view>
+    </div>
+  </ng-container>
+
+  <button
+    class="btn-underline btn-content-center"
+    (click)="toggleViewAllCourses()"
+    *ngIf="!viewAllcourses && featuredCourse.length > 3"
+  >
+    {{ "VIEW_ALL" | translate }}
+    <span>
+      <mat-icon> expand_circle_down </mat-icon>
+    </span>
+  </button>
+</section> -->
+
+
+<div class="flex flex-col" *ngIf="!isAuthenticated">
+  <div [ngClass]="isTablet ? 'banner-container tablet-banner-container' : 'banner-container'">
+    <div class="banner-logs">
+      <img src="../../../../../assets/imgs/logo-ekshmata.svg" alt="">
+      <img src="../../../../../assets/imgs/ekshmata-home-leafe.svg" alt="">
+    </div>
+    <img [ngClass]="isTablet ? 'tab-img-position' : 'banner-log-main'" src="../../../../../assets/imgs/ekshmata-home.svg" alt="">
+  </div>
+  <div [ngClass]="isTablet ? 'bottom-banner tab-space' : 'bottom-banner'">
+    <div [ngClass]="isTablet ? 'title tab-title' : 'title'"> {{'EKSHMATA_HOME_TEXT_TITLE' | translate}}</div>
+    <div [ngClass]="isTablet ? 'sub-title tab-sub-title' : 'sub-title'">{{'EKSHMATA_HOME_TEXT' | translate}}</div>
+    <div [ngClass]="isTablet ? 'tab-login' : 'login-info'">
+      <div class="info-title pt-4">{{'LOGIN_NOW' | translate}}</div>
+      <button class="btn lg-btn mt-4" (click)="login()">{{'LOGIN' | translate}}</button>
+      <div class="text-center sub-title info-aling pt-3 pb-3" [ngClass]="{'pt-6' : isTablet}">{{'COLLABORATION' | translate}}</div>
+      <img [ngClass]="isTablet ? 'tab-logo-found logo-foundation' : 'logo-foundation'" src="../../../../../assets/imgs/Foundation-secondary.svg" alt="foundation">
+    </div>
+    <img [ngClass]="isTablet ? 'tab-logo-img logo-img' : 'logo-img'" src="../../../../../assets/imgs/Language-bg.svg" alt="">
+  </div>
+
+</div>

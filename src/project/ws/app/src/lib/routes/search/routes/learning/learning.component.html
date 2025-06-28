@@ -1,0 +1,177 @@
+<ion-content (ionScroll)="onScroll($event)">
+  <ng-container *ngIf="showBackBtn">
+    <div class="search-content">
+      <ws-mobile-profile-nav [navigateTohome]="true" [showbackButton]="true" [showLogOutIcon]="false">
+      </ws-mobile-profile-nav>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!error.load">
+    <!-- <mat-sidenav #sideNavBar class="sidenav" [opened]="false" (closed)="closeFilter(false)"
+      [mode]="screenSizeIsLtMedium ? 'over' : 'side'">
+      <ws-app-filter-display #appFilterDisplay *ngIf="searchResults?.result?.content?.length"
+        [filtersResetAble]="filtersResetAble" [sideNavBarOpened]="false" [filtersResponse]="filtersResponse"
+        [routeComp]="routeComp" (filterClose)="closeFilter($event)"></ws-app-filter-display>
+    </mat-sidenav> -->
+    <ng-container class="sidenav-content" *ngIf="!noContent && searchResults?.result?.content?.length">
+      <!-- start heading -->
+      <!-- this block is not required for both tab and mobile  -->
+      <div role="link" tabindex="0" class="searchHeading d-none">
+        <span i18n="search route hits showing" *ngIf="(isXSmall$ | async) || isTablet !== true">Showing </span>
+        <span *ngIf="(isXSmall$ | async) || isTablet !== true">{{ searchResults.result.count }} </span>
+        <p class="text-xl pl-3" *ngIf="(isXSmall$ | async) || isTablet === true">{{'ALL_COURSES' | translate}}</p>
+        <span *ngIf="searchResults.result.count > 1 && (isXSmall$ | async) || isTablet !== true "
+          i18n="search route hits results">{{'RESULTS' | translate}}</span>
+        <span *ngIf="searchResults.result.count <= 1" i18n="search route hits result">{{'RESULT' | translate}} </span>
+        <span *ngIf="searchRequest?.lang?.split(',').length > 1"><span i18n>{{'ACROSS_YOUR_PREFERRED_LANGUAGES' |
+            translate}}</span>
+          <span>:&nbsp;</span><span class="cursor-pointer ws-mat-primary-text"
+            *ngFor="let lang of searchRequest?.lang?.split(',')" (click)="searchLanguage(lang)">{{lang | uppercase}}
+          </span>
+        </span>
+        <div class="filter-lang" *ngIf="(isXSmall$ | async) || isTablet !== true">
+          <label i18n class="pos-rel">{{'FILTER_BASED_ON_LANGUAGE' | translate}} : </label>
+          <select class="form-control lang-select"
+            [ngClass]="{'lang-icon': lang === '', 'lang-selected' : lang === 'step2' }" [(ngModel)]="contact"
+            (change)="selectLang(contact)">
+            <option></option>
+            <option *ngFor="let method of contactMethods" [value]="method.id">{{ method.label }}</option>
+          </select>
+        </div>
+        <ng-container *ngIf=" searchResults?.doYouMean || searchResults?.queryUsed">
+          <span>.</span><span>&nbsp;</span>
+          <span *ngIf="searchResults?.doYouMean">
+            <span i18n>{{'DID_YOU_MEAN' | translate}}</span><span>&nbsp;“</span>
+            <span [innerHTML]="searchResults?.doYouMean" (click)="didYouMeanSearch(searchResults?.doYouMean)"
+              class="cursor-pointer ws-mat-primary-text cursor-pointer"></span>”
+            ?</span>
+          <span *ngIf="searchResults?.queryUsed">
+            <span i18n>{{'SHOWING_RESULTS_FOR_TEXT' | translate}}</span>
+            <span>&nbsp;“</span>
+            {{searchResults?.queryUsed}}”.
+            <span i18n>{{'SEARCH_INSTED_FOR' | translate}}</span>
+            <span>&nbsp;“</span>
+            <span class="cursor-pointer ws-mat-primary-text cursor-pointer" (click)="searchInsteadFor()">
+              {{searchRequestObject.query}}
+            </span>”.
+          </span>
+        </ng-container>
+        <ng-container *ngIf="exactResult.show && applyPhraseSearch">
+          <span i18n="search route hits for showing exact match">{{'FOR_THE_EXACT_MATCH_ON' | translate}}
+          </span>
+          <span>{{ searchRequestObject?.query }}, </span>
+          <a (click)="getResults(true)" class="ws-mat-primary-text cursor-pointer" i18n>{{'CLICK_HERE' | translate}}
+          </a>
+          <span i18n="search route hits for showing actual query">{{'TO_EXPLORE_MORE' | translate}}. </span>
+        </ng-container>
+        <!--<button mat-icon-button class="width-auto" [ngClass]="{ 'hide-filter-btn': sideNavBarOpened }"
+          (click)="sideNavBarOpened = !sideNavBarOpened">
+          <mat-icon>filter_list</mat-icon>
+        </button> -->
+      </div>     
+      <!-- this block is not required for both tab and mobile -->
+      <!-- end heading -->
+      <div class="margin-bottom-m">
+        <mat-chip-list aria-label="Filter selection" role="none" *ngIf="filtersResponse">
+          <span *ngFor="let filter of filtersResponse">
+            <span *ngFor="let content of filter?.content">
+              <span *ngIf="content?.checked">
+                <mat-chip [removable]="removable">
+                  {{translatedFilters[filter?.displayName]?.value[content?.displayName] || content?.displayName}}
+                  <mat-icon matChipRemove
+                    (click)="appFilterDisplay.removeFilter({ key : filter?.type, value :content?.type})"
+                    *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+              </span>
+              <span *ngIf="content?.children?.length>0">
+                <span *ngFor="let children of content?.children">
+                  <span *ngIf="children?.checked">
+                    <mat-chip [removable]="removable">{{children?.displayName}}
+                      <mat-icon matChipRemove
+                        (click)="appFilterDisplay.removeFilter({ key : filter?.type, value :children?.type})"
+                        *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </span>
+        </mat-chip-list>
+      </div>
+      <div *ngIf="searchResults?.result?.content?.length">
+        <!-- <ng-container *ngIf="(isXSmall$ | async) !== true">
+          <ws-app-learning-card class="search-card"
+            *ngFor="let result of searchResults.result.content; trackBy: contentTrackBy"
+            [displayType]="resultsDisplayType" [content]="result"></ws-app-learning-card>
+        </ng-container> -->
+        <div [ngClass]="isTablet ? 'tablet-flex' : 'card-bottom'">
+          <div [ngClass]="isTablet ? 'mx-3 tab-card-width' : 'mx-3'" *ngFor="let result of searchResults.result.content; trackBy: contentTrackBy">
+            <ws-mobile-course-view [ashaData]="ashaData"
+            [courseData]="result" [displayConfig]="displayConfig">
+          </ws-mobile-course-view>
+          </div> 
+        </div>
+
+        <ng-container *ngIf="!isCompetency">
+          <ion-infinite-scroll threshold="1000px" (ionInfinite)="loadMoreData($event)" >
+            <ion-infinite-scroll-content
+              loadingSpinner="crescent"
+              loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </ng-container>
+       
+
+        <!-- <div *ngIf="searchRequestStatus === 'fetching'" class="margin-top-m flex flex-center">
+          <mat-spinner></mat-spinner>
+        </div> -->
+        <!-- <button mat-raised-button class="width-1-1" (click)="getResults()" *ngIf="searchRequestStatus != 'done'"
+          [hidden]="searchRequestStatus === 'fetching'" accesskey="+">
+          <mat-icon>add</mat-icon>
+          <ng-container i18n="search: more results">{{'FRMELEMNTS_BTN_VIEW_MORE' | translate}}</ng-container>
+        </button> -->
+      </div>
+    </ng-container>
+
+    <div *ngIf="noContent && searchRequestStatus === 'done'" class="margin-xl text-center">
+      <h2 class="mat-h2" i18n="search route no result">{{'NO_RESULT' | translate}}</h2>
+      <h3 class="mat-h3" i18n="search route you may try">{{'YOU_MAY_TRY' | translate}}</h3>
+      <div class="padding-left-s">
+        <h4 [hidden]="!filtersResetAble">
+          <ng-container i18n="search route remove filters"> {{'REMOVING_FILTERS' | translate}} </ng-container>
+          <button (click)="removeFilters()" type="button" mat-icon-button>
+            <mat-icon>restore</mat-icon>
+          </button>
+        </h4>
+        <h4 *ngIf="searchRequest?.lang!=='en' && searchRequest?.lang?.split(',').length === 1">
+          <ng-container i18n="search route remove language"> {{'REMOVING_LANGUAGE' | translate}} </ng-container>
+          <button (click)="removeLanguage()" type="button" mat-icon-button>
+            <mat-icon>restore</mat-icon>
+          </button>
+        </h4>
+        <!-- <h4>
+              <span i18n>Browsing</span>&nbsp;
+              <a [routerLink]="'/catalog'" i18n class="catalog-link">Catalog</a>
+            </h4> -->
+        <h4>{{'DIFFERENT_KEYWORDS' | translate}}</h4>
+      </div>
+    </div>
+
+    <div *ngIf="searchRequestStatus === 'error'" class="text-center margin-top-m">
+      <!-- <h2 class="h2-title" i18n="search result fetch error">
+        Some error occurred! Please retry
+      </h2> -->
+      <ng-container [wsResolverWidget]="errorWidget"> </ng-container>
+    </div>
+  </ng-container>
+
+  <div *ngIf="error.load">
+    <ng-container [wsResolverWidget]="errorWidget"> </ng-container>
+  </div>
+
+  <ng-container *ngIf="appFramework === 'Ekshamata' && showUptuLogo">
+
+    <app-ekshamata-footer [appName]="appFramework" [isLogo]="showUptuLogo"></app-ekshamata-footer>
+
+  </ng-container>
+
+</ion-content>

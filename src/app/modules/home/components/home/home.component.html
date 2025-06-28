@@ -1,0 +1,12 @@
+<!-- <ng-container *ngIf="role == 'obs_mentor'">
+    <app-role-selector-dashboard></app-role-selector-dashboard>
+</ng-container> -->
+<!-- <ng-container *ngIf="role != 'obs_mentor'"> -->
+   
+    <ng-container *ngIf="appFramework === 'Sphere'; else ekshamataComponent">
+        <app-sphere-mobile-dashboard [role]="role" class="scroll-mobile-page"></app-sphere-mobile-dashboard>
+    </ng-container>
+    <ng-template #ekshamataComponent>
+        <ws-mobile-dashboard [role]="role" [designation]="designation" class="scroll-mobile-page" ></ws-mobile-dashboard>
+    </ng-template>
+<!-- </ng-container> -->

@@ -1,0 +1,68 @@
+<div class="overview-container text-center" *ngIf="data">
+  <button mat-button class="close-icon" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <!-- <img src="../../../../../assets/icons/certificate-animation.png" alt="download"> -->
+  <p *ngIf="data.message" class="message-text">{{data.message|translate}}</p>
+  <span class="message-text">{{'SUBMIT_FEEDBACK'|translate}}</span>
+  <!-- <button class="btn btn-active" mat-raised-button (click)="done()">
+        {{'DONE'|translate}}
+    </button> -->
+
+  <mat-dialog-content>
+    <form [formGroup]="ratingsForm">
+      <div class="margin-top-s center-align">
+        <div class="star-rating">
+          <img
+            *ngFor="let star of stars; let i = index"
+            [src]="star <= selectedRating ? '/assets/icons/star-filled.png' : '/assets/icons/star.png'"
+            alt="Star"
+            (click)="setRating(i + 1)"
+          />
+        </div>
+      </div>
+      <div >
+        <!-- class="rating-comment width-1-1 margin-top-m margin-bottom-l" -->
+        <!-- <textarea
+          #commentTextarea
+          (input)="setRating(selectedRating)"
+          rows="4"
+          placeholder=" Tell us more about what you felt"
+          name="name"
+          formControlName="review"
+          required
+        ></textarea> -->
+        <mat-form-field appearance="outline" class="w-full">
+          <textarea
+            formControlName="review"
+            #commentTextarea
+            (input)="setRating(selectedRating)"
+            rows="4"
+            matInput
+            placeholder="{{'TELL_US_MORE_ABOUT' | translate}}"
+            class="p-1"
+          ></textarea>
+          <mat-error
+          *ngIf="isSubmitPressed && !ratingsForm.controls.review.value"
+        >
+          {{'COMMENTS_IS_MANDATORY' | translate}}
+        </mat-error>
+        </mat-form-field>
+
+       
+      </div>
+      <div class="margin-top-s margin-bottom-s center-align">
+        <button
+          class="margin-left-s submit-btn"
+          (click)="submitData()"
+          [disabled]="isMandatory"
+          color="primary"
+          mat-dialog-close
+        >
+          <ng-container i18n>{{'BTN_SUBMIT' | translate}}</ng-container>
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

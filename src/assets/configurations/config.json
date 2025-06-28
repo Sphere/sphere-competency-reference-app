@@ -1,0 +1,38 @@
+{
+    "overriddenDefaultChannelId": "",
+    "theme": {
+    },
+    "skipOnboardingForLoginUser": true,
+    "onboarding": [
+        {
+            "name": "language-setting",
+            "skip": true,
+            "default": { "code" :"en", "label": "English" }
+        },
+        {
+            "name": "user-type-selection",
+            "skip": true,
+            "default": "teacher"
+        },
+        {
+            "name": "profile-settings",
+            "skip": true,
+            "default": [
+                "board",
+                "medium",
+                "grade"
+            ]
+        },
+        {
+            "name": "district-mapping",
+            "skip": true,
+            "default": [
+                "state",
+                "city"
+            ]
+        }
+    ],
+    "tabs": [
+        
+    ]
+}

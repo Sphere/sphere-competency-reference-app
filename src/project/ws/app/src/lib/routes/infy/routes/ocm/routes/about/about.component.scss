@@ -1,0 +1,13 @@
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+.pad {
+  padding: $size-m;
+  @include breakpoint-gt-xs {
+    padding: $size-m $size-xl;
+  }
+}
+.about {
+  line-height: 1.5;
+  font-size: 1em;
+}

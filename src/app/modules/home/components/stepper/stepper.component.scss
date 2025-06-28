@@ -1,0 +1,64 @@
+.stepper-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  .step-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+  
+    &:last-child {
+      flex: 0;
+    }
+  }
+  
+  .step-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #A1A1A1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+  
+    &.completed {
+      background-color: #469788;
+      color: #ffffff;
+    }
+    &.current {
+      background-color: #eaeaea;
+      color: #A1A1A1;
+      width: 32px;
+      height: 32px;
+    }
+    &.completed.current {
+      background-color: #469788; // keep completed green
+      color: #ffffff;
+    }
+  
+    &.failed {
+      background-color: #ff4d4f;
+      color: #ffffff;
+    }
+  }
+  
+  .step-line {
+    height: 8px;
+    background-color: #e0e0e0;
+    flex-grow: 1;
+    margin: 0 0px;
+    z-index: 1;
+  
+    &.completed {
+      background-color: #469788;
+    }
+  }
+  

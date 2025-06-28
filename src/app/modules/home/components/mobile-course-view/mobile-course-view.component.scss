@@ -1,0 +1,335 @@
+/************/
+
+.course-container {
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+  height: auto;
+}
+
+.course-container .appIcon {
+  min-width: 276px;
+  max-width: 276px;
+}
+
+.course-container .box {
+  // height: 250px;
+  margin: 20px 0;
+  padding-bottom: 5px;
+}
+
+.course-container .name {
+  color: #1c5d95;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0 !important;
+}
+
+.course-container .creator {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.course-container .description {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #404040;
+}
+
+.start-btn {
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 5px 25px;
+  background: #1c5d95;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.bg-cont-white {
+  background-color: #fff;
+}
+
+.value {
+  position: relative;
+  bottom: 19px;
+  color: #000000;
+  font-weight: 600;
+  width: 275px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-progress-bar {
+  width: 100%;
+  border-radius: 40px;
+  height: 6px;
+  min-height: 6px;
+}
+
+::ng-deep.theme-igot.day-mode .mat-progress-bar-buffer {
+  background-color: #ededed;
+}
+
+.fitsize {
+  width: 100%;
+  max-width: 100% !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.text-over {
+  position: relative;
+}
+
+.topStyle {
+  position: absolute;
+  top: 0px;
+  padding: 5px;
+  background-color: #d68480;
+  color: #ffffff;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.bottomStyle {
+  position: absolute;
+  bottom: -15px;
+  right: 0px;
+  padding: 5px;
+  background-color: #519db2;
+  color: #ffffff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.card-title {
+  padding-top: 1rem;
+}
+
+.competency-card {
+  border-top: 1px solid #dcdcdc;
+  margin-top: 15px;
+  padding-top: 10px;
+  color: #000000;
+}
+
+.competency-icon {
+  height: 15px !important;
+  margin-right: 5px;
+}
+
+.card-lg {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  box-shadow: 0px 0px 8px 0px #00000073;
+  border-radius: 8px;
+  margin-top: 1.3rem;
+}
+
+.card-lg-img {
+  padding-bottom: 12px;
+
+  .course-img {
+    width: 100%;
+    max-width: 100% !important;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px #00000073;
+    height: 150px;
+  }
+}
+
+.card-lg-title {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  letter-spacing: -0.02em;
+  color: #1c5d95;
+}
+
+.title-elips {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 0px;
+  padding: 5px;
+  background-color: #519db2;
+  color: #ffffff;
+  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.top-badge-right {
+  display: flex;
+  gap: 3px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 5px;
+  background-color: #d68480;
+  color: #ffffff;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 14px;
+}
+
+.top-badge-left {
+  position: absolute;
+  top: 0px;
+  padding: 5px;
+  background-color: #d68480;
+  color: #ffffff;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.star-img {
+  width: 14px;
+  height: 18px;
+}
+
+
+.card-sm {
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+  box-shadow: 0px 0px 8px 0px #00000073;
+  border-radius: 8px;
+  margin-top: 1.3rem;
+  gap: 10px;
+
+  .course-img {
+    width: 166px;
+    height: 78px;
+    border-radius: 10px;
+  }
+
+}
+
+.courses-name {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.06px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #808080;
+  padding-top: 5px;
+}
+
+
+.course-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.line {
+  border-top-width: medium;
+  margin: 0.5rem 0;
+}
+
+.card-sm-title {
+  font-size: 17px !important;
+  color: #1c5d95 !important;
+  // line-height: 17px;
+  font-weight: 400;
+  width: 75%;
+  font-family: Roboto;
+  overflow: hidden;
+  line-height: 21px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+:host ::ng-deep {
+  .mat-progress-bar-fill:after {
+    background: #469788 !important;
+    border-radius: 10px;
+  }
+
+  .mat-progress-bar-buffer {
+    background-color: #dcdcdc !important;
+  }
+}
+
+.course-view-progress-bar {
+  height: 6px;
+  width: calc(92% - 1rem);
+  border-radius: 10px;
+}
+
+::ng-deep .course-view-progress-bar .mdc-linear-progress__primary-bar .mdc-linear-progress__bar-inner {
+  border-color: #469788 !important;
+  /* Apply your custom color */
+  // border-top-width: 6px;
+}
+
+::ng-deep .course-view-progress-bar.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+  background-color: #dcdcdc !important;
+}
+
+::ng-deep .new-w.desktop.mat-mdc-progress-bar .mdc-linear-progress__primary-bar .mdc-linear-progress__bar-inner {
+  border-color: #469788 !important;
+  /* Apply your custom color */
+  // border-top-width: 6px;
+  border-radius: 10px;
+  /* Apply border-radius if required */
+  /* Adjust as necessary */
+}
+
+::ng-deep .new-w.desktop .mdc-linear-progress__primary-bar .mdc-linear-progress__bar-inner {
+  border-color: #469788 !important
+    /* Apply your custom color */
+}
+
+::ng-deep .new-w.desktop.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+  background-color: #dcdcdc !important;
+}
+
+.bottom-badge-sm {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  padding: 5px;
+  background-color: #D68480;
+  color: #ffffff;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.progress-bar {
+  height: 6px;
+  width: calc(92% - 1rem);
+  border-radius: 10px;
+}
+
+.competency-text {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.06px;
+  letter-spacing: -0.02em;
+  color: #000000;
+
+
+}
+
+
+.hig-38 {
+  height: 40px;
+}

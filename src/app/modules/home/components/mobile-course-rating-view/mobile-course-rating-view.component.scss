@@ -1,0 +1,58 @@
+:host {
+  .course-container {
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+    border-radius: 10px;
+    height: auto;
+  }
+
+  .course-container {
+    min-width: 276px;
+    max-width: 100%;
+  }
+
+  .box {
+    display: flex;
+    padding-top: 20px;
+  }
+
+  .img-size {
+    max-width: 50% !important;
+    border-radius: 10px;
+    padding-top: 2px;
+  }
+
+  .format {
+    height: 15px;
+    width: 15px;
+  }
+
+  .name .img-size {
+    vertical-align: middle;
+    flex: 1;
+  }
+
+  .name {
+    color: #1C5D95;
+  }
+
+  .cne-style {
+    background-color: #519DB2;
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    color: #FFFFFF;
+  }
+
+  .p-align {
+    margin: 0px !important;
+  }
+
+  .divider {
+    border-top: 1px solid #DCDCDC;
+  }
+
+  .btn {
+    color: #D68480;
+    width: 30px;
+  }
+}

@@ -1,0 +1,65 @@
+@import 'styles/_ws-mixins.scss';
+
+.overview-container {
+  padding: 4px;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4px;
+
+  button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+}
+
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.btn {
+  margin-left: 20px;
+  border-radius: 50px;
+  width: 100px !important;
+  height: 38px !important;
+  color: #1c5d95 !important;
+  border-color: #1C5D95 !important;
+  border: 1px solid #1c5d95 !important;
+}
+
+.btn-active {
+  background-color: #1c5d95 !important;
+  color: #ffffff !important;
+}
+
+::ng-deep.course-download-completion-modal .mat-dialog-container {
+  border-radius: 10px !important;
+}
+
+.download-title {
+  font-size: 14px;
+  text-align: justify;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.completion-title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: normal;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

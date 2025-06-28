@@ -1,0 +1,25 @@
+<ng-container *ngIf="!showSelectMentor">
+  <div class="container-role">
+    <p class="banner-heading text-2xl py-2  px-3 text-base text-capitalize">{{'WELCOME' | translate}} {{firstName}}!
+    </p>
+    <img class="banner-img" src="../../../../../assets/imgs/Mask_group.svg" alt="Banner image" loading="lazy">
+  
+    <div class="select-role-container">
+      <h2 class="mt-3 mb-3">{{'YOUR_role_TODAY' | translate}} </h2>
+      <button class="btn-select" (click)="learner()">{{'LEARNER' | translate}} <img src="../../../../../assets/icons/student.svg">  </button>
+      <button class="btn-select" (click)="mentor()" >{{'MENTOR' | translate}} <img src="../../../../../assets/icons/group.svg"> </button>
+      <img class="img-bg" src="../../../../../assets/imgs/Language-bg.svg" >
+    </div>
+  
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showSelectMentor">
+  <div class="select-role-container">
+    <div class="m-auto">
+      <button class="btn-select" (click)="menteeList()">{{'MENTEE_LIST' | translate}} </button>
+      <button class="btn-select" (click)="observation()" >{{'OBSERVATION' | translate}} </button>
+    </div>
+    <img class="img-bg" src="../../../../../assets/imgs/Language-bg.svg" >
+  </div>
+</ng-container>

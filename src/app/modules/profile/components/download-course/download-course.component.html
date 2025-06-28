@@ -1,0 +1,22 @@
+<div class="ml-3">
+  <ws-mobile-profile-nav 
+  [trigerrNavigation]="trigerrNavigation" 
+  [showbackButton]="(commonUtilService.networkInfo.isNetworkAvailable && configSvc.userDetails) ? showbackButton : false"
+  [showLogOutIcon]="showLogOutIcon">
+</ws-mobile-profile-nav>
+</div>
+
+
+<div class="content mt-3">
+  <p class="text-2xl mt-2 mb-2" i18n>{{ 'DOWNLOADS_PLURAL' | translate }}</p>
+</div>
+
+<ng-container *ngIf="downloadedContents && downloadedContents.length > 0">
+  <div *ngFor="let course of downloadedContents" class="py-1 px-4 mt-8 ">
+    <app-course-card (clickEvent)="menuVerticalClick($event)" [courseData]="course" [displayConfig]="displayConfig"></app-course-card>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="downloadedContents.length === 0">
+  <app-no-result [data]="noResultData"></app-no-result>
+</ng-container>

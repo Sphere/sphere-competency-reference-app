@@ -1,0 +1,18 @@
+.hide-overflow{
+  overflow: hidden;
+}
+
+.mdc-dialog__title {
+  padding: 0 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.text-base {
+  padding: 0 12px !important;
+  margin-bottom: 0px !important;
+}
+
+button {
+  height: 46px !important;
+  --mat-mdc-button-persistent-ripple-color: transparent !important;
+}

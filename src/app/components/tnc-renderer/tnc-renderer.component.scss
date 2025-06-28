@@ -1,0 +1,39 @@
+// @import 'ws-vars';
+// @import 'ws-mixins';
+
+.tnc-container {
+  // padding: $size-l;
+  padding: 0px;
+  margin: auto;
+  // @include breakpoint-xs {
+  //   padding: 0;
+  // }
+  // @include breakpoint-gt-xs {
+  //   max-width: 90%;
+  // }
+  // @include breakpoint-gt-s {
+  //   max-width: 80%;
+  // }
+  // @include breakpoint-gt-m {
+  //   max-width: 1024px;
+  // }
+}
+
+.accept-btn-icon {
+  // margin-right: $size-s;
+  margin-right: 0px;
+}
+
+.tnc-title {
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+}
+::ng-deep .mat-expansion-panel-header {
+  border-bottom: solid 1px #424242;
+    border-radius: 0 !important;
+}
+
+.policy-btn {
+  color: inherit;
+}

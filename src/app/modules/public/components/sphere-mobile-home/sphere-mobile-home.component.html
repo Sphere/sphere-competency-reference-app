@@ -1,0 +1,48 @@
+<!--page banner-->
+<div [ngClass]="isTablet ? 'flex tab-bottom' : 'flex flex-col'">
+  <!--upskill now section-->
+  <div [ngClass]="{'tab-access-info': isTablet}">
+    <div class="banner-heading mt-1" i18n>{{'ACCESS_FREE_HEALTHCARE_COURSES' | translate}}</div>
+    <div class="banner-mini-heading">
+      {{'HIGH_QUALITY_CONTENT_FROM_EXPERTS' | translate}}
+    </div>
+  </div>
+  <div [ngClass]="{'tab-banner-size' : isTablet }">
+    <ng-container *ngIf="!isDataCarouselLoading">
+      <app-carousel-component [lang]="defaultlang" [dataCarousel]="dataCarousel"></app-carousel-component>
+    </ng-container>
+    <ng-container *ngIf="isDataCarouselLoading">
+      <app-skeleton-carousel></app-skeleton-carousel>
+    </ng-container>
+  </div>
+</div>
+<div [ngClass]="isTablet ? 'flex' : 'flex info-block'">
+  <div [ngClass]="isTablet ? 'info-container tab-info-display' : 'info-container info-disaplay-bg1'">
+    <div class="flex info-box">
+      <img src="../../../../../assets/imgs/globe.svg" class="count-sphere-icons" alt="Sphere Icons" />
+      <div class="info-number">{{bannerStats?.learner_onboard}}</div>
+    </div>
+    <span class="info-text">{{'LEARNERS_ONBOARDED' | translate}}</span>
+  </div>
+  <div [ngClass]="isTablet ? 'info-container tab-info-display' : 'info-container info-disaplay-bg2'">
+    <div class="flex info-box">
+      <img src="../../../../../assets/imgs/cert.png" class="count-sphere-icons" alt="Sphere Icons" />
+      <div class="info-number">{{bannerStats?.cne_points}}</div>
+    </div>
+    <span class="info-text">{{'CNE_HOURS'| translate}}</span>
+  </div>
+  <div [ngClass]="isTablet ? 'info-container tab-info-display' : 'info-container info-disaplay-bg2'">
+    <div class="flex info-box">
+      <img src="../../../../../assets/imgs/courses_home.svg" class="count-sphere-icons" alt="Sphere Icons" />
+      <div class="info-number">{{bannerStats?.course}}</div>
+    </div>
+    <span class="info-text">{{'CERTIFICATE_COURSES' | translate}}</span>
+  </div>
+  <div [ngClass]="isTablet ? 'info-container tab-info-display' : 'info-container info-disaplay-bg1'">
+    <div class="flex info-box">
+      <img src="../../../../../assets/imgs/award.png" class="count-sphere-icons" alt="Sphere Icons" />
+      <div class="info-number">{{bannerStats?.cert_course}}</div>
+    </div>
+    <span class="info-text">{{'TOTAL_CERTIFICATE_ISSUED' | translate}}</span>
+  </div>
+</div>

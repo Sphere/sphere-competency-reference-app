@@ -1,0 +1,18 @@
+<div class="d-flex flex-col justify-center text-center items-center">
+  <img src="../../../../../assets/imgs/blue-info.svg" class="img-info pb-2" alt="">
+  <p class="m-0 pb-2 tittle-typo head-title">
+    {{data.msgOne | translate }}
+  </p>
+  <p class="m-0 pb-2 tittle-typo sub-title">
+    {{data.msgTwo | translate }}
+  </p>
+  <p class=" tittle-typo title">
+    {{data.first}} {{data.last}}
+  </p>
+  <div class="flex gap-3 w-full">
+    <button class="btn alert-btn-outline" (click)="closeAlert('EDIT')">{{'CANCEL' | translate}}</button>
+    <button class="btn alert-btn-active"  (click)="closeAlert('CONFIRMED')">{{'CONFIRM_NAME' | translate}}</button>
+  </div>
+</div>
+
+

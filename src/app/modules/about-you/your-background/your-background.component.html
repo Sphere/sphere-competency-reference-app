@@ -1,0 +1,155 @@
+<!-- <div class="login-page-content" *ngIf="!almostDone">
+  <div class="login-card">
+    <h1 id="choose-bg-heading" i18n>{{'CHOOSE_BACKGROUND' | translate}}</h1>
+    <div class="content">
+      <div class="content-wrapper" *ngFor="let img of professions; let i = index">
+        <div class="column" (click)="imgSelect(img)" tabindex="-1">
+          <a>
+            <h4 class="img-name">{{img.name}}</h4>
+            <img class="image" [src]="img.image" height="80" alt="{{img.name}}" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="bg-content-page"  *ngIf="!almostDone">
+  <div id="choose-bg-heading" i18n class="title-bg">{{'CHOOSE_BACKGROUND' | translate}}</div>
+  <div class="bg-content">
+    <ng-container *ngFor="let img of professions; let i = index">
+      <div (click)="imgSelect(img)" tabindex="-1" class="bg-card">
+        <h4 class="img-name">{{img.name}}</h4>
+        <img class="image" [src]="img.image" height="80" alt="{{img.name}}" />
+      </div>
+    </ng-container>
+  </div>
+</div> -->
+
+<ng-container *ngIf="!almostDone">
+
+
+
+  <div class="background-list">
+    <div class="cursor-pointer content-back ">
+    <mat-icon  (click)='redirectToYourBackground()'>chevron_left</mat-icon>
+    </div>
+    <div id="choose-bg-heading" i18n class="text title-text">{{'CHOOSE_BACKGROUND' | translate}}</div>
+    <div class="text subtitle-text">{{'THIS_WILL_HELP_US_RECOMMEND_COURSES' | translate}}</div>
+    <!-- Dynamic sections based on professions object -->
+    <!-- <ion-item class="label-wrapper" *ngFor="let profession of professions; let i = index" button
+      (click)="toggleSection(i)">
+      <div class="lable-text">{{ profession.name }}</div>
+      <img [src]="profession.image" [alt]="profession.name" class="icon-img">
+      <img [ngClass]="{'img-hidden': !profession.roles}"
+        [src]="isOpen[i] ? '../../../../assets/icons/chevron_up_outline.svg' : '../../../../assets/icons/chevron_down_outline.svg'"
+        alt="Toggle Icon" class="chevron-icon" />
+    </ion-item> -->
+
+    <!-- Display roles if they exist and section is open -->
+
+    <!-- <div *ngIf="isOpen[i]" class="option-content">
+      <div> open after {{isOpen[i] }}</div>
+      <div class="roles-title">Choose your role:</div>
+    </div> -->
+
+
+
+    <!-- "Healthcare Worker" -->
+    <div class="label-wrapper " [ngClass]="{'active': isOpen[0], 'inactive': !isOpen[0]}" button
+      (click)="toggleSection(0)">
+      <div class="lable-text">{{ professions[0].name }}</div>
+      <img [src]=" professions[0].image" [alt]=" professions[0].name" class="icon-img">
+      <img [ngClass]="{'img-hidden': ! professions[0].roles}"
+        [src]="isOpen[0] ? '../../../../assets/icons/chevron_up_outline.svg' : '../../../../assets/icons/chevron_down_outline.svg'"
+        alt="Toggle Icon" class="chevron-icon" />
+    </div>
+    <div *ngIf="isOpen[0]" class="option-content">
+      <div class="roles-title">{{'CHOOSE_ROLE' | translate}}</div>
+      <div>
+        <ion-chip *ngFor="let role of  professions[0].roles" (click)="selectRole(role, professions[0] )">
+          <ion-label>{{ role }}</ion-label>
+        </ion-chip>
+      </div>
+    </div>
+    <!-- ASHA -->
+    <div *ngIf="!hideAsha" class="label-wrapper inactive mt-4" button (click)="navigateAsha(professions[4])">
+      <div class="lable-text">{{ professions[4].name }}</div>
+      <img [src]=" professions[4].image" [alt]=" professions[4].name" class="icon-img">
+      <img [ngClass]="{'img-hidden': ! professions[4].roles}"
+        [src]="isOpen[4] ? '../../../../assets/icons/chevron_up_outline.svg' : '../../../../assets/icons/chevron_down_outline.svg'"
+        alt="Toggle Icon" class="chevron-icon" />
+    </div>
+    <!-- <div *ngIf="isOpen[1]" class="option-content">
+      <ion-chip *ngFor="let role of  professions[1].roles" (click)="selectRole(role, professions[1] )">
+        <ion-label>{{ role }}</ion-label>
+      </ion-chip>
+    </div> -->
+    <!-- Student -->
+    <div class="label-wrapper mt-4" [ngClass]="{'active': isOpen[1], 'inactive': !isOpen[1]}" button
+      (click)="toggleSection(1)">
+      <div class="lable-text">{{ professions[1].name }}</div>
+      <img [src]=" professions[1].image" [alt]=" professions[1].name" class="icon-img">
+      <img [ngClass]="{'img-hidden': ! professions[1].roles}"
+        [src]="isOpen[1] ? '../../../../assets/icons/chevron_up_outline.svg' : '../../../../assets/icons/chevron_down_outline.svg'"
+        alt="Toggle Icon" class="chevron-icon" />
+    </div>
+    <div *ngIf="isOpen[1]" class="option-content">
+      <div class="roles-title">{{'CHOOSE_COURSE' | translate}}</div>
+      <div>
+        <ion-chip *ngFor="let role of  professions[1].roles" (click)="selectRole(role, professions[1] )">
+          <ion-label>{{ role }}</ion-label>
+        </ion-chip>
+      </div>
+     
+    </div>
+    <!-- Faculty -->
+    <div class="label-wrapper mt-4" [ngClass]="{'active': isOpen[2], 'inactive': !isOpen[2]}" button
+      (click)="toggleSection(2)">
+      <div class="lable-text">{{ professions[2].name }}</div>
+      <img [src]=" professions[2].image" [alt]=" professions[2].name" class="icon-img">
+      <img [ngClass]="{'img-hidden': ! professions[2].roles}"
+        [src]="isOpen[2] ? '../../../../assets/icons/chevron_up_outline.svg' : '../../../../assets/icons/chevron_down_outline.svg'"
+        alt="Toggle Icon" class="chevron-icon" />
+    </div>
+    <div *ngIf="isOpen[2]" class="option-content">
+      <div class="roles-title">{{'CHOOSE_ROLE' | translate}}</div>
+      <div>
+        <ion-chip *ngFor="let role of  professions[2].roles" (click)="selectRole(role, professions[2] )">
+          <ion-label>{{ role }}</ion-label>
+        </ion-chip>
+      </div>
+    
+    </div>
+    <!-- others -->
+    <div class="label-wrapper mt-4" [ngClass]="{'active': isOpen[3], 'inactive': !isOpen[3]}" button
+      (click)="toggleSection(3)">
+      <div class="lable-text">{{ professions[3].name }}</div>
+      <img [src]=" professions[3].image" [alt]=" professions[3].name" class="icon-img-others">
+      <img [ngClass]="{'img-hidden': ! professions[3].roles}"
+        [src]="isOpen[3] ? '../../../../assets/icons/chevron_up_outline.svg' : '../../../../assets/icons/chevron_down_outline.svg'"
+        alt="Toggle Icon" class="chevron-icon" />
+    </div>
+    <div *ngIf="isOpen[3]" class="option-content">
+      <div class="roles-title">{{'CHOOSE_ROLE' | translate}}</div>
+      <div>
+        <ion-chip *ngFor="let role of  professions[3].roles" (click)="selectRole(role, professions[3] )">
+          <ion-label>{{ role }}</ion-label>
+        </ion-chip>
+      </div>     
+    </div>
+  </div>
+
+
+
+
+</ng-container>
+
+<ng-container *ngIf="almostDone">
+  <div>
+    <ws-almost-done [yourBackground]='aboutYou' [backgroundSelect]='bgImgSelect'
+      [selectedProfession]="selectedProfession" [selectedBackground]='selectedBackground'
+      (redirectToParent)="changeBackgroung()">
+    </ws-almost-done>
+  </div>
+</ng-container>

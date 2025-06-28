@@ -1,0 +1,41 @@
+<ng-container *ngIf="!isOtpCodeVerifed">
+  <div class="flex flex-col justify-center items-center mx-5 h-full">
+    <h1 class="text-center">{{'ENTER_OTP' | translate}}</h1>
+    <p class="text-center">{{'ENTER_OTP_MSG_1' | translate}} {{observationData.mentee_contact_info}} {{'ENTER_OTP_MSG_2' | translate}} </p>
+    <!-- <p class="text-center">{{'ASK_YOUR_MENTEE' | translate}} </p> -->
+    <!-- <p class="text-center"> SMS {{'ON' | translate}} {{observationData.info.mentee_contact_info}} {{'FOR_OTP' | translate}}</p> -->
+
+    <form [formGroup]="verifyOtpForm" id="form-login" (ngSubmit)="submitOtp()" class="mt-96 flex flex-col w-full">
+      <div class="form-group">
+        <input id="code" i18n class="form-control input-box" formControlName="otp" type="number" autocomplete="off"
+          placeholder="{{'ENTER_OTP' | translate}}">
+      </div>
+      <div class="text-end mb-4" *ngIf="!sendOtpInProgress && resendTimer>0">{{'OTP_EXPIRES_IN' | translate}} <span
+          class="text-danger">{{resendTimerText}}</span></div>
+      <button [ngClass]="['filled-btn',(!verifyOtpForm.valid || sendOtpInProgress)?'disableArea':'']" type="submit"
+        [disabled]="!verifyOtpForm.valid || sendOtpInProgress">
+        {{'SUBMIT' | translate}} <ion-spinner name="bubbles" *ngIf="sendOtpInProgress"></ion-spinner>
+      </button>
+      <button [ngClass]="['outlined-btn']" type="button"
+        (click)="resendOtp()" [disabled]="resendOtpInProgress">
+        {{'RESEND_OTP' | translate}}
+        <ion-spinner name="bubbles" *ngIf="resendOtpInProgress"></ion-spinner>
+      </button>
+    </form>
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="isOtpCodeVerifed">
+  <div class="flex flex-col justify-center items-center mx-5 h-full">
+    <div class="mb-4">
+      <img src="../../../../../assets/icons/ep_success-filled.svg" alt="green">
+    </div>
+    <h2 class="mb-3 fs-24">{{'OTP_IS_VERIFIED' | translate}}</h2>
+    <p class="mb-4 text-center fs-16">
+      {{'YOU_CAN_START_OBSERVATION' | translate}} <br> 
+      {{'YOUR_MENTEE_WILL_NOTIFIED' | translate}}
+    </p>
+    <button class="filled-btn" (click)="startObservation()">{{'START' | translate}}</button>
+  </div>
+</ng-container>

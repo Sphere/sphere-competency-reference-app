@@ -1,0 +1,162 @@
+@import 'styles/_ws-mixins.scss';
+
+.feature {
+  position: relative;
+  display: block;
+  padding: 8px;
+
+  @include breakpoint-gt-xs {
+    padding: 16px;
+  }
+}
+
+.fixtopMargin {
+  margin-top: 13px;
+}
+
+.title {
+  font-size: 12px !important;
+  line-height: 26px !important;
+  font-weight: 300 !important;
+}
+
+.feature-status-icon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  $icon-size: 14px;
+  font-size: $icon-size;
+  height: $icon-size;
+  width: $icon-size;
+}
+
+.feature-icon {
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+  margin-right: 16px;
+
+  @include breakpoint-gt-xs {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
+
+.badge-notify {
+  .mat-badge-content {
+    right: -6px !important;
+    padding: 1px;
+  }
+}
+
+.feature-icon-img {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.card-small {
+  text-align: center;
+}
+
+.warn-card {
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.warn-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  margin: 16px;
+}
+
+.card-full {
+  width: 220px;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+
+  .pin {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.feature-pin {
+  position: absolute;
+  left: 4px;
+  top: -3px;
+  cursor: pointer;
+}
+
+.mat-badge-content {
+  text-overflow: clip !important;
+  width: auto !important;
+  min-width: 16px !important;
+}
+
+.greyOut {
+  filter: grayscale(1);
+  opacity: 0.7;
+  cursor: auto !important;
+  pointer-events: none;
+}
+
+.external-link-button {
+  color: inherit !important;
+}
+img.org-logo.img-responsive {
+  height: 31px;
+  margin-left: -32px;
+}
+
+a {
+  text-decoration: none !important;
+  text-decoration-line: none;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+  color: inherit;
+}
+
+::ng-deep .theme-sphere.day-mode .ws-mat-accent-text {
+  color: #1C5D95;
+  
+  .feature-icon-img {
+    filter: invert(0.3) sepia(9) saturate(10) hue-rotate(177deg) brightness(85%) contrast(120%);
+  }
+  
+}
+
+::ng-deep .theme-sphere.day-mode .ws-mat-accent-text  .feature-icon-img {
+  filter: invert(0.3) sepia(9) saturate(10) hue-rotate(177deg) brightness(85%) contrast(120%);
+}
+
+
+.blue {
+  filter: invert(0.3) sepia(9) saturate(10) hue-rotate(177deg) brightness(85%) contrast(120%);
+}
+
+.badge {
+  position: absolute;
+  top: 1px;
+  right: -5px;
+  background: rgba(248, 136, 8, 1);
+  color: #fff;
+  padding: 4px;
+  height: 19px;
+  width: 19px;
+  font-size: 10px;
+  border-radius: 50%;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px #0003;
+}

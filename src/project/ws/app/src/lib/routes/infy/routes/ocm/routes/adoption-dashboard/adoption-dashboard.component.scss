@@ -1,0 +1,23 @@
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+.pad {
+  padding: $size-m;
+  @include breakpoint-gt-xs {
+    padding: $size-m $size-xl;
+  }
+}
+
+.radioGroup {
+  @include breakpoint-gt-s {
+    display: grid;
+  }
+}
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-top: $size-xl;
+}
+
+.icon {
+  transform: scale(1.5);
+}

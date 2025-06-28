@@ -1,0 +1,14 @@
+<div class="mx-3 flex justify-content-between items-center">
+  <ws-mobile-profile-nav  [emitNavigateBack]="true"
+  (navigateBack)="navigateBack()" [showbackButton]="showbackButton"
+    [showLogOutIcon]="showLogOutIcon">
+  </ws-mobile-profile-nav>
+  <button mat-icon-button (click)="downloadVideo(videoData)" class="button-border" data-toggle="modal">
+    <img src="../../../../../assets/icons/download_blue.svg" alt="download" />
+  </button>
+</div>
+<ng-container *ngIf="videoData">
+  <div class="refrence-video">
+    <ws-widget-player-video  *ngIf="videoData" [widgetData]="videoData"></ws-widget-player-video>
+  </div>
+</ng-container>

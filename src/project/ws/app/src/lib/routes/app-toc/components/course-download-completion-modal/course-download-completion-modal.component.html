@@ -1,0 +1,11 @@
+<div class="confirm-container">
+  <div class="icon-container">
+    <img src="../../../../../../../../../assets/icons/ep_success-filled.png" alt="green" class="download-icon" />
+  </div>
+  <span class="completion-title m-2">{{'DOWNLOAD_COMPLETED' | translate}}</span>
+  <span class="download-title">{{'DOWNLOAD_QUESTION' | translate}}</span>
+  <div class="btn-box">
+    <button class="btn btn-active" mat-raised-button (click)="closeYes()">{{'YES' | translate}}</button>
+    <button class="btn" mat-raised-button (click)="closeNo()"> {{ 'NO' | translate }} </button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+@import 'styles/_ws-common.scss';
+
+.container-balanced {
+  @extend %page-center;
+}
+
+.text-italic {
+  font-style: italic;
+}

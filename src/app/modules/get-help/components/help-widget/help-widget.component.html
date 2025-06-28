@@ -1,0 +1,16 @@
+<div *ngIf="isCommonChatEnabled">
+  <img src="/assets/imgs/cross.svg" class="cross-icon" alt="cross image" (click)="backToChatIcon()" />
+  <a href="#" (click)="openWhatsApp($event)">
+    <img src="/assets/imgs/whatsapp-icon.svg" class="whatsapp-icon" alt="whatsapp image" />
+    <div>
+      <p class="whtsapp-text">{{ 'CHAT_WITH_US_ON_WHATSAPP' | translate}}</p>
+    </div>
+  </a>
+  <a  class="fcapp-text cursor-pointer" onclick="window.fcWidget.open();window.fcWidget.show();">
+
+    <div class="freshchat-icon">
+      <div id="fc-icon"></div>
+    </div>
+    <p >{{ 'CONNECT_WITH_US' | translate}}</p>
+  </a>
+</div>

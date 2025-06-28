@@ -1,0 +1,81 @@
+<div class="padding-dynamic" *ngIf="webmoduleData">
+  <div class="flex flex-around flex-wrapped">
+    <div class="w-full">
+      <div>
+        <mat-card>
+          <mat-card-content>
+            <div id="fullScreenContainer" class="video-player">
+              <viewer-plugin-web-module *ngIf="isFetchingDataComplete"
+                [widgetData]="webmoduleData | pipePartialContent: ['identifier','artifactUrl','mimeType','resumePage']"
+                [webModuleManifest]="webmoduleManifest" [theme]="{ className: 'indigo' }" [collectionId]="collectionId">
+              </viewer-plugin-web-module>
+              <div class="player-nav-links">
+                <div class="flex justify-between html">
+                  <div class="prev-button">
+                    <a mat-button class="width-auto" [routerLink]="prevResourceUrl" queryParamsHandling="preserve"
+                      accesskey="<" [disabled]="!prevResourceUrl">
+                      <span class="material-icons align-left-arrow">
+                        chevron_left
+                      </span>
+                    </a>
+                    <span class="title" *ngIf="prevTitle"><span class="fs-small">Previous
+                        Chapter</span>{{ (prevTitle.length>22)? (prevTitle | slice:0:22)+'..':(prevTitle)}}
+                    </span>
+                  </div>
+
+                  <div class="next-button">
+                    <span class="title" *ngIf="nextTitle"><span class="fs-small">Next
+                        Chapter</span>{{ (nextTitle.length>22) ? (nextTitle | slice: 0:22)+'..' : (nextTitle) }}</span>
+                    <a mat-button class="width-auto mr-10" [routerLink]="nextResourceUrl" queryParamsHandling="preserve"
+                      accesskey=">" [disabled]="!nextResourceUrl">
+                      <span class="material-icons align-right-arrow">
+                        chevron_right
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="vidoe-title margin-top-m" *ngIf="webmoduleData">
+        <mat-card *ngIf="isSmall" class="unit-meta-item">
+          <div class="flex">
+            <ws-widget-btn-content-download [forPreview]="forPreview" [widgetData]="
+                                                                        webmoduleData
+                                                                          | pipePartialContent
+                                                                            : [
+                                                                                'identifier',
+                                                                                'contentType',
+                                                                                'resourceType',
+                                                                                'mimeType',
+                                                                                'downloadUrl',
+                                                                                'isExternal',
+                                                                          'artifactUrl'
+                                                                              ]
+                                                                      "></ws-widget-btn-content-download>
+            <!-- <ws-widget-btn-content-like [forPreview]="forPreview" [widgetData]="{ identifier: collectionIdentifier} ">
+            </ws-widget-btn-content-like> -->
+            <ws-widget-btn-content-share [forPreview]="forPreview" [widgetData]="webmoduleData">
+            </ws-widget-btn-content-share>
+            <!-- <ws-widget-btn-goals [forPreview]="forPreview"></ws-widget-btn-goals>
+            <ws-widget-btn-playlist [forPreview]="forPreview" [widgetData]="{
+                                                                      contentId: webmoduleData?.identifier,
+                                                                      contentName: webmoduleData?.name,
+                                                                      contentType: 'Course',
+                                                                      mode: 'dialog',
+                                                                      isDisabled: isPreview
+                                                                    }"></ws-widget-btn-playlist>
+            <ws-widget-btn-content-feedback-v2 [forPreview]="forPreview" [widgetData]="{
+                                                                          identifier: webmoduleData?.identifier,
+                                                                          name: webmoduleData?.name,
+                                                                          isDisabled: isPreview
+                                                                        }"></ws-widget-btn-content-feedback-v2> -->
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+</div>

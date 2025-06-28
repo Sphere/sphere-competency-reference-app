@@ -1,0 +1,43 @@
+
+<div class="edu-list-content">
+  <ws-mobile-profile-nav [trigerrNavigation]="trigerrNavigation" [showbackButton]="showbackButton"
+  [showLogOutIcon]="false"></ws-mobile-profile-nav>
+  <div class="d-flex">
+    <p class="text-2xl mt-2 mb-2" i18n>{{'ACADEMIC_DETAILS' | translate}}</p>
+    <!-- <div class="edit-icon" (click)="editProfile()">
+      <img src="../../../../../assets/icons/edit-icon-outline.svg">
+    </div> -->
+  </div>
+
+
+  <div class="inline-block">
+    <div *ngFor="let academic  of academicsArray">
+
+
+      <div class="d-flex flex-col mt-1" *ngIf="academic.nameOfInstitute">
+        <div class="d-flex">
+          <p class="heading  py-1" *ngIf="academic.nameOfInstitute">{{academic.nameOfInstitute}}</p>
+          <ng-container *ngIf="showEdit">
+            <img *ngIf="academicsArray.length>0 && academic.nameOfInstitute" class="cursor-pointer edit-icon "
+              (click)="redirectTo(true,academic)" src="../../../../../assets/icons/edit-icon-outline.svg">
+          </ng-container>
+        </div>
+
+        <p class="head-2 py-1" *ngIf="academic.nameOfQualification">{{academic.nameOfQualification}}</p>
+        <p class="head-2 pt-2 pb-1" *ngIf="academic.type">{{academic.type}}</p>
+
+        <p class="head-3 py-1" *ngIf="academic.yearOfPassing">{{academic.yearOfPassing}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <mat-divider class="mt-2"></mat-divider> -->
+  <ng-container  *ngIf="showEdit">
+    <div class="mt-3">
+      <p class="add-edu-txt inline-block cursor-pointer" (click)="redirectTo(false)" i18n> <span> + </span>
+        {{'ACADEMIC_DETAILS' | translate}}</p>
+    </div>
+  </ng-container>
+  
+
+</div>

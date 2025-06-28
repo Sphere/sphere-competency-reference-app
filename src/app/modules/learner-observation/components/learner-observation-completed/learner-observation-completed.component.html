@@ -1,0 +1,18 @@
+
+<ng-container *ngIf="completedScheduleList.length > 0; else noData">
+  <ng-container *ngFor="let mentee of completedScheduleList">
+    <app-mentor-cards [data]="mentee" [display]="displayConfigMentee" [showResult]="true" [showLastCreatedAt]="false"></app-mentor-cards>
+  </ng-container>
+</ng-container>
+<ng-template #noData>
+  <ng-container *ngIf="!isAPIInprogress">
+    <div class="m-5">
+      <app-no-result-page title="NO_RESULT_FOUND"></app-no-result-page>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isAPIInprogress">
+    <app-skeleton-mentor-cards></app-skeleton-mentor-cards>
+    <app-skeleton-mentor-cards></app-skeleton-mentor-cards>
+    <app-skeleton-mentor-cards></app-skeleton-mentor-cards>
+  </ng-container>
+</ng-template>

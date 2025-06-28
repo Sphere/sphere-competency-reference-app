@@ -1,0 +1,181 @@
+@import 'styles/_ws-vars';
+@import 'styles/_ws-mixins';
+
+.card-standard-container {
+    $card-width: 100%;
+    width: $card-width;
+    display: flex;
+    $card-padding: $size-m;
+    padding-bottom: 0px !important;
+    $action-btn-size: 2.5 * $size-m;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: transparent 0 0 !important;
+    float: left;
+    border-radius: 9.398px !important;
+    background: #FFF !important;
+
+    min-height: 100px;
+    max-height: 200px;
+    height: auto;
+    box-shadow: 0px 0px 3.7592592239379883px 0px rgba(0, 0, 0, 0.15)!important;
+    .mde-popover-content {
+        background-color: #fff;
+    }
+
+    .source-div {
+        position: relative;
+        top: 100px;
+        background: white;
+        z-index: 3;
+        border: 1px solid #dedfe0;
+        min-width: 72px;
+        min-height: 72px;
+        max-width: 72px;
+        max-height: 72px;
+        display: flex;
+        visibility: hidden;
+        border-radius: 8px;
+
+        .source-icon {
+        border-radius: 8px;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        margin: auto;
+        max-width: 72px;
+        max-height: -webkit-fill-available;
+        }
+    }
+
+    mat-card-content {
+        margin: 0 -0.25 * $card-padding;
+    }
+
+    .card-img {
+        width: 115.597px;
+        height: 68.606px;
+        /* max-height: 148px; */
+        display: block;
+        object-fit: contain;
+        border-radius: 9.398px;
+        margin: 10px;
+    }
+
+    .complexity {
+        padding-top: 2px;
+        display: flex;
+        font-size: 14px;
+        line-height: 24px;
+        padding-bottom: 0px;
+
+        .mode-tag {
+        border-radius: 5px;
+        order: 2;
+        margin-left: auto;
+        color: white;
+        font-size: 10px;
+        }
+
+        .time-text {
+        margin: 0px 5px 0px 6px;
+        }
+    }
+
+    .duration {
+        padding-top: 2px;
+        display: flex;
+        font-size: 14px;
+        line-height: 24px;
+        padding-bottom: 0;
+    }
+
+    .basic {
+        margin: auto 0;
+    }
+
+    $title-line-count: 2;
+    $title-line-height: 1.1em;
+
+    .title-text {
+        font-size: 16px;
+        margin: 12px 0 5px;
+        position: relative;
+        overflow: hidden;
+        font-weight: 500;
+        height: $title-line-count * $title-line-height;
+        line-height: $title-line-height;
+    }
+
+    $description-line-count: 2;
+    $description-line-height: 1.5em;
+
+    .description-text {
+        font: 400 14px/20px Roboto;
+        // font-size: 15px;
+        position: relative;
+        overflow: hidden;
+        height: $description-line-count * $description-line-height;
+        line-height: $description-line-height;
+    }
+}
+
+mat-card.card-standard-container.mr-8 .mat-mdc-card {
+    position: relative;
+    float: left;
+}
+
+.course-name {
+    color: #1C5D95;
+    font-size: 16px;
+    font-family: Roboto;
+    letter-spacing: -0.32px;
+    margin: 10px;
+}
+
+.cne-container {
+    padding-left: 15px;
+  }
+
+.by-org-name {
+    color: #747474;
+    font-size: 12px;
+    font-family: Roboto;
+    line-height: 13.533px;
+    letter-spacing: -0.24px;
+    padding-left: 15px;
+}
+
+.border-block {
+    padding: 0px 15px;
+  }
+
+  .border-content {
+    background: #FFF;
+  }
+  .competency-block {
+    display: flex;
+    padding: 5px 15px 5px 10px;
+    align-items: center;
+  }
+
+  .popover-card {
+    min-width: 350px;
+    max-width: 350px;
+    max-height: 500px;
+    box-shadow: 1px 0px 6px 0px rgba(0, 0, 0, 0.3) !important;
+    background-color: #fff;
+}
+
+.certified-text {
+    width: 75px;
+    height: 25px;
+    font-size: 12px;
+    border-radius: 15px;
+    background: #519DB2;
+    color: #FFF;
+    margin: 0px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}

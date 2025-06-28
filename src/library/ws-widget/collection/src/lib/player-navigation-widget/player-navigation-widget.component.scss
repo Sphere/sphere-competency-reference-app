@@ -1,0 +1,37 @@
+.parent{
+    display: flex;
+    width: 110%;
+    margin-left: -4.5%;
+}
+.child {
+    flex: 1;
+    text-align: center;
+    border: 2px solid #1c5d95;
+    height: 6vh;
+    border-radius: 0px !important;
+    pointer-events: auto;
+}
+
+.child:first-child {
+  border-right: none;
+  border-left: none;
+}
+
+.child.last-child {
+  border-right: none;
+}
+
+button {
+    color: rgba(28, 93, 149, 1) !important;
+    font-size: 16px;
+    font-weight: 400;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+  .btn-clicked{
+    background-color: rgba(28, 93, 149, 1) !important;
+    color: white !important;
+  }

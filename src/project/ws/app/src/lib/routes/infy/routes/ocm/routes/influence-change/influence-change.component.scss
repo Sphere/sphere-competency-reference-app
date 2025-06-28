@@ -1,0 +1,14 @@
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+#yammer-feed {
+  height: 400px;
+  padding-top: $size-s;
+}
+
+.pad {
+  padding: $size-m;
+  @include breakpoint-gt-xs {
+    padding: $size-m $size-xl;
+  }
+}

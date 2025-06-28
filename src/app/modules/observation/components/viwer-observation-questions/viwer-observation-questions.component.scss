@@ -1,0 +1,46 @@
+.question-text {
+    font-weight: 500;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    // margin: 20px 0 30px 0 !important;
+    margin: 8px 0 16px 0 !important;
+}
+
+
+:host ::ng-deep .mat-radio-label {
+    align-items: flex-start !important;
+    white-space: break-spaces !important;
+    margin: 10px 0 20px;
+
+
+}
+
+:host ::ng-deep .mat-checkbox-layout {
+    align-items: flex-start !important;
+    white-space: break-spaces !important;
+    margin: 10px 0 20px;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    display: flex !important;
+}
+.pointer-none{
+    pointer-events: none !important;
+}
+
+textarea{
+    border-radius: 0px !important;
+}
+input, textarea, ion-input, ion-textarea{
+    border-radius: 0px !important;
+}
+
+::ng-deep .mat-mdc-radio-button {
+    --mdc-radio-selected-focus-icon-color: #1C5D95 !important;
+    --mdc-radio-selected-hover-icon-color: #1C5D95 !important;
+    --mdc-radio-selected-icon-color: #1C5D95 !important;
+    --mdc-radio-selected-pressed-icon-color: #1C5D95 !important;
+    --mat-mdc-radio-checked-ripple-color: #1C5D95 !important;
+}

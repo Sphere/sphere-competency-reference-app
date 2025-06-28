@@ -1,0 +1,1347 @@
+{
+  "014005962721189888281": {
+    "AUDIO_DATA":[
+      { "id": "success_en", 
+      "path": "../audio/level-completion-page-english.mp3", 
+      "language": "en", 
+      "type": "success" 
+      },
+      { "id": "success_hi",
+      "path": "../audio/competency-completion-page-hindi.mp3", 
+      "language": "hi", "type": "success"
+      },
+     { "id": "failure_hi",
+     "path": "../audio/level-fail-page-hindi.mp3", 
+     "language": "hi", 
+     "type": "failure"
+     },
+    { "id": "failure_en", 
+      "path": "../audio/level-fail-page-english.mp3", 
+      "language": "en", 
+      "type": "failure" 
+    },
+    { "id": "success_competenyc_en", 
+      "path": "../audio/competency-completion-page-english.mp3", 
+      "language": "en", 
+      "type": "success" 
+    },
+    { "id": "success_competenyc_hi", 
+      "path": "../audio/competency-completion-page-hindi.mp3", 
+      "language": "hi", 
+      "type": "success" 
+    }
+    ]
+     
+      
+    },
+    "ANM-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    },
+    "ANM-STUDENT-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    },
+    "ANM-FACULTY-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    }
+  },
+  "01403709013603123234776": {
+    "ANM-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    },
+    "ANM-STUDENT-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    },
+    "ANM-FACULTY-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    }
+  },
+  "01403708858877542434777": {
+    "ANM-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    },
+    "ANM-STUDENT-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    },
+    "ANM-FACULTY-BIHAR": {
+      "competency": [
+        {
+          "c1": {
+            "id": 100,
+            "type": "Competency",
+            "name": "Pregnancy Identification",
+            "description": "Conducts initial assessment to identify pregnancy, High risk pregnancy and estimate gestational age",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Management",
+              "Code": "C1",
+              "lang-hi-name": "गर्भावस्था की पहचान",
+              "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands health of males and females and initial assessment protocols",
+                  "description": "Understands the anatomy/physiology of male reproductive, sexual health -Understands the female reproductive, sexual, menstrual and ovulatory health-Understands initial assessment protocols for PW during ANC-Understands HRP identification and protocol for tracking",
+                  "lang-hi-name": "पुरुषों और महिलाओं के स्वास्थ्य और प्रारंभिक मूल्यांकन प्रोटोकॉल को समझना",
+                 "lang-hi-description": "गर्भावस्था, उच्च जोखिम गर्भावस्था की पहचान करने और गर्भकालीन उम्र का अनुमान लगाने के लिए प्रारंभिक मूल्यांकन करना",
+                   "course": [{"lang":"en", "id": "do_11373489010840371211888"},{"lang":"hi", "id": "do_114118476085420032150"}]
+
+                },
+                {
+                  "level": "2",
+                  "name": "Identifies pregnancy using Nischaya Kit",
+                  "description": "Conducts pregnancy test using Nischay kit-Interprets results accurately",
+                  "lang-hi-name": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                  "lang-hi-description": "निशाया किट का उपयोग करके गर्भावस्था की पहचान करना",
+                   "course": [{"lang":"en", "id": "do_11373496476529459212011"},{"lang":"hi", "id": "do_1140321796300144641449"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Conducts initial assessment",
+                  "description": "Conducts obstetric investigation of the woman as per protocol-Conducts menstrual history investigation of the woman as per protocol -Understands TD/booster doses",
+                  "lang-hi-name": "प्रारंभिक मूल्यांकन करना",
+                  "lang-hi-description": "प्रारंभिक मूल्यांकन करना",
+                                     "course": [{"lang":"en", "id": "do_11373498757922816012064"},{"lang":"hi", "id": "do_1140321999985213441452"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Identifies HRP and Estimates gestational age",
+                  "description": "Identifies HRP based on initial assessments-Applies the principles to estimate EDD through LMP -Estimates EDD through initial assessment -Estimates gestational age",
+                  "lang-hi-name": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                  "lang-hi-description": "एचआरपी की पहचान करना और गर्भकालीन उम्र का अनुमान लगाना",
+                   "course": [{"lang":"en", "id": "do_1140060402265538561226"},{"lang":"hi", "id": "do_1140322012889661441453"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Administers TD/booster as per protocol -Maintains a line-list of HRP cases",
+                  "description": "Administers TD/Booster dose as per regime -Assesses the level of risk of pregnancy based on initial assessment-Maintains a line list of HRP cases for follow-up care",
+                  "lang-hi-name": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                  "lang-hi-description": "प्रोटोकॉल के अनुसार टीडी/ बूस्टर का प्रबंधन करना - एचआरपी केसों की एक लाइन - सूची बनाना",
+                   "course": [{"lang":"en", "id": "do_1140047113796976641198"},{"lang":"hi", "id": "do_1140323855986114561475"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:34:16.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        },
+        {
+          "c2": {
+            "id": 101,
+            "type": "Competency",
+            "name": "Birth Planning and Preparedness for PW and HRP",
+            "description": "Creates and implements Micro-birth Plans (Birth Preparedness) for PW including HRP patients",
+            "additionalProperties": {
+              "CompentencyType": "Domain",
+              "CompetencyArea": "Community",
+              "Code": "C2",
+              "lang-hi-name": "गर्भवती महिला और उच्च जोखिम गर्भावस्था की जन्म योजना और तैयारी",
+              "lang-hi-description": "उच्च जोखिम गर्भावस्था सहित गर्भवती महिला की सूक्ष्म-जन्म योजना (जन्म की तैयारी) करना और उसे कार्यान्वित करना",
+              "competencyLevelDescription": [
+                {
+                  "level": "1",
+                  "name": "Understands components of registration for PW",
+                  "description": "Understands components of registration for pregnant women -Understands components of registration for HRP-Understands the components of maternal and child protection card and JSY card",
+                  "lang-hi-name": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "lang-hi-description": "गर्भवती मिहला के पंजीकरण के घटकों को समझना",
+                  "course": [{"lang":"en", "id": "do_1140337657536593921498"},{"lang":"hi", "id": "do_1140337657536593921498"}]
+                },
+                {
+                  "level": "2",
+                  "name": "Prepare schedule for PW/HRP",
+                  "description": "Prepares schedule for TT injection -Prepares schedules for antenatal visits -Prepares schedules for institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "lang-hi-description": "गर्भवती महिला/ उच्च जोखिम गर्भावस्था के लिए शेड्यूल बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980283956428812526"},{"lang":"hi", "id": "do_1140337880433950721502"}]
+                },
+                {
+                  "level": "3",
+                  "name": "Provides referral support and prepares emergency birth plans",
+                  "description": "Identifies referral facilities and transport for beneficiary including HRP -Identifies people for support- Establishes linkages with appropriate facilities for referral -Prepares an emergency birth plan for any complications",
+                  "lang-hi-name": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "lang-hi-description": "रेफरल सहयोग प्रदान करना और इमरजेंसी जन्म योजना बनाना",
+                  "course": [{"lang":"en", "id": "do_11373980708306944012532"},{"lang":"hi", "id": "do_1140337976676597761508"}]
+                },
+                {
+                  "level": "4",
+                  "name": "Manages patient issues and evaluates strategies to mitigate",
+                  "description": "Identifies patient issues -Proposes mitigation strategies based on patient needs -Applies mitigation strategies",
+                  "lang-hi-name": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "lang-hi-description": "रोगी की समस्याओं को सुलझाना और उसे कम करने की रणनीतियों का मूल्यांकन करना",
+                  "course": [{"lang":"en", "id": "do_1140342014540431361548"},{"lang":"hi", "id": "do_1140342014540431361548"}]
+                },
+                {
+                  "level": "5",
+                  "name": "Conducts visits to counsel PW and promotes institutional delivery",
+                  "description": "Conduct home visits to counsel pregnant woman on birth planning -Conduct home visits to counsel household members on birth planning -Promotes institutional delivery",
+                  "lang-hi-name": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "lang-hi-description": "गर्भवती महिला को परामर्श देने और संस्थागत प्रसव हेतु उसे प्रोत्साहित करने के लिए उसके घर विजिट करना",
+                  "course": [{"lang":"en", "id": "do_11373770177952972812187"},{"lang":"hi", "id": "do_113807796495196160167"}]
+                }
+              ]
+            },
+            "status": "UNVERIFIED",
+            "source": null,
+            "level": "INITIATE",
+            "levelId": 0,
+            "isActive": true,
+            "createdDate": "2023-02-08T05:36:17.000+00:00",
+            "createdBy": "authToken",
+            "updatedDate": "2023-04-24T05:56:50.000+00:00",
+            "updatedBy": "authToken",
+            "reviewedDate": null,
+            "reviewedBy": null,
+            "wfId": null,
+            "children": []
+          }
+        }
+      ]
+    }
+  }
+}

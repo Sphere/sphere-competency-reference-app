@@ -1,0 +1,56 @@
+<div class="flex flex-col">
+  <div class="header-container">
+    <ws-mobile-profile-nav [showbackButton]="true"
+    [showLogOutIcon]="false" [navigateTohome]="true"></ws-mobile-profile-nav>
+    <h1 class="page-title">{{'OBSERVATIONS' | translate }}</h1>
+    <div class="flex flex-row count-row">
+      <p class="mb-1">{{'PENDING' | translate}} : {{pendingCount}} | </p>
+      <p class="mb-1">{{'IN_PROGRESS' | translate}} : {{inProgressCount}} | </p>
+      <p class="mb-1">{{'COMPLETED' | translate}} : {{completedCount}}</p>
+    </div>
+  </div>
+  
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" (selectedTabChange)="tabClick($event)" [selectedIndex]="1">
+    <!-- in progress -->
+    <mat-tab label="{{'IN_PROGRESS' | translate}}">
+      <div class="p-2">
+        <ng-container *ngIf="observationList.length > 0;else noData">
+          <ng-container *ngFor="let mentee of observationList; let last = last">
+            <app-mentor-cards [data]="mentee" [display]="displayConfig"></app-mentor-cards>
+            <ng-container *ngIf="!last">
+              <hr />
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+
+    </mat-tab>
+    <!-- pending -->
+    <mat-tab label="{{'PENDING' | translate}}">
+      <ng-container *ngIf="observationList.length > 0;else noData">
+        <ng-container *ngFor="let mentee of observationList; let last = last">
+          <app-mentor-cards [data]="mentee" [display]="displayConfig"></app-mentor-cards>
+          <ng-container *ngIf="!last">
+            <hr />
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </mat-tab>
+    <!-- completed -->
+    <mat-tab label="{{'COMPLETED' | translate}}">
+      <ng-container *ngIf="observationList.length > 0;else noData">
+        <ng-container *ngFor="let mentee of observationList; let last = last">
+          <app-mentor-cards [data]="mentee" [display]="displayConfig"></app-mentor-cards>
+          <ng-container *ngIf="!last">
+            <hr />
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+  <ng-template #noData>
+    <div class="m-5">
+      <app-no-result-page title="NO_RESULT_FOUND"></app-no-result-page>
+    </div>
+  </ng-template>
+</div>

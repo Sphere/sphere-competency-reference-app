@@ -1,0 +1,72 @@
+.continue-btn {
+    color: #1C5D95;
+    width: 300px;
+    height: 35px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 0 30px;
+    border: 0.5px solid #1C5D95;
+}
+
+.result {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    align-items: center;
+    display: flex;
+
+    .pass {
+        color: #48B845;
+        padding-left: 12px;
+    }
+
+    .fail {
+        color: #fc2e2e;
+        padding-left: 12px;
+    }
+}
+
+.result-title {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+
+.result-btn {
+    background-color: #1C5D95;
+    width: 300px;
+    height: 35px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 0 30px;
+}
+
+.fail-icon {
+    color: #d21c1c;
+    height: 100px !important;
+    width: 100px !important;
+}
+
+.pass-img {
+    height: 100px !important;
+    width: 100px !important;
+}
+
+:host ::ng-deep .mat-icon {
+    font-size: 90px;
+}
+
+.progress-spinner {
+    display: flex;
+    padding-left: 5px;
+}

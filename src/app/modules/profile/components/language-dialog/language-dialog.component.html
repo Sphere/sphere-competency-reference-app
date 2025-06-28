@@ -1,0 +1,69 @@
+<div class="lang-box" *ngIf="languageCheckbox">
+  <button class="align-self-end" id="dialogue-close" mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+  <div class="language">
+    <strong>
+      <h1 class="mb-1" i18n>{{'SELECT PREFERRED_lANGUAGE' | translate}}</h1>
+    </strong>
+    <p i18n>{{'PROFILE_LANGUAGE_CHANGE' | translate}}</p>
+  </div>
+
+  <div class="search-box pb-2 d-none">
+    <img src="/fusion-assets/icons/search.png" class="icon-rtl" alt="">
+    <input class="form-control" i18n-placeholder placeholder="Search Language">
+  </div>
+
+
+  <mat-selection-list #language [(ngModel)]="preferredLanguage" (ngModelChange)="onNgModelChange($event)">
+    <mat-list-option class="line-bottom" checkboxPosition="before" [value]="language.id"
+      *ngFor="let language of preferredLanguageList">
+      {{language.lang}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <div mat-dialog-actions align="end" class="lang-done" id="language-select">
+    <button class="btn-done cursor-pointer" (click)="multiLanguage(preferredLanguage)" i18n>{{'DONE' | translate}}</button>
+  </div>
+</div>
+
+
+
+<!-- radio button list -->
+
+
+<div class="lang-box" *ngIf="!languageCheckbox">
+
+  <button class="align-self-end" id="dialogue-close-2" mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <div class="language">
+    <strong>
+      <h1 class="mb-1" i18n>{{'SELECT PREFERRED_lANGUAGE' | translate}}</h1>
+    </strong>
+    <p i18n>{{'PROFILE_LANGUAGE_CHANGE' | translate}}</p>
+  </div>
+
+  <div class="search-box pb-2 d-none">
+    <img src="/fusion-assets/icons/search.png" class="icon-rtl" alt="">
+    <input class="form-control" i18n-placeholder placeholder="Search Language">
+  </div>
+
+
+
+
+  <mat-selection-list #language>
+    <mat-radio-button class="line-bottom" checkboxPosition="before" *ngFor="let language of preferredLanguageList"
+      [value]="language" [checked]="language.id == preferredLanguage" (change)="preferredLanguage = $event.value">
+      {{language.lang}}
+    </mat-radio-button>
+
+  </mat-selection-list>
+
+  <div mat-dialog-actions align="end" class="lang-done">
+    <button class="btn-done cursor-pointer" (click)="chooseLanguage(preferredLanguage)" i18n>{{'DONE' | translate}}</button>
+  </div>
+
+
+</div>

@@ -1,0 +1,76 @@
+<div class="flex flex-col  sechdule-container">
+  <!--  -->
+  <h2 class=" title-schedule">{{'SCHEDULE_OBSERVATION' | translate}}</h2>
+  <p class="mb-2 text-lg font-normal">{{'OBSERVATION'| translate}}</p>
+  <form class="example-form">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="{{'SELECT_OBSERVATION' | translate}}"
+        aria-label="Search/select an observation" [formControl]="observationSelected" [matAutocomplete]="auto"
+        (click)="openAutocompletePanel()">
+      <mat-icon matSuffix *ngIf="observationSelected.value" (click)="clearData()">close</mat-icon>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onOptionSelected($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+  </form>
+
+
+  <!-- list of mentees -->
+  <ng-container *ngIf="observationSelected.value">
+    <div>
+      <p class="mb-3 ml-2 text-lg font-normal">{{'LIST_OF_MENTEE' | translate}}</p>
+      <ng-container *ngFor="let mentee of menteeLists let i = index">
+        <div class="flex justify-between mb-3 ml-2" style="position: relative;">
+          <div class="text-base font-normal wi-40 mente-name">{{mentee.menteeName}}</div>
+          <div class="p-0 text-base font-normal text-end pr-1" *ngIf="mentee.displayDate">{{ mentee.displayDate }}</div>
+          <!-- <div class="text-base font-normal" *ngIf="picker">{{ picker }}</div> -->
+          <!-- <input class="d-none input-date-picker" *ngIf="picker" [matDatepicker]="picker"
+            (dateInput)="addEvent( mentee.menteeId , $event)" (dateChange)="addEvent( mentee.menteeId, $event)"> -->
+          <!-- <img class="sechedule_icon" src="../../../../../assets/icons/schedule.svg" alt="calender"
+            (click)="picker.open()">
+          <mat-datepicker #picker></mat-datepicker>
+          <ion-datetime displayFormat="MMM DD, YYYY HH:mm"></ion-datetime> -->
+
+          <!-- <ion-datetime
+          displayFormat="MMM-DD-YYYY | HH:mm A"
+          class="d-none"
+          (ionChange)="addEvent($event, mentee)"
+          #dateTimePicker
+          min="{{ getCurrentDateTime() }}"
+          max="2030-12-31"
+          mode = 'md'
+        ></ion-datetime>
+        <img
+          class="sechedule_icon"
+          src="../../../../../assets/icons/schedule.svg"
+          alt="calendar"
+          (click)="openDateTimePicker(dateTimePicker)"
+        > -->
+
+          <ion-modal [cssClass]="'calender-custom-modal'" #dateTimePicker>
+            <ng-template>
+              <ion-content>
+                <ion-datetime presentation="date-time" displayFormat="MMM-DD-YYYY | HH:mm A"
+                  (ionChange)="addEvent($event, mentee)" min="{{ getCurrentDateTime() }}" max="2030-12-31T23:59:59.999Z"
+                  mode="md" [showDefaultButtons]="true" style="padding-top: 30px;"></ion-datetime>
+                <ion-buttons slot="buttons">
+                  <ion-button (click)="closeDateTimePicker(dateTimePicker)">Done</ion-button>
+                </ion-buttons>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+
+          <img class="schedule_icon" src="../../../../../assets/icons/schedule.svg" alt="calendar"
+            (click)="openDateTimePicker(dateTimePicker)">
+
+
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <button *ngIf="observationSelected.value" class="text-lg font-normal w-full btn-schedule mt-auto"
+    [disabled]="enableSchedule" (click)="handleScheduleNow()">{{'SCHEDULE_NOW' | translate}}</button>
+</div>

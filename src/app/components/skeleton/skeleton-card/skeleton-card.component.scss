@@ -1,0 +1,16 @@
+.skeleton-card-container{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.skeleton-card-container :nth-child(1){
+    width: 100%;
+    height: 203px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+.skeleton-card-container :nth-child(2){
+    width: 100%;
+    height: 42px;
+    border-radius: 8px;
+}

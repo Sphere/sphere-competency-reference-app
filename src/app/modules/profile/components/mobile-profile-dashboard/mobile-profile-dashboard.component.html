@@ -1,0 +1,277 @@
+<div
+  class="flex flex-col"
+  [ngClass]="!languagePage ? 'justify-center items-center' : ''"
+>
+  <ng-container *ngIf="!languagePage; else showLangPage">
+    <div *ngIf="loader" class="mt-20 flex flex-center">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="!loader && !languagePage" class="user-basic-details">
+      <span class="profile-user-name">
+        {{ firstName }}
+        {{
+          userProfileData?.personalDetails?.middlename
+            ? userProfileData?.personalDetails?.middlename
+            : ""
+        }}
+        {{ lastName }}</span
+      >
+      <span class="profile-user-position">
+        {{ "POSITION" | translate }}:
+        {{
+          userProfileData?.professionalDetails?.length > 0 ? 
+            (userProfileData.professionalDetails[0].designation
+              ? userProfileData.professionalDetails[0].designation
+              : userProfileData.professionalDetails[0].profession === "Others"
+                ? userProfileData.professionalDetails[0].professionOtherSpecify
+                : userProfileData.professionalDetails[0].profession)
+            : ''
+        }}
+      </span>
+    </div>
+
+    <button
+      *ngIf="!loader && !languagePage"
+      class="help-btn mt-3"
+      (click)="redirectToHelpWidget()"
+    >
+      {{ "HELP_AND_SUPPORT" | translate }}
+      <img src="../../../../../assets/imgs/support-agent.svg" alt="" />
+    </button>
+
+    <div class="content w-full" *ngIf="!loader && !languagePage">
+      <!-- Language Preference -->
+      <div class="bottom-border">
+        <div class="row-align" (click)="setLanguage()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/language-icon.svg"
+            />
+            <div class="category">{{ "LANGUAGE_PREFERENCE" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <div class="bottom-border">
+        <div class="row-align" (click)="navigateToLearnerObservation()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/imgs/observation.svg"
+            />
+            <div class="category">{{ "OBSERVATION_SINGULAR" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <div class="bottom-border">
+        <div class="row-align" (click)="navigateToDownloadCourse()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/imgs/material-symbols_logout.svg"
+            />
+            <div class="category">{{ "DOWNLOADS_PLURAL" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <!-- My Certificates -->
+      <div class="bottom-border">
+        <div class="row-align" (click)="navigateToCertificate()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/certificate-icon.svg"
+            />
+            <div class="category">{{ "MY_CERTIFICATES" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <!-- passbook -->
+      <div class="bottom-border">
+        <div class="row-align" (click)="navigateToPassbook()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/ph_book-light.svg"
+            />
+            <div class="category">{{ "MY_PASSBOOK" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <!-- User Statistics -->
+      <div class="bottom-border d-none">
+        <div class="row-align" (click)="userStatistics()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/user-info.svg"
+            />
+            <div class="category">{{ "USER_STATISTICS" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <!-- Personal Details -->
+      <div class="bottom-border">
+        <div class="row-align" (click)="personalDetailEdit()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/personal-details.svg"
+            />
+            <div class="category">{{ "PROFILE_DETAILS" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <!-- Organization Details -->
+      <div class="bottom-border">
+        <div class="row-align" (click)="workInfoEdit()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/org-profile.svg"
+            />
+            <div class="category">{{ "ORGANIZATION_DETAILS" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <!-- Academic Details -->
+      <div class="pt-3 bottom-border">
+        <div class="row-align" (click)="eductionEdit()">
+          <div>
+            <img
+              class="icon-img"
+              alt="logo"
+              src="../../../../../assets/icons/academic-icon.svg"
+            />
+            <div class="category">{{ "ACADEMIC_DETAILS" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+      <div class="pt-3" *ngIf="appFramework ==='Sphere'">
+        <div class="row-align" (click)="notificationSetting()">
+          <div>
+            <img
+              class="icon-img w-20"
+              alt="logo"
+              src="../../../../../assets/imgs/notification.svg"
+            />
+            <div class="category pl-3 pt-1">{{ "NOTIFICATION_SETTINGS" | translate }}</div>
+          </div>
+          <img
+            class="right-icon"
+            alt="icon"
+            src="../../../../../assets/icons/arrow-right.svg"
+          />
+        </div>
+      </div>
+
+      <ng-container *ngIf="showSupport">
+        <div class="mt-4 mb-4">
+          {{ "DELETION_MESSAGE_PROFILE" | translate }}
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="bottom-border" [ngClass]="isDownload ? 'd-block' : 'd-none'">
+      <div class="row-align">
+        <div>
+          <img
+            class="icon-img"
+            alt="logo"
+            src="../../../../../assets/icons/download-icon.svg"
+          />
+          <div class="category">Downloads</div>
+        </div>
+        <img
+          class="right-icon"
+          alt="icon"
+          src="../../../../../assets/icons/arrow-right.svg"
+        />
+      </div>
+    </div>
+
+    <!-- ekshmata footer -->
+    <ng-container
+      *ngIf="appFramework === 'Ekshamata' && showUptuLogo && !languagePage"
+    >
+      <app-ekshamata-footer
+        [appName]="appFramework"
+        [isLogo]="showUptuLogo"
+      ></app-ekshamata-footer>
+    </ng-container>
+
+    <!-- logout -->
+    <div class="logout-bg">
+      <button class="btn-logout" type="submit" (click)="logout()">
+        {{ "LOGOUT" | translate }}
+      </button>
+    </div>
+  </ng-container>
+
+  <!-- Language Settigs -->
+  <ng-template #showLangPage>
+    <ng-container *ngIf="languagePage && !loader">
+      <ws-app-language-selection
+        class="h-full"
+        [showbackButton]="showbackButton"
+        [navigateBack]="true"
+        [showLogOutIcon]="showLogOutIcon"
+        (selectedLanguage)="selectLanguage($event)"
+        (hideLanguagePage)="hideLanguagePage($event)"
+      ></ws-app-language-selection>
+    </ng-container>
+  </ng-template>
+</div>

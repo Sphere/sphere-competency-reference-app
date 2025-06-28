@@ -1,0 +1,71 @@
+<div class="edu-edit-content">
+<ws-mobile-profile-nav [trigerrNavigation]="false" [navigateToEducation]="navigateToEducation" [showbackButton]="showbackButton" [showLogOutIcon]="false"></ws-mobile-profile-nav>
+ 
+  <p class="text-2xl mt-2" i18n>{{'ACADEMIC_DETAILS' | translate}}</p>
+
+  <form [formGroup]="educationForm" class="mt-3">
+    <div>
+      <!-- degree -->
+      <mat-form-field appearance="outline" class="field-fullwidth">
+        <mat-select i18n-placeholder placeholder="{{'GRADE_OR_DEGREE' | translate}}" formControlName="courseDegree">
+          <mat-option *ngFor="let academic of academics" [value]="academic">{{ academic.type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- course name  -->
+      <!-- <div class="form-group input-box"
+        *ngIf="educationForm.controls['courseDegree'].value && educationForm.controls['courseDegree'].value.type === 'GRADUATE' ||  educationForm.controls['courseDegree'].value && educationForm.controls['courseDegree'].value.type === 'POSTGRADUATE'">
+        
+        <input type="text" i18n-placeholder formControlName="courseName" class="form-control" placeholder="{{'COURSE_NAME' | translate}}"
+          autocomplete="off">
+      </div> -->
+      <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth"  *ngIf="educationForm.controls['courseDegree'].value && educationForm.controls['courseDegree'].value.type === 'GRADUATE' ||  educationForm.controls['courseDegree'].value && educationForm.controls['courseDegree'].value.type === 'POSTGRADUATE'">
+        <input type="text" matInput #yop formControlName="courseName" placeholder="{{'COURSE_NAME' | translate}}" autocomplete="off"
+          i18n-placeholder>
+        <!-- <mat-error [hidden]="false" *ngIf="educationForm.controls.yearPassing.errors?.pattern" i18n>
+          {{'ERROR_YEAR_VALID' | translate}}
+        </mat-error> -->
+      </mat-form-field>
+      <!-- institu name -->
+      <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+        <input type="text" matInput #yop formControlName="institutionName" placeholder="{{'INSTITUE_NAME' | translate}}" autocomplete="off"
+          i18n-placeholder>
+        <!-- <mat-error [hidden]="false" *ngIf="educationForm.controls.yearPassing.errors?.pattern" i18n>
+          {{'ERROR_YEAR_VALID' | translate}}
+        </mat-error> -->
+      </mat-form-field>
+      <!-- <div class="form-group input-box">
+        <input type="text" formControlName="institutionName" class="form-control" placeholder="{{'INSTITUE_NAME' | translate}}"
+          i18n-placeholder autocomplete="off">
+      </div> -->
+      <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+        <input type="text" matInput #yop formControlName="yearPassing" placeholder="{{'YOP_TITLE' | translate}}" autocomplete="off"
+          i18n-placeholder>
+        <mat-error [hidden]="false" *ngIf="educationForm.controls.yearPassing.errors?.pattern" i18n>
+          {{'ERROR_YEAR_VALID' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- district -->
+      <!-- <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+        <input type="text" matInput #yop formControlName="institutionName" placeholder="{{'INSTITUE_NAME' | translate}}" autocomplete="off"
+          i18n-placeholder>
+      </mat-form-field> -->
+
+      <!-- state -->
+      <!-- <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+        <input type="text" matInput #yop formControlName="institutionName" placeholder="{{'INSTITUE_NAME' | translate}}" autocomplete="off"
+          i18n-placeholder>
+      </mat-form-field> -->
+      <!-- country -->
+      <!-- <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+        <input type="text" matInput #yop formControlName="institutionName" placeholder="{{'INSTITUE_NAME' | translate}}" autocomplete="off"
+          i18n-placeholder>
+      </mat-form-field> -->
+
+    </div>
+    <button type="submit" (click)="onSubmit(educationForm)" class="save-btn"
+      [disabled]="educationForm?.invalid || educationForm.controls?.yearPassing.errors?.pattern" i18n>{{'FRMELEMNTS_BTN_SAVE' | translate}}</button>
+  </form>
+  <input type="hidden" i18-value i18-aria-value aria-value="User profile details update successful"
+    value="{{'USER_PROFILE_DETAILS_UPDATED_SUCCESSFULLY' | translate}}" #toastSuccess />
+</div>

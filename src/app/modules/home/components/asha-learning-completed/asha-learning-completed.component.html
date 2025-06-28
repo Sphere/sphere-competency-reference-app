@@ -1,0 +1,17 @@
+
+<ng-container *ngIf="ashaData && completedCount >0">
+  <div class="asha-card completed">
+    <div class="asha-header flex flex-col">
+      <div class="flex justify-start">
+        <img src="../../../assets/imgs/circle_solid.svg"
+        alt="completed-logo"  />
+        <p class="asha-title mb-0 ml-1">{{ 'COMPETENCY' | translate }}</p>
+      </div>
+      <div class="flex justify-between  gap-4">
+        <div class="asha-m-title mb-0">{{ashaData.title}}</div>
+      </div>
+    </div>
+    <button class="start-btn mt-1"(click)="viewCourses(ashaData)">{{ 'VIEW_COURSES' | translate }}</button>
+  </div>
+
+</ng-container>

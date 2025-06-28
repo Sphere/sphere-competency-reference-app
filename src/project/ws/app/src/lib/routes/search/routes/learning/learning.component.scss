@@ -1,0 +1,154 @@
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+@import 'styles/_ws-common.scss';
+
+.sidenav-container {
+  height: 100%;
+  min-height: 80vh;
+}
+// Contents of SideNav Menu
+.sidenav {
+  width: 25%;
+  min-width: 300px;
+  padding: $size-s;
+  background: inherit;
+  box-shadow: none;
+}
+
+// Contents of Side Nav Content
+.sidenav-content {
+  margin: 0;
+  padding: 0 $size-m $size-l;
+  box-sizing: border-box;
+  min-height: calc(100vh - 145px);
+}
+.day-mode {
+  .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: none !important;
+  }
+}
+
+.sidenav-content-header {
+  height: 40px;
+}
+
+.best-result {
+  float: right;
+  margin: 5px;
+}
+
+.concept {
+  text-align: center;
+  margin-right: $size-s;
+  height: 100px;
+  min-width: 5 * $size-l;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $size-s;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+.search-card {
+  display: block;
+  margin-bottom: $size-xs;
+  border-bottom: solid 1px #d1d1d1;
+}
+
+.catalog-link {
+  border-bottom: 1px dotted;
+}
+.lang-select {
+    position: absolute;
+    z-index: 9;
+    width: auto;
+    right: 14px;
+    top: 12px;
+    height: 30px !important;
+    border-radius: 16px;
+    font-size: small;
+}
+.lang-icon {
+    background-image: url('/fusion-assets/icons/lang-icon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.filter-lang {
+    float: right;
+    width: 268px;
+}
+.hide-filter-btn {
+  visibility: hidden;
+}
+.pos-rel {
+  position: relative;
+      font-weight: 500;
+}
+.searchHeading {
+  margin-top: 15px !important;
+}
+@media only screen and (max-width: 600px) {
+.searchHeading {
+  margin-top: 45px;
+}
+}
+
+
+.search-footer-container {
+  display: flex;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+  flex: 1;
+  margin: 25px;
+  height: 50px;
+  justify-content: center;
+}
+
+.logos {
+  width: 45%;
+  padding: 10px;
+}
+
+.uptsu-logo {
+  height: 50px;
+}
+
+.vertical-line {
+  border: 1px solid;
+  margin: 12px;
+  border-radius: 1px;
+}
+
+.back-button {
+  margin-top: 55px;
+}
+
+.search-content{
+  padding: 0 20px;
+}
+
+
+.ion-item {
+  background: #ffffff !important;
+}
+
+.ion-list {
+  background: #fffcfc !important;
+}
+
+.tablet-flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1.6%;
+}
+
+.tab-card-width {
+  width: 45%
+}
+
+.card-bottom{
+  margin-bottom: 25% !important;
+}
+

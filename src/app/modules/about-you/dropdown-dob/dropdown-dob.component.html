@@ -1,0 +1,29 @@
+<form class="flex gap-3" [formGroup]="dobForm">
+  <div class="form-group input-box ">
+    <select id="year" formControlName="yearField" class="form-control select-box" name="date-input-field"
+      (change)="countrySelect()">
+      <option [value]="''" [selected]="'Year'" disabled selected>{{'YEARS' | translate}}</option>
+      <ng-container *ngFor="let years of yearsValue">
+        <option [value]="years">{{ years }}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="form-group input-box ">
+    <select id="month" formControlName="monthField" class="form-control select-box" name="date-input-field"
+      (change)="countrySelect()">
+      <option [value]="''" [selected]="'Month'" disabled>{{'MONTH' | translate}}</option>
+      <ng-container *ngFor="let months of monthValue">
+        <option [value]="months.id">{{ months.name }}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="form-group input-box">
+    <select id="date" formControlName="dateField" class="form-control select-box" name="date-input-field"
+      (change)="countrySelect()">
+      <option [value]="''" [selected]="'Date'" disabled>{{'FRMELEMENTS_LBL_DATE' | translate}}</option>
+      <ng-container *ngFor="let date of dateValue">
+        <option [value]="date">{{ date }}</option>
+      </ng-container>
+    </select>
+  </div>
+</form>

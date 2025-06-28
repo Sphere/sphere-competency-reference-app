@@ -1,0 +1,103 @@
+/* carousel.component.css */
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-slide{
+  width: 100%;
+}
+.slides {
+  display: flex;
+  transition: transform 3.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  //padding: 0 10px;
+  /* Adjust padding as needed */
+}
+
+.slide-content {
+  display: none;
+  transition: opacity 3.5s ease-in-out;
+}
+
+.slide-content.active {
+  display: block;
+}
+
+
+.round-buttons {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+ // margin-top: 10px;
+  gap: 5px;
+  //background: #469788;
+}
+
+.round-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet{
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.swiper-pagination-bullet-active{
+  background-color: rgba(0, 0, 0, 0.978);
+}
+
+.round-button.active {
+  background-color: rgba(0, 0, 0, 0.978);
+}
+
+.tutorials-container {
+  //   display: flex;
+  //   flex-direction: column;
+  //   flex-wrap: wrap;
+  //   justify-content: center;
+  //   align-items: center;
+  //   background: #469788;
+  height: 19px;
+}
+
+.tutorials-text {
+  /* Body */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #FFFFFF !important;
+  margin: 0px !important;
+}
+
+.banner-image {
+  width: 100%;
+  min-height: 152px;
+  max-height: 200px;
+}
+
+.yellow-bg{
+background-color: #D7AC5C;
+color: #000000;
+}
+
+.green-bg{
+  background-color: #469788 ;
+}
+
+.swiper-pagination-bullets{
+  height: 17% !important;
+}

@@ -1,0 +1,25 @@
+<div class="whatsapp-notifications-container">
+  <div class="cursor-pointer pl-3">
+    <mat-icon (click)='redirectToAlmostDone()'>chevron_left</mat-icon>
+  </div>
+  <div class="notification-card">
+    <h2>{{'ENABLE_WHATSUP_NOTIFICATION' | translate}}</h2>
+    <div class="certificate-title">{{'CERTIFICATE_AND_COMMUNICATION' | translate}}</div>
+    <div class="phone-display">
+      {{'SENT_TO' | translate}}
+      <span class="phone-number">{{configSvc?.userProfile?.phone}}</span>
+    </div>
+    <form [formGroup]="notificationForm" (ngSubmit)="onSubmit()">
+      <div class="radio-group theme-sphere.day-mode">
+        <mat-radio-group formControlName="preference" class="radio-group">
+          <mat-radio-button [value]="true">  {{ 'ENABLE' | translate }}</mat-radio-button>
+          <mat-radio-button [value]="false"> {{ 'IGNORE' | translate }}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="next-btn-div">
+        <button class="form-group login-button" type="submit" id="done-btn"
+                [disabled]="!notificationForm?.valid" i18n>{{'DONE' | translate}}</button>
+      </div>
+    </form>
+  </div>
+</div>

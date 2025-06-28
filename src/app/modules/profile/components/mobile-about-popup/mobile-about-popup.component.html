@@ -1,0 +1,33 @@
+<div class="close1">
+  <button mat-button (click)="closeClick()">
+    <img src="../../../../../assets/icons/close-vector.png">
+  </button>
+</div>
+
+<div class="mt-2">
+  <p class="header2">{{'ABOUT' | translate}}</p>
+
+  <form [formGroup]="aboutForm" class="mt-2">
+
+    <mat-form-field appearance="outline" class="py-1 textfield">
+      <textarea class="text" matInput 
+            [cdkTextareaAutosize] 
+            [cdkAutosizeMaxRows]="5" 
+            [cdkAutosizeMinRows]="3" 
+            formControlName="about"
+            placeholder="{{'ABOUT' | translate}}" 
+            #about></textarea>
+      <mat-hint>{{ about.value.length }} /{{'FIVE_HUNDERED_CHARACTERS' | translate}}</mat-hint>
+      <mat-error *ngIf="aboutForm.controls['about'].touched && aboutForm.controls['about'].hasError('required')">
+        About field is required
+      </mat-error>
+      <mat-error *ngIf="aboutForm.controls['about'].touched && aboutForm.controls['about'].hasError('maxLength')">
+        You have exceeded 500 characters.
+      </mat-error>
+    </mat-form-field>
+    <button type="submit" (click)="onSubmit(aboutForm)" class="save-btn" [disabled]="!aboutForm?.valid">{{'FRMELEMNTS_BTN_SAVE' | translate}}
+    </button>
+  </form>
+  <input type="hidden" i18-value i18-aria-value aria-value="User profile details update successful"
+    value="{{'USER_PROFILE_DETAILS_UPDATED_SUCCESSFULLY' | translate}}" #toastSuccess />
+</div>

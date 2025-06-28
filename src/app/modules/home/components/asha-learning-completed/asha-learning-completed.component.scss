@@ -1,0 +1,127 @@
+.asha-card{
+    box-shadow: 0 0 4px #00000026;
+    background-color: #ffffff;
+    padding-inline: 15px;
+    padding-block: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+}
+.asha-card.completed {
+    background-color: #E8F4F2;
+    color: #000000;
+  }
+
+.btn-expand{
+    background: #2E6491;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 0px;
+
+}
+
+
+
+.asha-title{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    /* line-height: 14.06px; */
+    /* letter-spacing: -0.02em; */
+    /* text-align: left; */
+    color: #909090;
+}
+
+.progress-container{
+    background-color: #e0be80;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-family: Roboto;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 9.38px;
+    text-align: center;
+}
+
+.asha-m-title{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    // line-height: 18.75px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.levels-title{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    margin: 0;
+}
+
+.note{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14.06px;
+    text-align: left;
+    color: #1C5D95;
+    margin-top: 0.5rem !important;
+}
+
+
+.start-btn{
+    background-color: #1C5D95;
+    width: 100%;
+    height: 32px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    /* text-align: left; */
+    color: #ffffff !important;
+}
+
+.level{
+    border: 1px solid #D9D9D9;
+    padding: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    /* line-height: 16.41px; */
+    text-align: center;
+}
+
+.inprogress-bg{
+background-color: #E0BE80;
+}
+
+.green {
+    background-color: #469788;
+    color: white;
+  }
+  
+.yellow {
+    background-color: #E0BE80;
+    color: black;
+  }
+
+.lightgray{
+    background-color: #ffffff;
+    color: black;
+  }

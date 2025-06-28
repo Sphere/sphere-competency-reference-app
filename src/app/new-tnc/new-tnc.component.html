@@ -1,0 +1,43 @@
+<div class="tnc-main">
+  <div *ngIf="showTNCDetails" class="back-button">
+    <span (click)="manageTNCDetails(false)">
+      <mat-icon>chevron_left</mat-icon>
+    </span>
+  </div>
+  <div class="tnc-main-container">
+    <ng-container *ngIf="!showTNCDetails">
+      <div>
+        <label class="page-title">{{'TERMS_OF_USE' | translate}}</label>
+      </div>
+      <div class="page-thumb">
+        <img src="./assets/imgs/tnc.svg">
+      </div>
+      <div class="text-container">
+        <span class="text_1">{{'TNC_AGGREE_LINE1' | translate}} </span>
+        <span class="text_link" (click)="manageTNCDetails(true)">{{'TNC_N_PP' | translate}}</span>
+      </div>
+      <div class="check-box-container">
+        <ion-checkbox slot="start" [checked]="isChecked" (ionChange)="changeEvent($event)"></ion-checkbox>
+        <span class="check-box-text">{{'TNC_CHECKBOX_TEXT' | translate}}</span>
+      </div>
+    </ng-container>
+
+    <div class="tnc-render-content"  *ngIf="showTNCDetails">
+      <ws-tnc-renderer (tncChange)="getTnc($event)" (dpChange)="getDp($event)" [tncData]="tncData" [showAccordian]="false">
+      </ws-tnc-renderer>
+    </div>
+  </div>
+  <div class="tnc-bottom-navbar" *ngIf="showAcceptbtn && !showTNCDetails">
+    <div class="decline-div">
+      <button class="decline-btn cursor-pointer" (click)="gotoLogin()">
+        <ng-container i18n>{{'DECLINE' | translate}}</ng-container>
+      </button>
+    </div>
+    <div class="accept-div">
+      <button (click)="isChecked && acceptTnc()" [ngClass]="['accept-btn', 'cursor-pointer', (isChecked)?'active':'']">
+        <ng-container i18n>{{'AGREE_AND_CONTINUE' | translate}}</ng-container>
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="d-flex flex-col h-full justify-center items-center">
+  <p class="result-title" *ngIf="isAPIInprogress || pointsBasedPercentageScore>60 ">
+    {{(isAPIInprogress)? ('RESULT_BEING' | translate):(pointsBasedPercentageScore>60)? ('CONGRATULATIONS' | translate):('PLEASE_TRY_AGAIN' | translate)}}
+  </p>
+  <p class="result">{{'RESULT' | translate}}
+    <span *ngIf="!isAPIInprogress" [ngClass]="[(pointsBasedPercentageScore>60)?'pass':'fail']">{{(pointsBasedPercentageScore>60)?('PASS'| translate):('FAIL'| translate)}}</span>
+    <span class="progress-spinner" *ngIf="isAPIInprogress"><ion-spinner name="bubbles"></ion-spinner></span>
+  </p>
+
+  <div  class="mb-4">
+    <ng-container *ngIf="pointsBasedPercentageScore>60" >
+      <img class="pass-img" src="../../../../../assets/icons/ep_success-filled.svg" alt="green">
+    </ng-container>
+    <ng-container *ngIf="pointsBasedPercentageScore<60">
+      <mat-icon  class="fail-icon">cancel</mat-icon>
+    </ng-container>
+  </div>
+
+  <button (click)="!isAPIInprogress && result()" class="result-btn">
+    {{'VIEW' | translate}} {{'RESULTS' | translate }}</button>
+  <button (click)="continue()" class="continue-btn">{{'CONTINUE' | translate}}</button>
+</div>

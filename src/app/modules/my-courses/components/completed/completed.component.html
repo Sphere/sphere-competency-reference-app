@@ -1,0 +1,21 @@
+<div class="mt-2 px-3 pb-10">
+  <ng-container *ngIf="completedCourse && completedCourse.length ==0">
+    <div class="flex justify-center flex-col no-content">
+      <p class="m-4 text-base font-normal">{{ 'YOU_HAVE_NOT_COMPLETED_ANY_COURSE' | translate}}</p>
+      <button class="outline-btn" (click)="router.navigate([forYouUrl])">Check out courses for you</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isLoading">
+    <app-skeleton-my-course-card></app-skeleton-my-course-card>
+    <app-skeleton-my-course-card></app-skeleton-my-course-card>
+    <app-skeleton-my-course-card></app-skeleton-my-course-card>
+    <app-skeleton-my-course-card></app-skeleton-my-course-card>
+  </ng-container>
+  <ng-container *ngIf="completedCourse && completedCourse.length>0">
+    <div [ngClass]="{ 'tablet-flex' : isTablet}">
+      <div [ngClass]="{'tab-card-width' : isTablet}" *ngFor="let course of completedCourse">
+        <app-my-courses-card [data]="course"  [displayConfig]="displayConfig"></app-my-courses-card>
+      </div>
+    </div>
+  </ng-container>
+</div>

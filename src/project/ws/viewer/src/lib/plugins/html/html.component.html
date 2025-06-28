@@ -1,0 +1,94 @@
+<mat-card class="ws-mat-primary-lite-background-on-day margin-top-s ml-5"
+  *ngIf="showIframeSupportWarning || isIntranetUrl || htmlContent?.isInIntranet">
+  <mat-card-content>
+    <h2 class="mat-h2" *ngIf="
+        isIntranetUrl || htmlContent?.isInIntranet || htmlContent?.isIframeSupported === 'Maybe'
+      ">
+      <ng-container *ngIf="
+          ((isIntranetUrl && htmlContent?.isIframeSupported === 'Maybe') ||
+            (htmlContent?.isInIntranet && htmlContent?.isIframeSupported === 'Maybe')) &&
+          !isUserInIntranet
+        " i18n>
+        {{'THIS_CONTENT_CAN_ONLY_BE_VIEWED_IN_INTERNET'| translate}}.
+      </ng-container>
+      <ng-container *ngIf="htmlContent?.isIframeSupported === 'Maybe'" i18n>
+        Content may be required to be opened in a new window. If you are unable to view it, Please
+        click on the Open in New Window Button else Dismiss
+      </ng-container>
+    </h2>
+    <h2 class="mat-h2" *ngIf="
+        isIntranetUrl ||
+        htmlContent?.isInIntranet ||
+        (htmlContent?.isIframeSupported === 'No' || !htmlContent?.isIframeSupported)
+      ">
+      <ng-container *ngIf="
+          ((isIntranetUrl &&
+            (htmlContent?.isIframeSupported === 'No' || !htmlContent?.isIframeSupported)) ||
+            (htmlContent?.isInIntranet &&
+              (htmlContent?.isIframeSupported === 'No' || !htmlContent?.isIframeSupported))) &&
+          !isUserInIntranet
+        " i18n>
+        {{'THIS_CONTENT_CAN_ONLY_BE_VIEWED_IN_INTERNET'| translate}}.<br>
+      </ng-container>
+      <ng-container *ngIf="htmlContent?.isIframeSupported === 'No' || !htmlContent?.isIframeSupported">
+        <span i18n>Content will open in a new window. If you are unable to view it, click on the button below.</span>
+        <a [routerLink]="'/app/info/faq'" [queryParams]="{tab: 'popup'}">
+          <mat-icon matTooltip="How to Disable Pop-ups" class="align-text-top ws-mat-primary-text">help
+          </mat-icon>
+        </a>
+      </ng-container>
+    </h2>
+    <h2 class="mat-h2" *ngIf="
+        (isIntranetUrl && htmlContent?.isIframeSupported === 'Yes') ||
+        (htmlContent?.isInIntranet && htmlContent?.isIframeSupported === 'Yes')
+      " i18n>
+      {{'THIS_CONTENT_CAN_ONLY_BE_VIEWED_IN_INTERNET'| translate}}.
+    </h2>
+    <mat-divider></mat-divider>
+    <mat-progress-bar mode="determinate" *ngIf="progress > 0 && htmlContent?.isIframeSupported.toLowerCase() === 'no'"
+      [value]="progress"></mat-progress-bar>
+
+    <div class="flex flex-between padding-top-s">
+      <a type="button" [ngClass]="mobAppSvc?.isMobile ? 'block' : 'hidden'" mat-button
+        [href]="this.htmlContent?.artifactUrl" target="_blank" #mobileOpenInNewTab>Open in New Tab</a>
+
+      <button [ngClass]="!mobAppSvc?.isMobile ? 'block' : 'hidden'" mat-raised-button color="primary" type="button" i18n
+        mat-button (click)="openInNewTab()">
+        {{'OPEN_IN_NEW_WINDOW' | translate}}
+      </button>
+      <button type="button" *ngIf="
+          htmlContent?.isIframeSupported === 'Maybe' ||
+          (isIntranetUrl && htmlContent?.isIframeSupported === 'Yes') ||
+          (htmlContent?.isInIntranet && htmlContent?.isIframeSupported === 'Yes')
+        " i18n mat-button (click)="dismiss()">
+        Dismiss
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div class="resume-vertical-middle"  *ngIf="showIsLoadingMessage || (htmlContent && htmlContent.isIframeSupported === 'Yes')"> 
+  <button class="btn-resume" (click)="openSCORMPlayer()">
+  {{'CLICK_HERE_TO_RESUME' | translate}}
+</button>
+</div>
+<h2 class="text-center mat-primary-text margin-top-m load"
+  *ngIf="showIsLoadingMessage || (htmlContent && htmlContent.isIframeSupported === 'Yes')" i18n>
+  {{'PLEASE_SELECT_A_CONTENT_FROM_THE_LIST' | translate}}
+</h2>
+
+<div class="margin-top-m text-center" *ngIf="pageFetchStatus !== 'done'">
+  <h2 *ngIf="pageFetchStatus === 'error'" i18n>
+    {{'ERROR_LOADING_PAGE' | translate}}
+  </h2>
+  <h2 *ngIf="pageFetchStatus === 'artifactUrlMissing'" i18n>
+    {{'THERE_IS_NOTHING_TO_PLAY' | translate}} <a class="cursor-pointer ws-mat-primary-text" (click)="backToDetailsPage()">{{'CLICK_HERE' | translate}}</a>
+    {{'TO_GO_TO_DETAIL_PAGE' | translate}}
+  </h2>
+</div>
+
+<div class="container-v2" *ngIf="isOfflineScromUrl && htmlContent && htmlContent.isIframeSupported === 'Yes'">
+  <iframe  title="HTML Content Viewer" i18n-title [src]="offlineiframeUrl"
+    (load)="onIframeLoadOrError('load',iframeElem,$event)" (error)="onIframeLoadOrError('error')"
+    allow="fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; microphone; camera;"
+    class="html-iframe"></iframe>
+</div>

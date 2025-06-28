@@ -1,0 +1,52 @@
+.container-role {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.banner-img {
+    height: 50%;
+    align-self: center;
+    position: relative;
+    top: 10px;
+
+}
+
+.select-role-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #F7F7F7;
+
+}
+
+
+.btn-select {
+    display: flex;
+    background-color: #1C5D95;
+    color: #ffffff;
+    height: 35px;
+    width: 310px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+
+    img {
+        width: 24px;
+    }
+
+    &:first-of-type + img {
+        width: 16px; // Width for the second img following .btn-select
+      }
+
+}
+
+.img-bg {
+    align-self: center;
+    margin-top: auto;
+}

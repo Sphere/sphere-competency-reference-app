@@ -1,0 +1,144 @@
+<div class="position-relative">
+  <ng-container *ngIf="(isXSmall$ | async) === true">
+    <div [ngClass]="{'arrow-back': tabIndex ==0, 'result-arrow-back' : tabIndex === 1 }" (click)="closePopup()"
+      *ngIf="(isXSmall$ | async) === true">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+  </ng-container>
+</div>
+<div class="assesment-container mt-3 mb-3">
+  <ng-container *ngIf="(isXSmall$ | async) === false">
+    <button type="button" class="close" (click)="closePopup()">&times;</button>
+  </ng-container>
+
+  <!-- <div class="flex flex-row"> -->
+  <div *ngIf="tabIndex === 0 " class="flex timer">
+    <!-- (isXSmall$ | async) !== true && -->
+    <mat-icon>schedule</mat-icon>&nbsp;&nbsp;
+    <div [ngClass]="{ 'mat-body-strong': !isSubmitted }">
+      {{ timeLeft | pipeDurationTransform: 'hms' }}
+    </div>
+  </div>
+  <mat-tab-group [(selectedIndex)]="tabIndex" animationDuration="0ms">
+    <mat-tab i18n-label label="{{'ASSESSMENT' | translate}}" [disabled]='!assesmentActive'>
+      <ng-container *ngIf="assesmentdata.questions.isAssessment">
+        <div class="question-wrapper">
+          <viewer-view-assesment-questions questionSlide
+            *ngFor="let question of assesmentdata.questions?.questions; let i = index" [question]="question"
+            [artifactUrl]="assesmentdata.artifactUrl" [slideIndex]="i"
+            (itemSelected)="fillSelectedItems(question, $event, i)"
+            [itemSelectedList]="questionAnswerHash[(question?.questionId)]"></viewer-view-assesment-questions>
+        </div>
+      </ng-container>
+    </mat-tab>
+    <mat-tab i18n-label label="{{'RESULTS' | translate}}" [disabled]='!tabActive'>
+      <div class="flex flex-col justify-content-center items-center m-0  result-wrapper pt-5" *ngIf="!isCompetency">
+        <h1 class="result-title"><span i18n>{{'RESULT' | translate}}</span> <span class="text-green-600" *ngIf="isCompleted"
+            i18n>{{'PASS' | translate}}</span>
+          <span class="text-red-600" *ngIf="!isCompleted" i18n> {{'NOT_PASS' | translate}}</span>
+        </h1>
+        <h4 class="result-score-title text-center" i18n>{{'YOUR_SCORE' | translate}}</h4>
+        <h1 class="result-score text-center">{{result}}<span>%</span></h1>
+
+        <div class="result-overview-container">
+          <div class="result-overview">
+            <h4 class="digit">{{numUnanswered}}</h4>
+            <h4 class="lable" i18n>{{'NOT_ATTEMPTED' | translate}}</h4>
+          </div>
+          <div class="result-overview">
+            <h4 class="digit">{{numCorrectAnswers}}</h4>
+            <h4 class="lable" i18n>{{'CORRECT' | translate}}</h4>
+          </div>
+          <div class="result-overview">
+            <h4 class="digit">{{numIncorrectAnswers}}</h4>
+            <h4 class="lable" i18n>{{'INCORRECT' | translate}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center m-0 m-auto main w-full" *ngIf="isCompetency">
+        <div class="child">
+          <ng-container *ngIf="isCompetencyComplted">
+            <p class="congrats-title" i18n>{{'CONGRATULATIONS' | translate}}</p>
+            <div><img class="result-img" src="assets/icons/pass_assessment.svg" alt="pass" /></div>
+            <!-- <p class="proficiceny-level  m-0" i18n>Proficiency Level {{competencyLevelId}} unlocked</p> -->
+            <p class="proficiceny-level  m-0 mt-2" *ngIf="nextCompetencyLevel<6">{{'LEVEL_ID_PASSED' | translate : {'level' : competencyLevelId} }}</p>
+            <p class="achieved-score mt-1" *ngIf="nextCompetencyLevel<6">{{'ACHIEVED_SCORE' | translate : {'result' : result} }}</p>
+            <p class="proficiceny-level  m-0"*ngIf="nextCompetencyLevel===6">{{'COMPETENCY_ACHIEVED' | translate}}</p>
+          </ng-container>
+          <ng-container *ngIf="!isCompetencyComplted">
+            <p class="fail-title" i18n>{{'FAIL_ASSESSMENT' | translate}}</p>
+            <div class="progress-bar mb-3" [ngStyle]="{ 'background': getConicGradient(result)}">
+                <div class="progress-label">{{ result }}%</div>
+            </div>
+            <p class="proficiceny-level-fail m-0">{{'LEVEL_IS_NOT_CLEARED' | translate}}</p>
+          </ng-container>
+          <ng-container *ngIf="!isAshaHome">
+            <div class="mt-5 d-flex gap-5 flex-col align-items-center">
+              <button *ngIf="isCompetencyComplted" class="btn next-btn btn-active width-auto" [disabled]='!isCompetencyComplted'
+                mat-raised-button (click)="nextCompetency()" i18n>{{'NEXT' | translate}}</button>
+              <button class="btn btn-active btn-xll width-auto" *ngIf="!isCompetencyComplted" mat-raised-button
+                (click)="viewCourses()" i18n>{{'RELEVANT_COURSES' | translate}}</button>
+              <button class="btn btn-active btn-xll width-auto" *ngIf="!isCompetencyComplted" mat-raised-button
+                (click)="CompetencyDashboard()" i18n>{{'GO_TO_COMPETENCY' | translate}}</button>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="isAshaHome">
+            <div class="mt-4 d-flex gap-5 flex-col align-items-center w-full" *ngIf ="nextCompetencyLevel < 6">
+              <button *ngIf="isCompetencyComplted" class="asha-btn-retake" [disabled]='!isCompetencyComplted'
+                mat-raised-button (click)="nextCompetency()" i18n>{{'START_LEVEL' | translate: {'level': nextCompetencyLevel} }}</button>
+              <button class="asha-btn-retake" *ngIf="!isCompetencyComplted" 
+                (click)="viewAshaCourses()" i18n>{{'START_LEARNING' | translate}}</button>
+              <button class="asha-btn-home" (click)="goToAshaHome()" i18n>
+                <img src="assets/icons/home_outline.svg" alt="home" />
+                {{'GO_BACK_TO_HOME' | translate}}</button>
+            </div>
+            <div class="mt-4 d-flex gap-5 flex-col align-items-center w-full" *ngIf ="nextCompetencyLevel===6">
+                <button class="asha-btn-retake  mt-5 mb-3" (click)="goToAshaHome()" i18n>
+                  <img src="assets/icons/home_blue_bg.svg" alt="home" />
+                  {{'GO_BACK_TO_HOME' | translate}}
+              </button>
+            </div>
+              <div class="banner-img">
+                <img class="logo-img" src="assets/imgs/Language-bg.svg" alt="">
+              </div>
+          </ng-container>
+         
+        </div>
+      </div>
+
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="flex">
+    <div *ngIf="tabIndex === 0" class="assesment-progress-bar">
+      <span>{{quizService.questionState.active_slide_index+1}}/{{quizService.questionState.slides.length}}</span>
+      <mat-progress-bar class="audio-progress-bar" [color]="primary" [mode]="'determinate'" [value]="progressbarValue">
+      </mat-progress-bar>
+    </div>
+    <div class="ml-auto pt-3">
+      <ng-container *ngIf="tabIndex === 0 ">
+        <button class="btn width-auto" [disabled]='diablePrevious' mat-raised-button (click)="previousQuestion()"
+          i18n>{{'FRMELEMENTS_BTN_BACK' | translate}}</button>
+        <button class="btn btn-active width-auto" *ngIf="quizService.questionState.active_slide_index + 1 !== quizService.questionState.slides.length " [disabled]='disableNext' mat-raised-button
+          (click)="nextQuestion()" i18n>{{'NEXT' | translate}}</button>
+        <button class="btn btn-active width-auto" *ngIf="quizService.questionState.active_slide_index + 1 === quizService.questionState.slides.length" mat-raised-button (click)="proceedToSubmit()">{{ 'BTN_SUBMIT' | translate}}</button>
+
+      </ng-container>
+    </div>
+    <div class="flex flex-col">
+
+      <ng-container *ngIf="tabIndex === 1 && !isCompetency">
+        <div class="text-center pt-5 flex justify-content-center">
+          <button class="btn btn-lg width-auto" mat-raised-button (click)="retakeQuiz()" i18n>{{'RETAKE_ASSESSMENT' | translate}}</button>
+          <button class="btn btn-active width-auto" [disabled]="disableContinue" (click)="closeDone()" mat-raised-button
+            i18n>{{'CONTINUE' | translate}}</button>
+        </div>
+
+
+      </ng-container>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div>
+  
+  <div class="pl-4 d-flex flex-col">
+    <!-- <ws-mobile-profile-nav [showbackButton]="showBackMentee" [showLogOutIcon]="false"
+    [navigateTohome]="true"></ws-mobile-profile-nav> -->
+
+    <h1 id="page-title">{{'OBSERVATIONS' | translate }}</h1>
+    <div class="flex flex-row count-row">
+      <p class="mb-0 pr-2">{{'PENDING' | translate}} : {{pendingCount}} |  </p>
+      <!-- <p class="mb-1">{{'IN_PROGRESS' | translate}} : {{inProgressCount}} </p> -->
+      <p class="mb-0">{{'COMPLETED' | translate}} : {{completedCount}}</p>
+    </div>
+    <!-- <div class="form-group">
+      <input id="code" i18n class="form-control input-box" type="text" autocomplete="off"
+        placeholder="{{'SEARCH_YOUR_MENTEE' | translate}}">
+    </div> -->
+
+  </div>
+  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start" selectedIndex="0">
+    <div class="search-container">
+      <!-- <ion-item class="ion-no-padding" lines="none">
+        <ion-label position="floating">{{'SEARCH_YOUR_MENTEE' | translate}}</ion-label>
+        <ion-input [(ngModel)]="serchText" name="{{'SEARCH_YOUR_MENTEE' | translate}}" type="text" (ionChange)="onSearchChange($event)"></ion-input>
+      </ion-item> -->
+
+      <ion-input class="w-full" [(ngModel)]="serchText" type="text" label="Outline input"
+        (ionChange)="onSearchChange($event)" label-placement="floating" fill="outline"
+        placeholder="{{'SEARCH_YOUR_MENTEE' | translate}}"></ion-input>
+    </div>
+    <mat-tab label="{{'MENTEES' | translate}}">
+      <div class="" style="padding: 0px 20px ">
+        <ng-container *ngIf="mentieeList.length > 0;else noData  ">
+          <h1 class="pt-4 text-black text-bold mb-2 ">{{'MENTEES' | translate}} ({{menteeCount}})</h1>
+          <ng-container *ngFor="let mentee of mentieeList; let last = last">
+            <app-mentor-cards
+              *ngIf="serchText.trim() == '' || mentee.name.toLowerCase().indexOf(serchText.trim().toLowerCase()) !== -1"
+              [data]="mentee" [display]="displayConfigMentee"></app-mentor-cards>
+            <!-- <ng-container *ngIf="!last">
+              <hr />
+            </ng-container> -->
+          </ng-container>
+        </ng-container>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="{{'FRMELEMNTS_LBL_OBSERVATION' | translate}}">
+      <div class=""  style="padding: 0px 20px ">
+        <ng-container *ngIf="observationList.length > 0;else noData  ">
+          <h1 class=" pt-4 text-black text-bold mb-2 ">{{'FRMELEMNTS_LBL_OBSERVATION' | translate}}
+            ({{observationCount}})</h1>
+          <ng-container *ngFor="let mentee of observationList; let last = last">
+            <app-mentor-cards
+              *ngIf="serchText.trim() == '' || mentee.name.toLowerCase().indexOf(serchText.trim().toLowerCase()) !== -1"
+              [data]="mentee" [display]="displayConfigObservation"></app-mentor-cards>
+            <ng-container *ngIf="!last">
+              <hr />
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+  <ng-template #noData>
+    <div class="m-5">
+      <app-no-result-page title="NO_RESULT_FOUND"></app-no-result-page>
+    </div>
+  </ng-template>
+</div>

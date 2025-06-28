@@ -1,0 +1,64 @@
+<div class="flex flex-col" >
+  <div class="header-container">
+    <ws-mobile-profile-nav [showbackButton]="true" [showLogOutIcon]="false" [emitNavigateBack]="true"
+      [navigateToPreviesPage]="true" (navigateBack)="navigateToMenteeList()"></ws-mobile-profile-nav>
+    <ng-container *ngIf="displyData">
+      <h1 class="mb-2" id="page-title">{{displyData.name}}</h1>
+      <!-- <p class="mb-1 mentee-info ">{{'DESIGNATION' | translate}}: {{menteeData.mentee_designation}}</p> -->
+      <p class="mb-1 mentee-info " *ngIf="displyData.mentee_contact_info">{{'PHONE_NUMBER' | translate}}:
+        {{displyData.mentee_contact_info}}</p>
+      <p class="mb-1 mentee-info " *ngIf="displyData.menteeCount"> Mentees: {{displyData.menteeCount}}</p>
+    </ng-container>
+
+
+
+  </div>
+
+  <div style="padding: 0px 20px ">
+    <ng-container *ngIf="attemptedMenteeList.length > 0; else noData">
+      <ng-container *ngFor="let mentee of attemptedMenteeList">
+        <app-mentor-cards [data]="mentee" [display]="displayConfigMentee" [showResult]="true"
+          [showLastCreatedAt]="true"></app-mentor-cards>
+      </ng-container>
+    </ng-container>
+
+
+    <ng-template #noData>
+      <div class="m-5">
+        <app-no-result-page title="NO_RESULT_FOUND"></app-no-result-page>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="pt-4" [selectedIndex]="1">
+    <mat-tab label="{{'IN_PROGRESS' | translate}}">
+      <div>
+        <ng-container *ngIf="inProgressObservationList.length > 0;else noData">
+          <ng-container *ngFor="let mentee of inProgressObservationList">
+            <app-mentor-cards [data]="mentee" [display]="displayConfigProgress"></app-mentor-cards>
+          </ng-container>
+        </ng-container>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'PENDING' | translate}}">
+      <div>
+        <ng-container *ngIf="pendingObservationList.length > 0; else noData">
+          <ng-container *ngFor="let mentee of pendingObservationList">
+            <app-mentor-cards [data]="mentee" [display]="displayConfigStart"></app-mentor-cards>
+          </ng-container>
+        </ng-container>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'COMPLETED' | translate}}">
+      <div>
+        <ng-container *ngIf="completedObservationList.length > 0; else noData">
+          <ng-container *ngFor="let mentee of completedObservationList">
+            <app-mentor-cards [data]="mentee" [display]="displayConfigCompleted" [showResult]="true"></app-mentor-cards>
+          </ng-container>
+        </ng-container>
+      </div>
+    </mat-tab>
+  </mat-tab-group> -->
+
+
+</div>

@@ -1,0 +1,7 @@
+@use 'sass:math';
+@import 'styles/_ws-vars.scss';
+
+.blog-title {
+  font-weight: 600;
+  margin-bottom: math.div($size-xs, 2);
+}

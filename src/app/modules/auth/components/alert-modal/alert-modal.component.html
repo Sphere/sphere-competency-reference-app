@@ -1,0 +1,74 @@
+<div class="overview-container text-center" *ngIf="data">
+  <button type="button" class="close" (click)="closePopup()"> <mat-icon>close</mat-icon></button>
+  <ng-container *ngIf="data.type === 'fgPassword'">
+    <img src="../../../../../assets/imgs/ep_success.svg" alt="download">
+    <p class="am-message">
+      {{data.msg | translate}}
+    </p>
+    <button class="btn alert-btn-active" (click)="done()">
+      {{data.btnText | translate}}
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="data.type === 'socialMedia'">
+    <img src="../../../../../assets/imgs/message-icon.svg" class="img-icon-w" alt="social">
+    <p class="am-message">
+      {{data.msg | translate}}
+    </p>
+    <div class="flex flex-col gap-3">
+      <button class="btn alert-btn-watapp" (click)="openWhatsApp($event)">
+        <span><img src="../../../../../assets/imgs/logos-whatsapp-icon.svg" alt=""></span> <span>
+          {{'CHAT_WITH_US_ON_WHATSAPP' | translate }}
+        </span>
+      </button>
+      <button class="btn alert-btn-chat " (click)="openChat()"
+        onclick="window.fcWidget.open();window.fcWidget.show();">
+        <span><img class="chat-img" src="../../../../../assets/imgs/message-icon.svg" alt=""></span> <span>
+          {{'CHAT_WITH_US' | translate }} </span>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="data.type === 'confirName'">
+
+    <img src="../../../../../assets/imgs/blue-info.svg" class="img-icon-w" alt="social">
+    <p class="name">{{data.first}} {{data.last}}</p>
+    <p class="am-message">
+      {{data.msg | translate}}
+    </p>
+    <div class="flex gap-3">
+      <button class="btn alert-btn-outline" (click)="closeAlert('EDIT')">{{'EDIT_NAME' | translate}}</button>
+      <button class="btn alert-btn-active" (click)="closeAlert('CONFIRMED')">{{'CONFIRM_NAME' | translate}}</button>
+    </div>
+  </ng-container>
+
+
+  <ng-container *ngIf="data.type === 'caAlert' ">
+    <img src="../../../../../assets/imgs/warning.svg"  class="img-icon-w" alt="social">
+    <p class="am-message">
+      {{data.msg | translate}}
+    </p>
+    <div class="flex gap-3">
+      <button class="btn alert-btn-outline" (click)="closeAlert('TRYAGAIN')"> {{'RETRY_ACTION' | translate }} </button>
+      <button class="btn alert-btn-active" *ngIf="data.type === 'caAlert'" (click)="closeAlert('LOGIN')">{{'SIGN_IN' |
+        translate }}</button>
+      <button class="btn alert-btn-active" *ngIf="data.type === 'lgAlert'"
+        (click)="closeAlert('CREATEACCOUNT')">{{'CREATE_ACCOUNT' | translate}}</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="data.type ==='lgAlert' ">
+    <img src="../../../../../assets/imgs/warning.svg" class="img-icon-w" alt="social">
+    <p class="am-message">
+      {{data.msg | translate}}
+    </p>
+    <div class="flex gap-3">
+      <button class="btn alert-btn-outline" (click)="closeAlert('TRYAGAIN')"> {{'RETRY_ACTION' | translate }} </button>
+      <button class="btn alert-btn-active" *ngIf="data.type === 'caAlert'" (click)="closeAlert('LOGIN')">{{'SIGN_IN' |
+        translate }}</button>
+      <button class="btn alert-btn-active" [ngClass]="data.disableCrBtn ? 'd-none' : 'd-block'"
+        *ngIf="data.type === 'lgAlert'" (click)="closeAlert('CREATEACCOUNT')">{{'CREATE_ACCOUNT' | translate}}</button>
+    </div>
+  </ng-container>
+
+</div>

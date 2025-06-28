@@ -1,0 +1,34 @@
+<div class="ml-3">
+  <ws-mobile-profile-nav [trigerrNavigation]="trigerrNavigation"
+    [showbackButton]="(commonUtilService.networkInfo.isNetworkAvailable && configSvc.userDetails) ? showbackButton : false"
+    [showLogOutIcon]="showLogOutIcon">
+  </ws-mobile-profile-nav>
+</div>
+
+<div class="notification-card">
+  <div class="content mt-3">
+    <p class="text-2xl mt-2 mb-2">{{ 'NOTIFICATION_SETTINGS_PLURAL' | translate }}</p>
+  </div>
+  
+  <form [formGroup]="notificationForm">
+    <div class="flex items-center mt-4">
+      <!-- Left side (Icon + Text) -->
+      <div class="flex items-center flex-grow">
+        <img src="../../../../../../../../../assets/imgs/logos-whatsapp-icon.svg"
+             alt="WhatsApp Icon"
+             class="whatsapp-icon" />
+        <span class="ml-2 text-lg font-normal">{{'WHATSUP'|translate}}</span>
+      </div>
+      
+      <!-- Right side (Toggle) -->
+      <div class="flex justify-end ">
+        <ion-toggle 
+          formControlName="whatsappToggle"
+          [disabled]="isLoading" class="custom-toggle"
+          (ionChange)="onWhatsAppToggleChange($event)">
+        </ion-toggle>
+      </div>
+    </div>
+    <mat-divider class="mt-2"></mat-divider>
+  </form>
+</div>

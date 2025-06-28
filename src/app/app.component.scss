@@ -1,0 +1,119 @@
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+ws-app-nav-bar {
+  z-index: 1000;
+}
+
+.route-change {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.height-on-bottom {
+  overflow: auto;
+  // padding-bottom: 56px;
+  box-sizing: border-box;
+}
+
+.height-on-top {
+  padding-top: 72px;
+}
+
+// .height-on-top.padding-0 {
+//   padding-top: 0 !important;
+// }
+.top-nav-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.bottom-nav-bar {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.height-adjust {
+  height: 100%;
+  min-height: calc(100vh - (60px + 52px));
+
+  @include breakpoint-xs {
+    min-height: calc(100vh - (60px + 72px));
+  }
+}
+.tab-height-adjust{
+  min-height: unset !important;
+}
+
+.new-width {
+  margin-left: auto;
+  margin-right: auto;
+  // max-width: 1267px;
+  // display: flex;
+  flex: 1;
+}
+
+.app-footer {
+  display: block;
+
+  @include breakpoint-gt-xs {
+    padding: 0;
+  }
+
+  // @include breakpoint-xs {
+  //   padding-bottom: 0px;
+  // }
+}
+
+@media screen and (max-width:600px) {
+  .hide-in-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .hide-in-desktop {
+    display: none;
+  }
+}
+
+//chat-style
+.chat-icon {
+  cursor: pointer;
+    z-index: 1000;
+    position: fixed;
+    top: 0.3rem;
+    width: 61px;
+    right: 3px;
+}
+
+.show-bg{
+  background-image: url('../assets/imgs/auth_bg.svg');
+}
+
+
+ion-content{
+  --background: none;
+  --border-radius: 0px;
+  height: calc(100% - 80px);
+}
+
+.custom-bg{
+  background-color: #ffffff;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+.custom-bg-border{
+  background-color: #ffffff;
+  border-top-right-radius: 0px ;
+  border-top-left-radius: 0px;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+<ng-container *ngIf="orgName?.channelId === currentOrgId && appName  === 'Ekshamata' && isLogo ">
+  <ng-container *ngIf="orgName.footer?.name &&  orgName.footer?.logo">
+    <div>
+      <div class="flex justify-center items-center flex-col mt-30">
+        <h5>  {{ 'SUPPORT_BY' | translate }}</h5>
+      </div>
+      <section class="footer-container">
+        <div class="flex justify-center items-center gap-3 logos">
+          <!-- <a class="padding-remove-small uptsu"> -->
+            <img [src]="orgName.footer?.logo" class="uptsu-logo" appImageCache/>
+            <div>{{orgName.footer.name}}</div>
+          <!-- </a> -->
+        </div>
+      </section>
+    </div>
+  </ng-container>
+  
+</ng-container>

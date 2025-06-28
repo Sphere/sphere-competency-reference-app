@@ -1,0 +1,157 @@
+<div class="login-container">
+  <div class="d-flex justify-between items-center">
+    <ws-mobile-profile-nav [navigateToEkshmataHome]="navigateToEkshmataHome"
+      [showbackButton]=true></ws-mobile-profile-nav>
+
+    <button *ngIf="appFramework === 'Sphere' " mat-raised-button class="border-button-sm" (click)="getHelp()">
+      {{'HELP' | translate}} <span><img src="../../../../../assets/imgs/support-agent-blue.svg" alt=""></span>
+    </button>
+  </div>
+  <ng-container *ngIf="!isOTPSent">
+
+    <div>
+      <span class="login-title">{{'WELCOME' | translate}}!</span>
+    </div>
+    <div>
+      <span class="login-sub-title">{{'LOGIN_WITH_YOUR_AASTRIKA_ACCOUNT' | translate }}</span>
+    </div>
+    <div>
+      <ion-radio-group class="login-radio-container" [(ngModel)]="loginSelected" (ionChange)="manageLoginType($event)">
+        <ion-item lines="none">
+          <ion-label class="radio-text">{{'WITH_OTP' | translate}}</ion-label>
+          <ion-radio slot="start" value="otp"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label class="radio-text">{{'WITH_PASSWORD' | translate}}</ion-label>
+          <ion-radio slot="start" value="password"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </div>
+    <form [formGroup]="loginForm" id="form-login" action="" method="post">
+      <div class="form-group">
+        <input id="loginId" i18n class="form-control" formControlName="loginId" type="text" i18n-placeholder
+          placeholder="{{'PHONE_OR_EMAIL' | translate}}" autocomplete="off">
+        <mat-error class="text-danger" i18n *ngIf="loginForm.controls['loginId'].hasError('required') &&
+                    (loginForm.controls['loginId'].dirty || loginForm.controls['loginId'].touched)">
+          {{'FIELD_REQUIRED' | translate}}</mat-error>
+      </div>
+      <div *ngIf="loginSelected == 'password'">
+        <div class="password-container">
+          <input id="loginPassword" i18n class="form-control" formControlName="loginPassword"
+            type="{{(showPassword)?'text':'password'}}" i18n-placeholder placeholder="{{'PASSWORD' | translate}}"
+            autocomplete="off">
+          <i class="material-icons" *ngIf="!showPassword" (click)="managePasswordView()">visibility_off</i>
+          <i class="material-icons" *ngIf="showPassword" (click)="managePasswordView()">visibility</i>
+        </div>
+        <mat-error class="text-danger" i18n *ngIf="loginForm.controls['loginPassword'].hasError('required') &&
+                    (loginForm.controls['loginPassword'].dirty || loginForm.controls['loginPassword'].touched)">
+          {{'FIELD_REQUIRED' | translate}}</mat-error>
+      </div>
+      <div class="forgot-password-container" *ngIf="loginSelected == 'password'">
+        <span class="forgot-password-text" (click)="forgotPassword()">{{'FORGOT_PASSWORD' | translate}}?</span>
+      </div>
+      <div class="login-btn-container">
+        <button mat-raised-button [ngClass]="['solid-button', (loginForm.valid)?'':'btn-disabled']"
+          (click)="!isAPIInProgress && submitForm()">
+          {{(loginSelected == 'password')?('SIGN_IN' | translate):('GET_OTP' | translate)}} &nbsp;
+          <ion-spinner name="bubbles" *ngIf="isAPIInProgress"></ion-spinner>
+        </button>
+        <ng-container *ngIf="appFramework !== 'Ekshamata'">
+          <span>{{'OR' | translate}}</span>
+          <button mat-raised-button class="border-button" (click)="createAccount()">
+            {{'CREATE_ACCOUNT' | translate}}
+          </button>
+        </ng-container>
+      </div>
+    </form>
+
+  </ng-container>
+  <ng-container *ngIf="isOTPSent">
+
+    <div class="login-otp-image-container">
+      <div>
+        <span class="login-otp-title">{{'CHECK_YOUR' | translate}} {{(key == 'phone')?'SMS':('EMAIL' |
+          translate)}}!</span>
+      </div>
+      <div>
+        <span class="login-otp-sub-title color-gray">{{'WE_HAVE_SENT_AN_OTP_TO' | translate }} <span
+            class="color-black">{{emailOrMobile}}</span></span>
+      </div>
+      <div class="bg-image-container">
+        <img class="bg-image" src="../../../../assets/imgs/otp-img.svg">
+      </div>
+
+    </div>
+    <!-- <div>
+      <span class="login-sub-title">{{'CHECK_YOUR_EMAIL_FOR_OTP' | translate}}</span>
+    </div> -->
+    <!-- <form [formGroup]="otpCodeForm" id="form-login" action="" method="post">
+      <div class="form-group">
+        <input id="otpCode" i18n class="form-control" formControlName="otpCode" type="text" i18n-placeholder
+          placeholder="{{'ENTER_OTP' | translate}}" autocomplete="off">
+        <mat-error class="text-danger" i18n *ngIf="otpCodeForm.controls['otpCode'].hasError('required') &&
+                    (otpCodeForm.controls['otpCode'].dirty || otpCodeForm.controls['otpCode'].touched)">
+          {{'FIELD_REQUIRED' | translate}}</mat-error>
+      </div>
+      <div class="login-timer">
+        <span class="login-timer-text">{{'OTP_EXPIRES_IN' | translate }}</span>&nbsp;<span class="login-timer-count">{{resendTimerText}}</span>&nbsp;{{'MINUTES' | translate}}
+      </div>
+      <div class="login-btn-container">
+        <button mat-raised-button [ngClass]="['solid-button', (otpCodeForm.valid)?'':'btn-disabled']" (click)="!isAPIInProgress && userLogin()">
+          {{'SUBMIT' | translate}} &nbsp;
+          <ion-spinner name="bubbles" *ngIf="isAPIInProgress"></ion-spinner> 
+        </button>
+        <span>{{'OR' | translate}}</span>
+        <button mat-raised-button [ngClass]="['border-button', (isResendInprogress)?'btn-disabled':'']" class="border-button" (click)="resendOtp()">
+          {{'RESEND_OTP' | translate}} &nbsp;
+          <ion-spinner name="bubbles" *ngIf="isResendInprogress"></ion-spinner>
+        </button>
+      </div>
+    </form> -->
+
+
+
+    <div class="otp-container">
+      <form [formGroup]="otpCodeForm" class="otp-form" (keydown.enter)="handleEnterKey()">
+        <input name="OTPCHRone" [ngClass]="['input-otp', (key == 'email')?'input-otp-email':'']"
+          formControlName="OTPCHRone" i18n-placeholder [attr.maxlength]="key == 'email' ? 8 : 1" type="number" 
+          inputmode="numeric" pattern="[0-9]*"  required #OTPCHRone (keyup)="onKeyUp($event, OTPCHRtwo)">
+
+        <input name="OTPCHRtwo" [ngClass]="['input-otp', (key == 'email')?'d-none':'']" formControlName="OTPCHRtwo"
+          i18n-placeholder maxlength="1" type="number"  inputmode="numeric" pattern="[0-9]*"  required #OTPCHRtwo
+          (keyup)="onKeyUp($event, OTPCHRthree)">
+
+        <input name="OTPCHRthree" [ngClass]="['input-otp', (key == 'email')?'d-none':'']" formControlName="OTPCHRthree"
+          i18n-placeholder maxlength="1" type="number"  inputmode="numeric" pattern="[0-9]*"  required
+          #OTPCHRthree (keyup)="onKeyUp($event, OTPCHRfour)">
+
+        <input name="OTPCHRfour" [ngClass]="['input-otp', (key == 'email')?'d-none':'']" formControlName="OTPCHRfour"
+          i18n-placeholder maxlength="1" type="number"  inputmode="numeric" pattern="[0-9]*" required
+          #OTPCHRfour (keyup)="(key == 'email')?onKeyUp($event, OTPCHRfive):''">
+
+        <!-- <input name="OTPCHRfive" [ngClass]="['input-otp', 'input-otp-email',(key !== 'email')?'d-none':'']" formControlName="OTPCHRfive" i18n-placeholder
+          maxlength="1" type="number"  required #OTPCHRfive (keyup)="(key == 'email')?onKeyUp($event, OTPCHRsix):''">
+
+        <input name="OTPCHRsix" [ngClass]="['input-otp', 'input-otp-email', (key !== 'email')?'d-none':'']" formControlName="OTPCHRsix" i18n-placeholder
+          maxlength="1" type="number"   #OTPCHRsix> -->
+      </form>
+    </div>
+
+    <div class="otp-timer" *ngIf="resendTimerText">
+      <span class="color-gray">{{'OTP_EXPIRES_IN' | translate}} <span
+          class="color-danger">{{resendTimerText}}</span></span>
+    </div>
+    <div class="opt-button-container">
+      <button [ngClass]="['btn', 'fp-submit-btn',(!otpCodeForm.valid || verifyOtpLoader)?'button-disable':'']"
+        (click)="userLogin()">
+        <ng-container *ngIf="!verifyOtpLoader">{{'BTN_SUBMIT' | translate}}</ng-container>
+        <ion-spinner name="bubbles" *ngIf="verifyOtpLoader"></ion-spinner>
+      </button>
+      <button [ngClass]="['btn', 'fp-resnd-btn',(isResendInprogress)?'button-disable':'']" i18n (click)="resendOtp()">
+        <ng-container *ngIf="!isResendInprogress">{{'RESEND_OTP' | translate}}</ng-container>
+        <ion-spinner name="bubbles" *ngIf="isResendInprogress"></ion-spinner>
+      </button>
+    </div>
+  </ng-container>
+</div>

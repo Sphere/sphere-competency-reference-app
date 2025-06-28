@@ -1,0 +1,219 @@
+<ng-container *ngIf="role == 'obs_mentor'">
+  <div class="role-select">
+    <div *ngIf="roleSelected == 'learner'" class="px-2 f-16-w-400">
+      <img class="role-img" src="../../../../../assets/icons/student.svg" />
+      <span class="role-title">{{ "LEARNER" | translate }} {{ "TAB_2" | translate }}</span>
+    </div>
+    <div *ngIf="roleSelected == 'mentor'" class="px-2 f-16-w-400">
+      <img class="role-img" src="../../../../../assets/icons/group.svg" />
+      <span class="role-title">{{ "MENTOR" | translate }} {{ "TAB_2" | translate }}</span>
+    </div>
+    <button class="d-flex items-center" [matMenuTriggerFor]="menu" (menuOpened)="preventCloseOnClickOut()"
+      (menuClosed)="allowCloseOnClickOut()">
+      {{ "CHANGE_ROLE" | translate }}
+      <mat-icon class="material-symbols-outlined">expand_more</mat-icon>
+    </button>
+  </div>
+  <mat-menu #menu="matMenu">
+    <div class="role-select-tab">
+      <button class="btn-select f-16-w-400" (click)="learner(); closeMenu(menu)">
+        <span class="role-title">{{ "LEARNER" | translate }}</span>
+        <img class="role-img" src="../../../../../assets/icons/student.svg" />
+      </button>
+      <button class="btn-select mt-3 f-16-w-400" (click)="mentor(); closeMenu(menu)">
+        <span class="role-title">{{ "MENTOR" | translate }}</span>
+        <img class="role-img" src="../../../../../assets/icons/group.svg" />
+      </button>
+    </div>
+  </mat-menu>
+</ng-container>
+
+<div class="content-home">
+  <ng-container *ngIf="roleSelected == 'learner'">
+    <div [ngClass]="isTablet ? 'flex tab-bottom' : 'd-flex flex-col justify-center'">
+      <!-- welcome message -->
+       <div [ngClass]="{'tab-access-info': isTablet}">
+        <p *ngIf="!isTablet"><span class="pt-1 banner-heading text-capitalize">{{ "WELCOME" | translate }} {{ firstName }}!</span></p>
+        <p *ngIf="isTablet" class="pl-8 tab-text">
+          <span class="pt-1 tab-banner-heading text-capitalize">{{ "WELCOME" | translate }}</span>
+          <span class="pt-1 banner-heading tab-title-size text-capitalize">{{ firstName }} {{ lastName }}!</span>
+        </p>
+        <p *ngIf="!isTablet">
+          <span class="banner-mini-heading" *ngIf="userEnrollCourse && userEnrollCourse.length > 0; else start" i18n>
+            {{ "CONTINUE_LEARNING" | translate }}</span>
+          <ng-template #start>
+            <span class="banner-mini-heading" i18n>{{
+              "START_LEARNING" | translate
+              }}</span>
+          </ng-template>
+        </p>
+       </div>
+       <div [ngClass]="{'tab-banner-size' : isTablet }">
+        <ng-container *ngIf="roleSelected == 'mentor'">
+          <img class="" src="../../../../../assets/imgs/Mask_group.svg" alt="Banner image" loading="lazy" />
+        </ng-container>
+  
+        <ng-container *ngIf="roleSelected !== 'mentor'">
+          <ng-container *ngIf="
+              dataCarousel && dataCarousel.length > 0 && !isDataCarouselLoading
+            ">
+            <app-carousel-component [lang]="defaultLang" [dataCarousel]="dataCarousel"></app-carousel-component>
+          </ng-container>
+          <ng-container *ngIf="isDataCarouselLoading">
+            <app-skeleton-carousel></app-skeleton-carousel>
+          </ng-container>
+        </ng-container>
+       </div>
+
+      <!-- <div class="tutorials-container" (click)="scrollParentToHowSphereWorks()">
+      <p class="tutorials-text">{{'WATCH_TUTORIALS_ON_HOW_SPHERE_WORKS' | translate}} ></p>
+    </div> -->
+    </div>
+    <div class="d-flex flex-col justify-center">
+      <!-- My Courses-->
+      <ng-container *ngIf="!(userEnrollCourse && userEnrollCourse.length > 0) && isAPIInProgress">
+        <div class="px-4">
+          <div class="line-label active" i18n>
+            <span>{{ "CONTINUE_LEARNING" | translate }}</span>
+          </div>
+          <div *ngIf="isTablet" class="tablet-flex">
+            <div class="tab-card-width">
+              <app-skeleton-card></app-skeleton-card>
+            </div>
+            <div class="tab-card-width">
+              <app-skeleton-card></app-skeleton-card>
+            </div>
+          </div>
+          <div *ngIf="!isTablet">
+            <app-skeleton-card></app-skeleton-card>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="userEnrollCourse && userEnrollCourse.length > 0">
+        <div class="px-4">
+          <!-- <p class="text-2xl" style="padding-top:10px" i18n>{{'MY_COURSE' | translate}}</p> -->
+          <div class="line-label active" i18n>
+            <span>{{ "CONTINUE_LEARNING" | translate }}</span>
+          </div>
+          <div [ngClass]="{ 'tablet-flex' : isTablet}">
+            <div [ngClass]="{'tab-card-width': isTablet }">
+              <ws-mobile-course-view [showProgress]="true" [displayConfig]="displayConfigContinue"
+                [courseData]="userEnrollCourse[0]"></ws-mobile-course-view>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Top certified courses -->
+      <section class="px-4" *ngIf="
+          !(topCertifiedCourse && topCertifiedCourse.length > 0) &&
+          isAPIInProgress
+        ">
+        <!-- <p class="text-2xl" i18n>{{'TOP_COURSE' | translate}}</p> -->
+        <div class="line-label" i18n>
+          <span>{{ "TOP_COURSE" | translate }}</span>
+        </div>
+        <div *ngIf="isTablet" class="tablet-flex">
+          <div class="tab-card-width">
+            <app-skeleton-card></app-skeleton-card>
+          </div>
+          <div class="tab-card-width">
+            <app-skeleton-card></app-skeleton-card>
+          </div>
+        </div>
+        <div *ngIf="!isTablet">
+          <app-skeleton-card></app-skeleton-card>
+        </div>
+      </section>
+      <section class="px-4" *ngIf="topCertifiedCourse && topCertifiedCourse.length > 0">
+        <!-- <p class="text-2xl" i18n>{{'TOP_COURSE' | translate}}</p> -->
+        <div class="line-label" i18n>
+          <span>{{ "TOP_COURSE" | translate }}</span>
+        </div>
+        <div [ngClass]="{ 'tablet-flex' : isTablet}">
+          <div [ngClass]="{'tab-card-width': isTablet }" *ngFor="let course of topCertifiedCourse">
+            <ng-container>
+              <ws-mobile-course-view [displayConfig]="displayConfig" [courseData]="course"
+                [isTablet]="isTablet"></ws-mobile-course-view>
+            </ng-container>
+          </div>
+        </div>
+        <button i18n (click)="naviagateToviewAllCourse()" class="btn-underline my-3">
+          {{ "VIEW_ALL" | translate }}
+          <span>
+            <mat-icon> expand_circle_down </mat-icon>
+          </span>
+        </button>
+      </section>
+      <!-- Featured Section-->
+      <!-- <section
+        class="px-4 p-4"
+        *ngIf="!(eaturedCourse && featuredCourse.length > 0) && isAPIInProgress"
+        style="background-color: #f7f7f7"
+      >
+       
+        <div class="line-label" i18n>
+          <span>{{ "FEATURED" | translate }}</span>
+        </div>
+        <div>
+          <app-skeleton-card></app-skeleton-card>
+        </div>
+      </section>
+      <section
+        *ngIf="featuredCourse && featuredCourse.length > 0"
+        class="px-4 p-4"
+        style="background-color: #f7f7f7"
+      >
+       
+        <div class="line-label" i18n>
+          <span>{{ "FEATURED" | translate }}</span>
+        </div>
+        <div *ngFor="let course of featuredCourse">
+          <ng-container style="background-color: #fff">
+            <ws-mobile-course-view
+              [displayConfig]="displayConfig"
+              [enableConfig]="true"
+              [courseData]="course"
+            ></ws-mobile-course-view>
+          </ng-container>
+        </div>
+      </section> -->
+    </div>
+
+    <!-- cne Section-->
+    <section #scrollToCneCourses class="px-4" *ngIf="cneCourse && cneCourse.length > 0">
+      <!-- <p class="text-2xl" i18n>CNE {{'COURSES' | translate}}</p> -->
+      <div class="line-label" i18n>
+        <span>CNE {{ "COURSES" | translate }}</span>
+      </div>
+      <!-- <div class="text-xl mt-3">{{'CURATED_STARTED' |translate }}</div> -->
+      <div [ngClass]="{ 'tablet-flex' : isTablet}">
+        <div [ngClass]="{'tab-card-width': isTablet }" *ngFor="let course of cneCourse">
+          <ng-container>
+            <ws-mobile-course-view [displayConfig]="displayConfigCNE" [courseData]="course"
+              [isTablet]="isTablet"></ws-mobile-course-view>
+          </ng-container>
+        </div>
+      </div>
+      <!-- <button i18n (click)="naviagateToviewAllCourse()" class="view-all-course">
+        {{'VIEW_ALL_Course' | translate}}
+      </button> -->
+    </section>
+
+    <!-- How does it work section -->
+    <div class="px-4 py-4 mt-5 how-does-section">
+      <section>
+        <ng-container>
+          <p class="header2 mb-0">{{ "HOW_DOES_IT_WORK" | translate }}?</p>
+          <p class="lable1">3 {{ "SIMPLE_STEPS" | translate }}</p>
+          <ws-mobile-how-does-work [data]="videoData"></ws-mobile-how-does-work>
+        </ng-container>
+      </section>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="roleSelected == 'mentor'">
+    <!-- <app-mentees-list [showBackMentee]="showBackMentee"></app-mentees-list> -->
+    <app-schedule-dashboard [firstName]="firstName"></app-schedule-dashboard>
+  </ng-container>
+</div>

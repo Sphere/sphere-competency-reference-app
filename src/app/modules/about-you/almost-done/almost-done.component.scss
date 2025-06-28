@@ -1,0 +1,237 @@
+@import 'styles/_ws-common.scss';
+@import 'styles/_ws-mixins.scss';
+
+.login-page-content {
+  box-sizing: border-box;
+  @extend %page-center;
+  @extend %height-mat-toolbar-sibling;
+  box-sizing: border-box;
+  padding: 0;
+  height: 175px;
+  max-width: 430px;
+  
+
+  @include breakpoint-s {
+    padding: 12px;
+  }
+}
+
+.login-card {
+  margin: 0;
+  // margin-top: 20px;
+  padding: 0px 20px 30px 20px;
+  color: #000;
+  font-size: 14px;
+  line-height: 17px;
+  background: #fff;
+}
+
+.input-box {
+  padding: 3px 0 3px 6px;
+  font-size: 16px;
+  line-height: 19px;
+  box-shadow: 0px 0px 2px rgb(0 0 0 / 8%);
+  border-radius: 6px;
+  border: 1px solid #e3e3e3;
+  color: #000
+}
+
+.rnBox {
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 6px;
+  border: none;
+  color: #000
+}
+
+.rnField {
+  padding: 10px;
+  border-radius: 6px;
+  // border: 1px solid #e3e3e3;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control:disabled {
+  background-color: #fff;
+  color: #808080;
+}
+
+.form-control[readonly] ::placeholder {
+  background-color: #ffff !important;
+  color: #e3e3e3;
+  border-color: #e3e3e3;
+}
+
+input {
+  border: none;
+  padding: 7px 2px;
+}
+
+.login-button {
+  width: 98px;
+  height: 38px;
+  background: #1C5D95;
+  border-radius: 50px;
+  color: #fff;
+  border: 0;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+.login-button:disabled {
+  background: #BFBFBF;
+  color: #808080;
+  cursor: default;
+}
+
+.next-btn-div {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.select-box {
+  border: none;
+  width: 97%;
+  padding-top: 8px;
+  padding-left: 0;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.select-box:focus {
+  outline: none !important;
+}
+
+select {
+  color: #808080;
+}
+
+select.ng-dirty {
+  color: #000;
+}
+
+select option:first-child {
+  color: #808080;
+}
+
+::placeholder {
+  color: #808080;
+}
+
+.form-control[readonly] {
+  background-color: #fff;
+  color: #E3E3E3;
+  opacity: 0.6;
+}
+
+.sub-title-ad {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.ad-bg-container {
+  display: flex;
+  background-color: #EFF6FC;
+  padding: 5px 5px 0;
+  border-radius: 10px;
+  // justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+
+  .ad-bg-img {
+    // width: 30px;
+    height: 60px;
+  }
+}
+
+.bg-selected-text {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  text-align: left;
+  margin-bottom: 2px !important;
+}
+
+.bg-selected-prof {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+}
+
+.bg-btn-outline {
+  color: #2E6491;
+  border: 1px solid #2E6491;
+  padding: 5px 15px;
+  place-items: center;
+  // margin-left: 41px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  
+
+}
+
+
+.bg-form-title{
+  margin: 30px 0 10px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.content-back{
+  padding-left: 15PX;
+}
+
+.col-red{
+  color: #FF0000 !important;
+}
+
+// ionic 
+
+.item-native{
+  border: none !important;
+}
+
+ion-item {
+ --background: #ffffff !important;
+}
+
+// .item-highlight{
+//   height: ;
+// }
+
+// background: var(--highlight-background);
+.word-wrap{
+
+  margin-top: 10px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.first , .last{
+  flex: 0 0 50px;
+}
+
+.text-trunk{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

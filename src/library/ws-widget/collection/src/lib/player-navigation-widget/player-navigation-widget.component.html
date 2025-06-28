@@ -1,0 +1,10 @@
+<div class="parent">
+  <button [ngClass]="{'btn-clicked' : isPlayBackBtnClicked}" class="child" (click)="navigateToPreResource()" [disabled]="!prevResourceUrl">
+        <img [src]="isPlayBackBtnClicked ? 'assets/icons/play-back-clicked.svg' : 'assets/icons/play-back.svg'" alt="previous">&nbsp;
+        {{'PREVIOUS' | translate}}
+  </button>
+  <button [ngClass]="{'btn-clicked' : isPlayNextBtnClicked}" class="child" (click)="navigateToNextContent()" [disabled]="!isProgressCheck()">
+      {{'NEXT' | translate}}&nbsp;
+      <img [src]="isPlayNextBtnClicked ? 'assets/icons/play-next-clicked.svg' : 'assets/icons/play-next.svg'" alt="next">
+  </button>
+</div>

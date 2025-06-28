@@ -1,0 +1,534 @@
+{
+    "form": {
+        "type": "config",
+        "subtype": "login_v2",
+        "action": "get",
+        "component": "*",
+        "framework": "*",
+        "data": {
+            "templateName": "login_v2",
+            "action": "get",
+            "fields": [
+                {
+                    "context": "register",
+                    "target": {
+                        "host": "https://staging.sunbirded.org",
+                        "path": "/signup",
+                        "params": [
+                            {
+                                "key": "redirect_uri",
+                                "value": "https://staging.sunbirded.org/oauth2callback"
+                            },
+                            {
+                                "key": "response_type",
+                                "value": "code"
+                            },
+                            {
+                                "key": "scope",
+                                "value": "offline_access"
+                            },
+                            {
+                                "key": "client_id",
+                                "value": "android"
+                            },
+                            {
+                                "key": "version",
+                                "value": "4"
+                            },
+                            {
+                                "key": "error_callback",
+                                "value": "https://staging.sunbirded.org/auth/realms/sunbird/protocol/openid-connect/auth"
+                            }
+                        ]
+                    },
+                    "return": [
+                        {
+                            "type": "state-error",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/sso/sign-in/error",
+                                "params": [
+                                    {
+                                        "key": "error_message",
+                                        "resolveTo": "error_message"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "password-reset-success",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                                "params": [
+                                    {
+                                        "key": "client_id",
+                                        "resolveTo": "client_id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "reset",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                                "params": [
+                                    {
+                                        "key": "client_id",
+                                        "resolveTo": "client_id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "password",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "code",
+                                        "resolveTo": "code"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "google",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "googleRedirectUrl",
+                                        "resolveTo": "googleRedirectUrl"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "state",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/sso/sign-in/success",
+                                "params": [
+                                    {
+                                        "key": "id",
+                                        "resolveTo": "id"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "context": "state",
+                    "target": {
+                        "host": "https://staging.sunbirded.org",
+                        "path": "/sign-in/sso/select-org",
+                        "params": [
+                            {
+                                "key": "client_id",
+                                "value": "android"
+                            },
+                            {
+                                "key": "version",
+                                "value": "4"
+                            },
+                            {
+                                "key": "response_type",
+                                "value": "code"
+                            },
+                            {
+                                "key": "scope",
+                                "value": "offline_access"
+                            }
+                        ]
+                    },
+                    "return": [
+                        {
+                            "type": "state-error",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/sso/sign-in/error",
+                                "params": [
+                                    {
+                                        "key": "error_message",
+                                        "resolveTo": "error_message"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "state",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/sso/sign-in/success",
+                                "params": [
+                                    {
+                                        "key": "id",
+                                        "resolveTo": "id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "migrate",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                                "params": [
+                                    {
+                                        "key": "automerge",
+                                        "resolveTo": "automerge"
+                                    },
+                                    {
+                                        "key": "payload",
+                                        "resolveTo": "payload"
+                                    },
+                                    {
+                                        "key": "state",
+                                        "resolveTo": "state"
+                                    },
+                                    {
+                                        "key": "userId",
+                                        "resolveTo": "userId"
+                                    },
+                                    {
+                                        "key": "identifierType",
+                                        "resolveTo": "identifierType"
+                                    },
+                                    {
+                                        "key": "identifierValue",
+                                        "resolveTo": "identifierValue"
+                                    },
+                                    {
+                                        "key": "goBackUrl",
+                                        "resolveTo": "goBackUrl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "context": "login",
+                    "target": {
+                        "host": "https://sphere.aastrika.org",
+                        "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                        "params": [
+                            {
+                                "key": "redirect_uri",
+                                "value": "https://sphere.aastrika.org/oauth2callback"
+                            },
+                            {
+                                "key": "response_type",
+                                "value": "code"
+                            },
+                            {
+                                "key": "scope",
+                                "value": "offline_access"
+                            },
+                            {
+                                "key": "client_id",
+                                "value": "android"
+                            },
+                            {
+                                "key": "version",
+                                "value": "4"
+                            }
+                        ]
+                    },
+                    "return": [
+                        {
+                            "type": "state-error",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/sso/sign-in/error",
+                                "params": [
+                                    {
+                                        "key": "error_message",
+                                        "resolveTo": "error_message"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "password-reset-success",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                                "params": [
+                                    {
+                                        "key": "client_id",
+                                        "resolveTo": "client_id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "reset",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                                "params": [
+                                    {
+                                        "key": "client_id",
+                                        "resolveTo": "client_id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "password",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "code",
+                                        "resolveTo": "code"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "google",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "googleRedirectUrl",
+                                        "resolveTo": "googleRedirectUrl"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "state",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/sso/sign-in/success",
+                                "params": [
+                                    {
+                                        "key": "id",
+                                        "resolveTo": "id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "migrate",
+                            "when": {
+                                "host": "https://sphere.aastrika.org",
+                                "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                                "params": [
+                                    {
+                                        "key": "automerge",
+                                        "resolveTo": "automerge"
+                                    },
+                                    {
+                                        "key": "payload",
+                                        "resolveTo": "payload"
+                                    },
+                                    {
+                                        "key": "state",
+                                        "resolveTo": "state"
+                                    },
+                                    {
+                                        "key": "userId",
+                                        "resolveTo": "userId"
+                                    },
+                                    {
+                                        "key": "identifierType",
+                                        "resolveTo": "identifierType"
+                                    },
+                                    {
+                                        "key": "identifierValue",
+                                        "resolveTo": "identifierValue"
+                                    },
+                                    {
+                                        "key": "goBackUrl",
+                                        "resolveTo": "goBackUrl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "context": "merge",
+                    "target": {
+                        "host": " https://merge.staging.sunbirded.org",
+                        "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                        "params": [
+                            {
+                                "key": "redirect_uri",
+                                "value": "https://staging.sunbirded.org/oauth2callback"
+                            },
+                            {
+                                "key": "response_type",
+                                "value": "code"
+                            },
+                            {
+                                "key": "scope",
+                                "value": "offline_access"
+                            },
+                            {
+                                "key": "client_id",
+                                "value": "android"
+                            },
+                            {
+                                "key": "version",
+                                "value": "4"
+                            },
+                            {
+                                "key": "merge_account_process",
+                                "value": "1"
+                            },
+                            {
+                                "key": "mergeaccountprocess",
+                                "value": "1"
+                            },
+                            {
+                                "key": "goBackUrl",
+                                "value": "https://merge.staging.sunbirded.org/?exit=1"
+                            }
+                        ]
+                    },
+                    "return": [
+                        {
+                            "type": "password",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "code",
+                                        "resolveTo": "code"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "google",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "googleRedirectUrl",
+                                        "resolveTo": "googleRedirectUrl"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "exit",
+                            "when": {
+                                "host": "https://merge.staging.sunbirded.org",
+                                "path": "/",
+                                "params": [
+                                    {
+                                        "key": "exit",
+                                        "resolveTo": "exit"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "context": "migrate",
+                    "target": {
+                        "host": "https://staging.sunbirded.org",
+                        "path": "/auth/realms/sunbird/protocol/openid-connect/auth",
+                        "params": [
+                            {
+                                "key": "redirect_uri",
+                                "value": "https://staging.sunbirded.org/oauth2callback"
+                            },
+                            {
+                                "key": "response_type",
+                                "value": "code"
+                            },
+                            {
+                                "key": "scope",
+                                "value": "offline_access"
+                            },
+                            {
+                                "key": "client_id",
+                                "value": "android"
+                            },
+                            {
+                                "key": "version",
+                                "value": "4"
+                            },
+                            {
+                                "key": "automerge",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    "return": [
+                        {
+                            "type": "password",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "code",
+                                        "resolveTo": "code"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "google",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/oauth2callback",
+                                "params": [
+                                    {
+                                        "key": "googleRedirectUrl",
+                                        "resolveTo": "googleRedirectUrl"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "state",
+                            "when": {
+                                "host": "https://staging.sunbirded.org",
+                                "path": "/sso/sign-in/success",
+                                "params": [
+                                    {
+                                        "key": "id",
+                                        "resolveTo": "id"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "code": "localNotification",
+                    "name": "LocalNotification",
+                    "type": 1,
+                    "config": [{
+                        "msg": "Welcome! You've choosen English",
+                        "isEnabled": true,
+                        "id": 1005,
+                        "title": "Welcome! You've choosen English"
+                    }]
+                }
+            ]
+        },
+        "created_on": "2021-05-31T15:51:25.709Z",
+        "last_modified_on": "2021-06-03T09:24:18.047Z",
+        "rootOrgId": "*"
+    }
+}

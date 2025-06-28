@@ -1,0 +1,102 @@
+<div class="quiz-container">
+    <!-- Header -->
+    <header class="quiz-header flex justify-between items-center">
+        <span class="questions-header">Question</span>
+        <mat-icon class="cursor-pointer color" (click)="onClose()">close</mat-icon>
+    </header>
+
+    <!-- Question Content -->
+    <main class="quiz-content">
+        <h2 class="quiz-question mb-1">{{ currentQuestion.text }}</h2>
+
+        <!-- Options -->
+        <mat-selection-list [class]="state.layoutDirection" class="options-list app-class" [(ngModel)]="answers[state.currentIndex]">
+            <div class="options-container">
+                <div *ngFor="let option of currentQuestion.options; trackBy: trackByFn" class="option">
+                   
+                    <ng-container *ngIf="state.showAnswerInfo && (option.isCorrect || option.optionId === state.selectedOption?.optionId); else showRadio">
+                        <div class="question-options"
+                            [ngClass]="{
+                                'correct-highlight': option.isCorrect && option.optionId === state.selectedOption?.optionId,
+                                'incorrect-highlight': !option.isCorrect && option.optionId === state.selectedOption?.optionId,
+                                'correct-answer-text': option.isCorrect && state.selectedOption && !state.selectedOption.isCorrect
+                            }">
+                            
+                            <!-- Show checkmark only for the correct answer -->
+                            <img *ngIf="option.isCorrect"
+                                src="../../../../../assets/icons/right_green_icon_answer.svg"
+                                alt="Correct"
+                                class="feedback-icon" />
+                            
+                            <!-- Show X only for the selected wrong answer -->
+                            <img *ngIf="!option.isCorrect && option.optionId === state.selectedOption?.optionId"
+                                src="../../../../../assets/icons/wrong_red_icon_answer.svg"
+                                alt="Wrong"
+                                class="feedback-icon" />
+                            
+                            <span class="pl-2 answer-text">{{ option.text }}</span>
+                        </div>
+                    </ng-container>
+                    
+                    <ng-template #showRadio>
+                        <mat-radio-button
+                            [disabled]="state.showAnswerInfo"
+                            [value]="option"
+                            [checked]="option.optionId === state.selectedOption?.optionId"
+                            (change)="onOptionSelected(option)"
+                            color="primary"
+                            class="quiz-option" [ngClass]="{'gray-radio': state.showAnswerInfo}">
+                            <div class="question-option"  [ngStyle]="{'color': state.showAnswerInfo ? 'gray' : 'black'}">{{ option.text }}</div>
+                        </mat-radio-button>
+                    </ng-template>
+                </div>
+            </div>
+        </mat-selection-list>
+    
+        <!-- Result Message -->
+        <section *ngIf="state.showAnswerInfo" class="result-message-container ">
+            <div *ngIf="state.resultMessage" class="result-message px-2 py-2"
+                [ngClass]="state.resultMessage | lowercase">
+                <img [src]="getResultIcon(state.resultMessage)" [alt]="state.resultMessage" class="result-icon " />
+                <span class="result-text pl-1">{{ state.resultMessage }}</span>
+            </div>
+
+            <p *ngIf="state.selectedOption?.answerInfo" class="result-answer-info px-2 pb-2"
+                [ngClass]="state.resultMessage | lowercase">
+                {{ state.selectedOption.answerInfo }}
+            </p>
+        </section>
+    </main>
+
+    <!-- Navigation Footer -->
+    <footer class="button-container">
+        <div class="button-group">
+            <!-- Skip/Retry Buttons -->
+            <ng-container *ngIf="!state.showAnswerInfo">
+                <button class="skip-button-outline" (click)="onSkip()">
+                    Skip
+                </button>
+            </ng-container>
+
+            <!-- <button *ngIf="state.showReset" class="skip-button" (click)="onReset()">
+                Retry
+            </button> -->
+
+            <!-- Navigation Buttons -->
+            <button *ngIf="showNextButton" class="next-button" [disabled]="!state.selectedOption"
+                (click)="onNavigate('next')">
+                Next
+            </button>
+
+            <!-- Submit/Continue Button -->
+            <button *ngIf="showSubmitButton" class="submit-button" [disabled]="!state.selectedOption"
+                (click)="onSubmit()">
+                Submit
+            </button>
+
+            <button *ngIf="showContinueButton" class="submit-button" (click)="onContinue()">
+                Continue
+            </button>
+        </div>
+    </footer>
+</div>

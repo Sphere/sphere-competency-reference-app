@@ -1,0 +1,214 @@
+/************/
+@use "sass:math";
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+.course-card-container {
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+  height: auto;
+}
+
+.course-card-container .appIcon {
+  min-width: 276px;
+  max-width: 276px;
+}
+
+.course-card-container .box {
+  // height: 250px;
+  margin: 20px 0;
+  padding-bottom: 5px;
+}
+
+.course-card-container .name {
+  color: #1C5D95;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0 !important;
+}
+
+.course-card-container .creator {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.course-card-container .description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #404040;
+}
+
+.start-btn {
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 5px 25px;
+  background: #1C5D95;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.bg-cont-white {
+  background-color: #fff;
+}
+
+.value {
+  position: relative;
+  bottom: 19px;
+  color: #000000;
+  font-weight: 600;
+  width: 275px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-progress-bar {
+  width: 100%;
+  border-radius: 40px;
+  height: 20px;
+  min-height: 20px;
+}
+
+::ng-deep.theme-igot.day-mode .mat-progress-bar-buffer {
+  background-color: #EDEDED;
+}
+
+.fitsize {
+  width: 100%;
+  max-width: 100% !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.text-over {
+  position: relative;
+}
+
+.topStyle {
+  position: absolute;
+  top: 0px;
+  padding: 5px;
+  background-color: #D68480;
+  color: #FFFFFF;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.bottomStyle {
+  position: absolute;
+  bottom: -15px;
+  right: 0px;
+  padding: 5px;
+  background-color: #519DB2;
+  color: #FFFFFF;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.card-title {
+  padding-top: 1rem;
+}
+
+.competency-card {
+  border-top: 1px solid #DCDCDC;
+  margin-top: 15px;
+  padding-top: 10px;
+  color: #000000;
+}
+
+.competency-icon {
+  height: 15px !important;
+  margin-right: 5px;
+}
+
+
+.resource-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 16px 8px 8px 8px !important;
+  align-items: flex-start !important;
+
+  .card-thumbnail {
+    $image-height: 65px;
+    width: math.div(16, 9) * $image-height;
+    cursor: pointer;
+    height: 70px;
+    min-width: 100px;
+    border-radius: 10px;
+    border: 0.4px solid #2e6491;
+  }
+
+  .card-title {
+    font-size: 18px !important;
+    color: #1C5D95;
+    line-height: 17px;
+    font-weight: 400;
+  }
+
+}
+
+.details-container {
+  place-self: center;
+}
+
+.progress-bar {
+  height: 15px;
+  width: calc(100% - 1rem);
+  border-radius: 10px;
+}
+
+.value {
+  color: #000000;
+  width: 275px;
+  display: flex;
+  font-weight: 400;
+  line-height: 14px;
+  font-size: 14px;
+}
+
+:host ::ng-deep {
+  .mat-progress-bar-fill:after {
+    background: #2E6491 !important;
+    border-radius: 10px;
+  }
+
+  .mat-progress-bar-buffer {
+    background-color: #F7F7F7 !important
+  }
+}
+
+.video-circle {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: 37px;
+  border-radius: 50%;
+  background: #00000085;
+}
+.video-circle-xl{
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.52);
+}
+.video-icon{
+  width: 27px;
+  height: 28px;
+}
+
+.display{
+  display: flex;
+  justify-content: space-between;
+}
+.dot-menu{
+  padding-top: 12px;
+}

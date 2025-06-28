@@ -1,0 +1,132 @@
+@import 'styles/_ws-mixins.scss';
+
+.banner-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.banner-heading {
+    padding-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 34px;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.banner-mini-heading {
+    padding-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.banner-image {
+    max-width: 400px;
+}
+
+.info-block {
+    flex-wrap: wrap;
+    // margin-top: -12px;
+}
+
+.info-container {
+    // padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    min-height: 64px;
+    padding: 5px;
+}
+
+.tab-info-display:nth-child(odd) {
+    background: #F1E7E3;
+}
+
+.tab-info-display:nth-child(even) {
+    background: #F5F5F5;
+}
+
+.info-disaplay-bg1 {
+    background: #F1E7E3;
+}
+
+.info-disaplay-bg2 {
+    background: #F5F5F5;
+}
+
+.info-number {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #14446C;
+    padding-left: 5px;
+}
+
+.info-text {
+    // margin-top: 5px !important;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    /* or 129% */
+    letter-spacing: -0.02em;
+    color: #14446C;
+}
+
+.tutorials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #469788;
+    height: 51px;
+}
+
+.tutorials-text {
+    /* Body */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF !important;
+    margin: 0px !important;
+}
+
+.count-sphere-icons {
+    width: 25px;
+    height: 25px;
+}
+
+.info-box {
+    align-items: center;
+    height: 28px;
+}
+
+.tab-access-info {
+    padding: 3rem 1rem;
+}
+
+.tab-banner-size {
+    width: 38vh;
+}
+
+.tab-bottom{
+    margin-bottom: 10px;
+}

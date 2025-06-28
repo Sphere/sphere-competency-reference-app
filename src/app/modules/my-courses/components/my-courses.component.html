@@ -1,0 +1,18 @@
+<div class="flex mt-4 ml-1 my-courses-container">
+  <div class="page-title">{{'MY_COURSE' | translate}}</div>
+  <ion-content>
+    <ion-tabs>
+      <ion-tab-bar slot="top" class="tabs">
+        <ion-tab-button class="tab-btn" tab="started" routerLink="/my-courses/started" routerLinkActive="active">
+          <ion-label class="tabs-title">{{'STARTED' | translate}} ({{startCount}})</ion-label>
+        </ion-tab-button>
+        <ion-tab-button class="tab-btn" tab="for-you" routerLink="/my-courses/for-you" routerLinkActive="active">
+          <ion-label class="tabs-title">{{'FOR_YOU' | translate}} ({{forYouCount}})</ion-label>
+        </ion-tab-button>
+        <ion-tab-button class="tab-btn" tab="completed" routerLink="/my-courses/completed" routerLinkActive="active">
+          <ion-label class="tabs-title">{{'COMPLETED' | translate}} ({{completedCount}})</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-content>
+</div>

@@ -1,0 +1,38 @@
+
+<ng-container *ngIf="!isSchedule">
+<div class="close-btn" (click)="closePopup()">
+  <mat-icon>
+    close
+  </mat-icon>
+</div>
+<div class="flex justify-center flex-col items-center h-full">
+  <div class="result-title">{{'RESULT' | translate}} <span
+      [ngClass]="[(pointsBasedPercentageScore>60)?'pass':'fail']">{{(pointsBasedPercentageScore>60)?('PASS'| translate):('FAIL'| translate)}}</span>
+  </div>
+  <p class="score">{{'YOUR_SCORE_IS' | translate}}:</p>
+
+  <div class="percentage">{{pointsBasedPercentageScore}}<span>%</span></div>
+
+  <div class="result-overview-container d-none">
+    <!-- <div class="result-overview">
+      <h4 class="digit">{{numCorrectAnswers}}</h4>
+      <h4 class="lable" i18n>{{'CORRECT' | translate}}</h4>
+    </div>
+    <div class="result-overview">
+      <h4 class="digit">{{numIncorrectAnswers}}</h4>
+      <h4 class="lable" i18n>{{'INCORRECT' | translate}}</h4>
+    </div> -->
+  </div>
+</div>
+</ng-container>
+
+
+<ng-container *ngIf="isSchedule">
+
+  <div class="flex flex-col justify-center items-center h-full">
+   <h1 class="title-schedule">{{'OBSERVATION' | translate }} <br />{{'SCHEDULED' | translate}}</h1>
+   <img class="pass-img" src="../../../../../assets/icons/ep_success-filled.svg" alt="green">
+   <button class="btn-continue" (click)="backSchedule()">{{'CONTINUE' | translate}}</button>
+  </div>
+
+</ng-container>

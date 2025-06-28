@@ -1,0 +1,112 @@
+.whatsapp-icon {
+  cursor: pointer;
+  z-index: 1;
+  left: 0.2rem;
+  position: fixed;
+  bottom: 11.3rem;
+  width: 3.9rem;
+}
+
+
+.cross-icon {
+  width: 5rem;
+  left: 0rem;
+  bottom: 15.5rem;
+  cursor: pointer;
+  z-index: 1;
+  position: fixed;
+}
+
+.whtsapp-text {
+  font-weight: 500;
+  color: #1C5D95;
+  background-color: white;
+  z-index: 1;
+  left: 6.1rem;
+  position: fixed;
+  bottom: 11.2rem;
+  padding: 0.1rem;
+  border-radius: 0.3rem;
+}
+
+.fcapp-text {
+  font-weight: 500;
+  color: #1C5D95 !important;
+  background-color: white;
+  z-index: 1;
+  left: 6.1rem;
+  position: fixed;
+  bottom: 7rem;
+  padding: 0.1rem;
+  border-radius: 0.3rem;
+}
+
+/* Style the Freshchat icon */
+.freshchat-icon {
+  align-items: center;
+  border-radius: 34px 8px 34px 34px;
+  bottom: 6px;
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, .26);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: -81px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+  height: 50px;
+  width: 50px;
+  background-color: #25C16F !important;
+  color: #3A4B67 !important;
+  border-color: transparent #25C16F transparent transparent;
+  top: -9px
+}
+
+#fc-icon{
+  border-radius: 6px 6px 6px 2px;
+    height: 17px;
+    left: 32%;
+   position: absolute;
+    top: 32% !important;
+    width: 43% !important;
+    background: #3A4B67 !important;
+}
+#fc-icon::before, #fc-icon::after {
+    background-color: #25C16F !important;
+}
+
+#fc-icon::after {
+    border-radius: 2px 2px 2px 2px;
+    border-top: 5px;
+    content: "";
+    height: 2px;
+    left: 4px;
+    position: absolute;
+    top: 10px;
+    width: 44%;
+}
+
+
+
+
+#fc-icon::before {
+    border-radius: 2px 2px 2px 2px;
+    border-top: 5px;
+    content: "";
+    height: 2px;
+    left: 4px;
+    position: absolute;
+    top: 5px;
+    width: 65%;
+}
+
+.freshchat-icon::after {
+    border-radius: 2px 2px 2px 2px;
+    border-top: 5px;
+    content: "";
+    height: 2px;
+    left: 4px;
+    position: absolute;
+    top: 10px;
+    width: 44%;
+}

@@ -1,0 +1,35 @@
+<ion-app>
+  <div [ngClass]="publicNavBar && showPublicNavbar && !showLoginButton ? 'show-bg h-100' : 'h-100 d-flex flex-col'">
+    <ng-container *ngIf="isNavBarRequired && showNavbar; else publicNavBar">
+      <ws-app-nav-bar [mode]="'top'" [showUPGovLogo]="showUPGovLogo"></ws-app-nav-bar>
+    </ng-container>
+    <ng-template #publicNavBar>
+      <div *ngIf="showBorder">
+        
+        <ws-app-public-nav-bar *ngIf="showPublicNavbar" [showLoginButton]="showLoginButton"></ws-app-public-nav-bar>
+      </div>      
+    </ng-template>
+    <ion-content overflow-scroll="true" [scrollEvents]="true">
+      <div *ngIf="!isTablet" [@routeAnimations]="getRouteAnimationData()" [ngClass]="[
+      !(isNavBarRequired && showNavbar) && showBorder ? 'custom-bg' : 'custom-bg-border',
+      'height-adjust height-on-bottom custom-scroll'
+      ]">
+      <router-outlet></router-outlet>
+    </div>
+      <div *ngIf="isTablet" [@routeAnimations]="getRouteAnimationData()" [ngClass]="[
+      !(isNavBarRequired && showNavbar) && showBorder ? 'custom-bg' : 'custom-bg-border',
+      'height-adjust height-on-bottom custom-scroll tab-height-adjust'
+      ]">
+        <router-outlet></router-outlet>
+      </div>
+    </ion-content>
+  </div>
+  <ng-container *ngIf="!hideFooter">
+    <ws-app-nav-bar [mode]="'bottom'" [authorised]="isAuthenticated"></ws-app-nav-bar>
+  </ng-container>
+  <!-- <ng-container *ngIf="commonUtilService.networkInfo.isNetworkAvailable">
+    <div *ngIf="isAuthenticated && isCommonChatEnabled">
+      <img src="/assets/imgs/Get-help.svg" class="chat-icon" (click)="redirectToHelpWidget()" alt="chat image" />
+    </div>
+  </ng-container> -->
+</ion-app>

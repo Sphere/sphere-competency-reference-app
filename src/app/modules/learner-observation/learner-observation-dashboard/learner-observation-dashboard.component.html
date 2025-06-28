@@ -1,0 +1,20 @@
+
+<div class="flex w-100 learner-observation-container">
+  <ws-mobile-profile-nav 
+  [trigerrNavigation]="trigerrNavigation" 
+  [showbackButton]="showbackButton"
+  [showLogOutIcon]="showLogOutIcon">
+</ws-mobile-profile-nav>
+  <ion-content>
+    <ion-tabs>
+      <ion-tab-bar slot="top" class="tabs">
+        <ion-tab-button class="tab-btn" tab="scheduled" routerLink="/app/learnere-observation/scheduled" routerLinkActive="active">
+          <ion-label class="tabs-title">{{'SCHEDULED' | translate}} </ion-label>
+        </ion-tab-button>
+        <ion-tab-button class="tab-btn" tab="completed" routerLink="/app/learnere-observation/completed" routerLinkActive="active">
+          <ion-label class="tabs-title">{{'COMPLETED' | translate}} </ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-content>
+</div>

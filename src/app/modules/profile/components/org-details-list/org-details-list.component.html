@@ -1,0 +1,64 @@
+
+<div class="org-content">
+  <ws-mobile-profile-nav [trigerrNavigation]="true" [showbackButton]="true"
+  [showLogOutIcon]="false"></ws-mobile-profile-nav>
+  <div class="d-flex heading">
+    <p class="text-2xl mt-2 mb-2" i18n>{{'ORGANIZATION_DETAILS' | translate }}</p>
+    <div *ngIf="showEdit" class="edit-icon" (click)="editOrg()">
+      <img src="../../../../../assets/icons/edit-icon-outline.svg">
+    </div>
+  </div>
+
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].profession">
+    <p class="org-lable">{{ 'BACKGROUND' | translate }}</p>
+    <p class="org-data">{{orgData[0].profession}}</p>
+  </div>
+  <div class="d-flex flex-col" 
+    *ngIf="
+      orgData && 
+      orgData[0].designation && 
+      (
+        orgData[0].profession !== 'Others' ||
+        (
+          orgData[0].profession == 'Others' && orgData[0].selectBackground == 'Other'
+        )
+      )"
+  >
+    <p class="org-lable">{{'PROFESSIONS' | translate}}</p>
+    <p class="org-data">{{ orgData[0].designation }}</p>
+  </div>
+
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].orgType && (orgData[0].profession == 'Healthcare Worker' || orgData[0].profession == 'Healthcare Volunteer' || orgData[0].profession == 'Others')">
+    <p class="org-lable">{{'ORGANIZATIONAL_TYPE' | translate }}</p>
+    <p class="org-data">{{orgData[0].orgType}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].name && (orgData[0].profession == 'Healthcare Worker' || orgData[0].profession == 'Healthcare Volunteer' || orgData[0].profession == 'Faculty')">
+    <p class="org-lable">{{'ORGANIZATIONAL_NAME' | translate }}</p>
+    <p class="org-data">{{ orgData[0].name}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="orgData && rnNumber && (orgData[0].profession == 'Healthcare Worker')">
+    <p class="org-lable">{{'RN_NUM' | translate}}</p>
+    <p class="org-data">{{ rnNumber }}</p>
+  </div>
+
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].qualification && (orgData[0].profession == 'Student')">
+    <p class="org-lable">{{'QUALIFICATION' | translate}}</p>
+    <p class="org-data">{{ orgData[0].qualification}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].instituteName && (orgData[0].profession == 'Student' || orgData[0].profession == 'Student')">
+    <p class="org-lable">{{'INSTITUE_NAME' | translate}}</p>
+    <p class="org-data">{{ orgData[0].instituteName}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].locationselect && (orgData[0].profession == 'ASHA')">
+    <p class="org-lable">{{'CITY_DISTRICT' | translate}}</p>
+    <p class="org-data">{{ orgData[0].locationselect}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].block && (orgData[0].profession == 'ASHA' || (orgData[0].profession == 'Others' && ( orgData[0].selectBackground == 'Asha Facilitator' || orgData[0].selectBackground == 'Asha Trainer' ) ) )">
+    <p class="org-lable">{{'FRMELEMNTS_LBL_BLOCK' | translate}}</p>
+    <p class="org-data">{{ orgData[0].block}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="orgData && orgData[0].subcentre && (orgData[0].profession == 'ASHA' || (orgData[0].profession == 'Others' && ( orgData[0].selectBackground == 'Asha Facilitator' || orgData[0].selectBackground == 'Asha Trainer' ) ) )">
+    <p class="org-lable">{{'SUB_CENTRE' | translate}}</p>
+    <p class="org-data">{{ orgData[0].subcentre}}</p>
+  </div>
+</div>

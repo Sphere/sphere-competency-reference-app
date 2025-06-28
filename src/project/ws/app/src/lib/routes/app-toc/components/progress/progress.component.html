@@ -1,0 +1,64 @@
+<svg
+  [style.height]="radius * 2"
+  [style.width]="radius * 2"
+  viewBox="0 0 40 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  style="pointer-events: auto;"
+>
+  <!-- Cross Mark -->
+  <g
+      (click)="handleCrossClick($event)"
+      style="pointer-events: auto; cursor: pointer;"
+    >
+      <line
+        x1="14"
+        y1="14"
+        x2="25"
+        y2="25"
+        stroke="#1C5D95"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <line
+        x1="14"
+        y1="25"
+        x2="25"
+        y2="14"
+        stroke="#1C5D95"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </g>
+
+  <!-- Circular Progress -->
+  <circle 
+    cx="20" cy="20" r="16" 
+    class="progress__meter" 
+    stroke="#D6E4F2" 
+    stroke-width="3" 
+    fill="none" 
+  />
+  <circle
+    transform="rotate(-90 20 20)"
+    class="progress__value" 
+    cx="20" 
+    cy="20" 
+    stroke="url(#paint0_angular_792_2854)" 
+    stroke-width="3" 
+    r="16"
+    fill="none"
+    [style.strokeDasharray]="circumference"
+    [style.strokeDashoffset]="dashoffset"
+  ></circle> 
+
+  <!-- Radial Gradient -->
+  <defs>
+    <radialGradient id="paint0_angular_792_2854" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 20) rotate(90) scale(20)">
+      <stop offset="0.213993" stop-color="#1C5D95" stop-opacity="0.25"/>
+      <stop offset="0.215049" stop-color="#1C5D95"/>
+      <stop offset="0.501799" stop-color="#1C5D95"/>
+      <stop offset="0.50191" stop-color="#1C5D95" stop-opacity="0.25"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,0 +1,232 @@
+@use 'sass:math';
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+.card-collection {
+  display: flex;
+  align-items: center;
+  margin: $size-xs 0;
+  padding: 12px 0;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+
+  .card-thumbnail {
+    $image-height: 65px;
+    height: $image-height;
+    width: math.div(16, 9) * $image-height;
+    margin: 0 $size-s;
+    cursor: pointer;
+    // background: url(image.png);
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-size: 20px !important;
+  }
+
+  @media only screen and (max-width:469px) {
+    flex-direction: row;
+    margin: $size-xs $size-xs $size-xs $size-xs !important;
+    align-items: flex-start !important;
+    padding: 0 10px;
+
+    .card-thumbnail {
+      height: 60px;
+      width: 80px;
+    }
+
+    .text-truncate {
+      white-space: set !important;
+    }
+
+    .card-title {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.resource-container {
+  display: flex;
+  align-items: center;
+  margin: $size-xs 0;
+  justify-content: space-between;
+  .card-thumbnail {
+    $image-height: 65px;
+    height: $image-height;
+    width: math.div(16, 9) * $image-height;
+    margin-right: $size-s;
+    cursor: pointer;
+  }
+
+  .card-title {
+    font-size: 20px !important;
+  }
+
+  @media only screen and (max-width:469px) {
+    flex-direction: row;
+    margin: $size-xs $size-xs $size-xs $size-xs !important;
+    align-items: flex-start !important;
+
+    .card-thumbnail {
+      height: 60px;
+      width: 80px;
+    }
+
+    .text-truncate {
+      white-space: unset !important;
+    }
+
+    .card-title {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.child-meta-container {
+  margin-top: $size-xs;
+  display: flex;
+
+  .child-structure {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: $size-s;
+      text-align: center;
+    }
+
+    .structure-icon {
+      margin-right: $size-s;
+    }
+  }
+
+  @media only screen and (max-width:469px) {
+    margin-left: 1.5rem;
+    justify-content: space-between;
+
+  }
+
+}
+
+// .children-container {
+//   border-left: 2px solid rgb(151, 151, 151);
+//   padding-left: $size-s;
+//   margin: $size-s 0 $size-m $size-s;
+// }
+
+.resource-container {
+  display: flex;
+  align-items: center;
+  margin: $size-s 0;
+  border-bottom: 1px solid #DDDDDD;
+
+  ws-display-content-type-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .resource-meta {
+    margin-left: $size-s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.image {
+  position: absolute !important;
+  margin-top: 2px;
+  right: 1%;
+  height: 20px !important;
+
+}
+
+.width-expand {
+  position: relative;
+  width: 256px;
+}
+
+// @media (max-width: 500px) {
+//   .image {
+//     right: -3em !important;
+//     margin-top: 8px;
+//     margin-left: 20px;
+//   }
+// }
+.greentickimg {
+  padding-left: 1px;
+}
+
+.duration {
+  color: #898989;
+
+}
+
+.resource-contents {
+
+  width: 100%;
+
+}
+
+.progrss-box {
+  align-self: center;
+  padding-right: 25px;
+
+  @include breakpoint-xs {
+    padding-right: 30px;
+  }
+
+  .content-check {
+    color: #27AE60;
+  }
+}
+
+.text-truncate {
+  white-space: normal !important;
+}
+.download-spinner{
+  margin-left: 5px;
+}
+
+.content-type{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color:#808080 !important;
+  text-transform: uppercase;
+
+
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #000000 !important;
+}
+
+.card-thumbnail1{
+  width: 45px;
+  height: 41px;
+  cursor: pointer;
+  place-self: center;
+}
+
+.card-collection-reference{
+  display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 6px !important;
+    border: 1px solid #EEEEEE;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}

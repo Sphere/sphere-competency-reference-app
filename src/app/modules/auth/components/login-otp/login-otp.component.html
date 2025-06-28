@@ -1,0 +1,115 @@
+<div class="d-flex flex-col">
+  <!-- <div class="row justify-content-between cursor-pointer align">
+    <mat-icon (click)="backScreen()">chevron_left</mat-icon>
+  </div> -->
+  <div class="login-otp-image-container">
+    <div>
+      <span class="login-otp-title">{{'CHECK_YOUR' | translate}} {{(emailPhoneType == 'phone')?'SMS':('EMAIL' |
+        translate)}}!</span>
+    </div>
+    <div>
+      <span class="login-otp-sub-title color-gray">{{'WE_HAVE_SENT_AN_OTP_TO' | translate }} <span
+          class="color-black">{{emailOrMobile}}</span></span>
+    </div>
+    <div class="bg-image-container">
+      <img class="bg-image" src="../../../../assets/imgs/otp-img.svg">
+    </div>
+
+  </div>
+
+
+
+
+  <!-- <div class="login-card"> -->
+
+  <!-- <div class="check-email-text mt-6"><span>{{'CHECK_YOUR' | translate}} {{(emailPhoneType == 'phone')?'SMS':('EMAIL' | translate)}}! </span> 
+      <span *ngIf="emailPhoneType === 'email'"
+        >{{'EMAIL' | translate}}</span>
+      <span *ngIf="emailPhoneType === 'phone'" i18n>SMS</span>!
+    </div> -->
+  <!-- <div class="enter-code-text mt-2 mb-4"><span i18n>{{'ENTER_THE'| translate}}</span><span *ngIf="emailPhoneType === 'email'"
+        i18n>{{'CODE' | translate}}</span>
+      <span *ngIf="emailPhoneType === 'phone'" i18n>OTP</span>
+    </div> -->
+  <!-- old input -->
+  <!-- <div class="input-content">
+      <div class="input-content-wrapper">
+        <form [formGroup]="loginOtpForm" id="form-login" action="" method="post">
+          <div class="form-group">
+            <input tabindex="1" id="code" i18n class="form-control input-box" formControlName="code" type="text"
+              autocomplete="off" placeholder="{{emailPhoneType === 'email'? ('CODE' | translate) : 'OTP'}}">
+          </div>
+          <div class="form-group mt-4 mb-4 activeLink">
+            <span i18n>{{'NOT_RECIEVED' | translate}} </span><span *ngIf="emailPhoneType === 'phone'" i18n>OTP?</span><span
+              *ngIf="emailPhoneType === 'email'" i18n>{{'MAIL' | translate}}</span>
+            <span class="resend-text cursor-pointer" (click)="resendOTP(emailPhoneType)" i18n> {{'CLICK_HERE' | translate}} </span> <span
+              i18n>{{'RESEND' | translate}}</span>
+          </div>
+          <span *ngIf="!loginVerification">
+            <button [disabled]="!loginOtpForm?.valid" class="form-group login-button mt-4 cursor-pointer" name="login"
+              type="submit" (click)="verifyOtp()" i18n>{{'NEXT' | translate}}</button>
+          </span>
+          <span *ngIf="loginVerification">
+            <button class="form-group login-button mt-4 cursor-pointer" name="login" type="submit"
+              (click)="loginVerifyOtp()" i18n>{{'NEXT' | translate}}</button>
+          </span>
+        </form>
+      </div>
+    </div> -->
+  <!-- </div> -->
+
+  <div class="otp-container">
+    <form [formGroup]="loginOtpForm" class="otp-form" (keydown.enter)="handleEnterKey()">
+      <input name="OTPCHRone" [ngClass]="['input-otp', (emailPhoneType == 'email')?'input-otp-email':'']"
+        formControlName="OTPCHRone" i18n-placeholder [attr.maxlength]="emailPhoneType == 'email' ? 6 : 1" type="number" 
+        inputmode="numeric" pattern="[0-9]*" type="tel" required #OTPCHRone (keyup)="onKeyUp($event, OTPCHRtwo)">
+
+      <input name="OTPCHRtwo" [ngClass]="['input-otp', (emailPhoneType == 'email')?'d-none':'']"
+        formControlName="OTPCHRtwo" i18n-placeholder maxlength="1" type="text" inputmode="numeric" pattern="[0-9]*"
+        type="tel" required #OTPCHRtwo (keyup)="onKeyUp($event, OTPCHRthree)">
+
+      <input name="OTPCHRthree" [ngClass]="['input-otp', (emailPhoneType == 'email')?'d-none':'']"
+        formControlName="OTPCHRthree" i18n-placeholder maxlength="1" type="text" inputmode="numeric" pattern="[0-9]*"
+        type="tel" required #OTPCHRthree (keyup)="onKeyUp($event, OTPCHRfour)">
+
+      <input name="OTPCHRfour" [ngClass]="['input-otp', (emailPhoneType == 'email')?'d-none':'']"
+        formControlName="OTPCHRfour" i18n-placeholder maxlength="1" type="text" inputmode="numeric" pattern="[0-9]*"
+        type="tel" required #OTPCHRfour (keyup)="(emailPhoneType == 'email')?'':''">
+
+      <!-- <input name="OTPCHRfive" [ngClass]="['input-otp', 'input-otp-email',(emailPhoneType !== 'email')?'d-none':'']" formControlName="OTPCHRfive" i18n-placeholder
+        maxlength="1" type="text" required #OTPCHRfive (keyup)="(emailPhoneType == 'email')?onKeyUp($event, OTPCHRsix):''">
+
+      <input name="OTPCHRsix" [ngClass]="['input-otp', 'input-otp-email', (emailPhoneType !== 'email')?'d-none':'']" formControlName="OTPCHRsix" i18n-placeholder
+        maxlength="1" type="text"  #OTPCHRsix> -->
+    </form>
+  </div>
+
+  <div class="otp-timer" *ngIf="resendTimerText">
+    <span class="color-gray">{{'OTP_EXPIRES_IN' | translate}} <span
+        class="color-danger">{{resendTimerText}}</span></span>
+  </div>
+
+  <div class="form-group mt-0 mb-4 activeLink">
+    <span i18n>{{'NOT_RECIEVED' | translate}} </span><span *ngIf="emailPhoneType === 'phone'" i18n>OTP?</span><span
+      *ngIf="emailPhoneType === 'email'" i18n>{{'MAIL' | translate}}</span>
+    <span class="resend-text cursor-pointer" (click)="resendOTP(emailPhoneType)" i18n> {{'CLICK_HERE' | translate}}
+    </span> <span i18n>{{'RESEND' | translate}}</span>
+  </div>
+
+  <button [ngClass]="['btn', 'fp-submit-btn',(!loginOtpForm.valid)?'button-disable':'']" (click)="verifyOtp()">
+    <span>{{'NEXT' | translate}}</span>
+    <!-- <ion-spinner name="bubbles" *ngIf="verifyOtpLoader"></ion-spinner> -->
+  </button>
+
+
+</div>
+
+<!-- <ng-container *ngIf="isOTPSent">
+
+  <div class="otp-timer" *ngIf="resendTimerText">
+    <span class="color-gray">{{'OTP_EXPIRES_IN' | translate}} <span class="color-danger">{{resendTimerText}}</span></span>
+  </div>
+
+ 
+
+</ng-container> -->

@@ -1,0 +1,27 @@
+.skeleton-carousel-container{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.skeleton-carousel-container :nth-child(1){
+    height: 173px;
+    width: 100%;
+    border-radius: 7px;
+}
+.bullets{
+    flex-direction: row;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+.bullets :nth-child(1){
+    height: 8px;
+    width: 8px;
+    border-radius: 7px;
+}
+.bullets :nth-child(2){
+    height: 8px;
+    width: 8px;
+    border-radius: 7px;
+}

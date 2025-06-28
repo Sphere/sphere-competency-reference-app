@@ -1,0 +1,55 @@
+{
+    "sphereCard": {
+        "constantData": {
+            "action": {
+                "right": {
+                    "class": "dot-menu",
+                    "eventName": "delete",
+                    "isVisisble": false,
+                    "displayType": "icon"
+                },
+                "onImage": {
+                    "eventName": "onIcon"
+                },
+                "bottom":{
+                    "class":"btn start-btn",
+                    "isVisisble":false,
+                    "displayType":"button",
+                    "text":"Start now!"
+                },
+                "center": {
+                    "class":"video-circle-xl flex items-center justify-center",
+                    "displayType":"img",
+                    "imgClass":"video-icon",
+                    "image":"assets/icons/polygon4.svg",
+                    "isVisisble":false
+                }
+            },
+            "ribbon": {
+                "right": {
+                    "class": "ui black right ribbon label"
+                },
+                "left": {
+                    "class": "ui black left ribbon label"
+                }
+            }
+            
+        },
+        "metaData": {
+            "metaData": [
+                "identifier",
+                "mimeType",
+                "appIcon",
+                "contentType",
+                "thumbnail",
+                "issueCertification",
+                "sourceName",
+                "completionPercentage"
+            ]
+        },
+        "dynamicFields": {
+            "ribbon.left.name": "sourceName",
+            "ribbon.right.name": "cneName"
+        }
+    }
+}

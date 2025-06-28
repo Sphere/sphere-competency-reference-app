@@ -1,0 +1,152 @@
+<ng-container *ngIf="mode === 'bottom' && commonUtilService.networkInfo.isNetworkAvailable">
+  <!-- <app-progress-sync-bar></app-progress-sync-bar> -->
+</ng-container>
+<mat-toolbar 
+  [color]="primaryNavbarBackground?.color" 
+  [ngStyle]="primaryNavbarBackground?.styles"
+  class=" mat-tool-navbar" 
+  [ngClass]="[
+    (mode === 'bottom')? 'bottom-nav-bar':'', 
+    !(hideCreateButton && !configSvc.userProfile && (configSvc.userProfile === null))? 'custom':'create-account-bg',
+    (mode === 'bottom') && appFramework === 'Ekshamata' && !authorised ? 'd-none' : ''
+  ]"
+  *ngIf="( mode !== 'bottom' || ( mode === 'bottom' && commonUtilService.networkInfo.isNetworkAvailable) )"
+>
+  <div class="fix-ww">
+    <ng-container *ngIf="mode === 'top' && !courseNameHeader">
+      <ng-container *ngIf="!showSphereFoundation; else ekshmatalogo">
+        <div class="logo-container flex items-center">
+          <a (click)="commonUtilService.networkInfo.isNetworkAvailable && goHomePage()" i18n-matTooltip matTooltip="Home" class="logo-dim">
+            <img src="../../../assets/imgs/sphere-logo.svg" i18n-alt
+              alt="Application Logo" id="app-logo" class="app-logo" appImageCache />
+          </a>
+        </div>
+      </ng-container>
+      <ng-template #ekshmatalogo>
+        <div class="logo-container flex items-center">
+          <a (click)="commonUtilService.networkInfo.isNetworkAvailable && goHomePage()" i18n-matTooltip matTooltip="Home" class="logo-dim">
+            <img src="../../../assets/imgs/Foundation-secondary.svg" i18n-alt
+              alt="Application Logo" id="app-logo" class="app-logo" appImageCache />
+          </a>
+        </div>
+      </ng-template>
+     
+      <ng-container *ngIf="showUPGovLogo && appFramework === 'Ekshamata' && orgName?.channelId === currentOrgId">
+        <div class="logo-container flex items-center up-gov">
+          <a class="logo-dim">
+              <img alt="Application Logo" class="app-logo" id="app-logo"
+              [src]="orgName.logo" appImageCache>
+          </a>
+        </div>
+      </ng-container>
+      <!-- <ng-container *ngIf="primaryNavbarConfig?.mediumScreen"> -->
+
+        <!-- <ws-app-search-input-home placeHolder="What do you want to learn today ?" class="my-search flex-1"
+          [ref]="'home'"></ws-app-search-input-home>
+
+        <span class="spacer"></span>
+        <button mat-raised-button *ngIf="allowAuthor" i18n
+          class="header-btn text-white ws-mat-primary-background mat-button-base hide-md"
+          [routerLink]="'/author/create'">
+          Add Course </button> -->
+
+        <section class="top-right-profile">
+          <!-- <ng-container [ngTemplateOutlet]="navbarSide" [ngTemplateOutletContext]="{ item: item }"
+            *ngFor="let item of primaryNavbarConfig?.mediumScreen?.right">
+          </ng-container> -->
+          <ng-container *ngIf="!(activeRoute.includes('app/new-tnc')) && !(activeRoute.includes('app/about-you'))">
+            <button (click)="manageProfileBTNAction()" class="menu-button">
+              <img src="{{(activeRoute !== '/profile-dashboard') ? '../../../assets/icons/menu-line.svg' : '../../../assets/icons/close-line.svg'}}" />
+            </button>
+          </ng-container>
+        </section>
+
+      <!-- </ng-container> -->
+
+    </ng-container>
+
+    <!-- <ng-container *ngIf="mode === 'top' && courseNameHeader">
+      <a routerLink="/page/home" i18n-matTooltip matTooltip="Home" class="logo-dim">
+        <img [src]="appIcon" alt="Application Logo" class="app-logo" />
+      </a>
+      <h3 class="mt-name">{{courseNameHeader}}</h3>
+
+      <span class="spacer"></span>
+      <button mat-raised-button i18n class="header-btn text-white ws-mat-primary-background mat-button-base"
+        (click)="headerService.saveCourseContent()">
+        Save</button>
+
+      <ng-container [ngTemplateOutlet]="navbarSide" [ngTemplateOutletContext]="{ item: item }"
+        *ngFor="let item of primaryNavbarConfig?.mediumScreen?.right">
+      </ng-container>
+    </ng-container> -->
+
+    <div class="flex justify-between items-center w-full" *ngIf="mode === 'bottom' && commonUtilService.networkInfo.isNetworkAvailable" [ngStyle]="{'margin':'0 5px'}">
+      <ng-container *ngIf="primaryNavbarConfig?.smallScreen && configSvc.userProfile">
+        <ng-container *ngFor="let item of primaryNavbarConfig?.smallScreen?.left">
+          <div 
+            *ngIf="(item.type === 'widgetButton' || (item.type === 'featureButton' && item.config.show))" 
+            [ngTemplateOutlet]="navbarSide" 
+            [ngTemplateOutletContext]="{ item: item }">
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="hideCreateButton && !configSvc.userProfile && (configSvc.userProfile === null)">
+        <div class="w-full">
+          <span class="new-user-label">{{'NEW_USER' | translate }}</span>
+          <a role="button" matRipple
+            class="flex items-center flex-col px-2 box-sizing-box" (click)="createAcct()" active
+            [ngStyle]="{'width':'inherit'}" routerLinkActive="ws-mat-accent-text">
+            <button mat-raised-button class="create-account-btn">{{'CREATE_ACCOUNT' | translate}}</button>
+          </a>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="primaryNavbarConfig?.smallScreen && configSvc.userProfile">
+        <div [ngTemplateOutlet]="navbarSide" [ngTemplateOutletContext]="{ item: item }"
+          *ngFor="let item of primaryNavbarConfig?.smallScreen?.right">
+        </div>
+      </ng-container>
+      <ng-container *ngIf="configSvc.userProfile" [wsResolverWidget]="btnAppsConfig"></ng-container>
+    </div>
+  </div>
+</mat-toolbar>
+
+<ng-template #navbarSide let-item="item">
+  <ng-container *ngIf="item.type === 'widgetButton'" [wsResolverWidget]="item.config"></ng-container>
+  <ng-container *ngIf="item.type === 'featureButton' && item.config.show">
+    <ws-widget-btn-feature [id]="item.config.actionBtnId" [widgetData]="item.config"
+      [showFixedLength]="true"></ws-widget-btn-feature>
+  </ng-container>
+</ng-template>
+
+<mat-menu #helpMenu="matMenu">
+  <ws-widget-btn-feature [widgetData]="{
+      actionBtnId: 'feature_aboutUs',
+      config: {
+        type: 'mat-menu-item'
+      }
+    }"></ws-widget-btn-feature>
+  <ws-widget-btn-feature [widgetData]="{
+      actionBtnId: 'channel_how_to',
+      config: {
+        type: 'mat-menu-item'
+      }
+    }"></ws-widget-btn-feature>
+  <ws-widget-btn-feature [widgetData]="{
+      actionBtnId: 'feature_FAQs',
+      config: {
+        type: 'mat-menu-item'
+      }
+    }"></ws-widget-btn-feature>
+  <ws-widget-btn-feature [widgetData]="{
+      actionBtnId: 'feature_quickTour',
+      config: {
+        type: 'mat-menu-item'
+      }
+    }"></ws-widget-btn-feature>
+  <div mat-menu-item *ngIf="isTourGuideAvailable" (click)="startTour()">
+    <mat-icon i18n-matTooltip matTooltip="Help">help</mat-icon>
+    <span class="ml-2" i18n i18n-matTooltip matTooltip="Tour Guide">Tour Guide</span>
+  </div>
+
+</mat-menu>

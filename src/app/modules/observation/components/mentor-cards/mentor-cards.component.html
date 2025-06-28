@@ -1,0 +1,43 @@
+<div class="card-container">
+  <ng-container *ngIf="data">
+    <div class="flex flex-col w-1/2">
+      <h2 class="mb-1 title" [ngClass]="display?.attempsOnly ? 'd-none' : 'd-block' ">{{data.name}}</h2>
+      <h2 class="mb-1 title" *ngIf="data.attemptName ">{{data.attemptName}}</h2>
+      <h3 class="mb-1 sub-title">{{data.designation}}</h3>
+      <h3 *ngIf="showResult" class="mb-1 sub-title">{{'ATTEMPT NO' | translate }} : {{data.attempt_serial_number}}</h3>
+      <div *ngIf="showSechdule" class="mb-1 sub-title mt-1"><img class="sechedule-icon"
+        src="../../../../../assets/icons/schedule_icon.svg" appImageCache>  {{data.scheduled_on}}</div>
+      <div *ngIf="showCreatedAt" class="mb-1 sub-title mt-1"><img class="sechedule-icon"
+        src="../../../../../assets/icons/schedule_icon.svg" appImageCache>  {{data.createdAt}}</div>
+      <div *ngIf="showLastCreatedAt" class="mb-1 sub-title"><img class="sechedule-icon"
+        src="../../../../../assets/icons/schedule_icon.svg" appImageCache>  {{data.lastCreatedAt}}</div>
+    </div>
+
+    <div class="action-btn-container text-right">
+      <ng-container *ngIf="showResult">
+        <div class="chip-container">
+          <span [ngClass]="[(result_percentage > 60)? 'pass':'fail']">{{(result_percentage > 60)? ('COMPETENT' | translate):('MENTORING_REQUIRED' | translate)}}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="showResultWithPercentage">
+        <div class="chip-container">
+          <span [ngClass]="[(result_percentage > 60)? 'pass':'fail']">{{result_percentage}}% {{(result_percentage > 60)? ('COMPETENT' | translate):('MENTORING_REQUIRED_BRACKET' | translate)}}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="display?.arrowbtn">
+        <div class="action-btn-arrow" (click)="mentee(display?.btnNavigation)">
+          <mat-icon class="material-symbols-outlined">chevron_right</mat-icon>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="display?.button">
+        <button class="action-btn" (click)="observation(display?.buttonName)">{{(display?.buttonName) | translate}}</button>
+      </ng-container>
+      <ng-container *ngIf="display?.link">
+        <button class="link-btn" (click)="attempListNavigation(display?.linkNavigation)">{{'VIEW_ATTEMPTS' | translate }}</button>
+      </ng-container>
+      <ng-container *ngIf="display?.report">
+        <button class="link-btn" (click)="downloadObservation()">{{'VIEW_REPORT' | translate }}</button>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

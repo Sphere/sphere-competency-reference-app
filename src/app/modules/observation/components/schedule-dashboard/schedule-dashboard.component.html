@@ -1,0 +1,46 @@
+<div class="flex flex-col " style="padding: 16px 20px ">
+
+ <!-- welcome message -->
+<p class="banner-heading text-2xl text-base text-capitalize">{{'WELCOME' | translate}} {{firstName}}!
+</p>
+
+<p class="banner-mini-heading mb-0">{{'START_OBSERVING' | translate}}</p>
+
+<!-- todays observation -->
+
+  <ng-container *ngIf="presentScheduleList.length > 0;">
+    <p class="division-title">{{'TODAYS_OBSERVATION' | translate}}</p>
+    <ng-container *ngFor="let mentee of presentScheduleList.slice(0, showAllSchedules ? presentScheduleList.length : 3)">
+      <app-mentor-cards [data]="mentee" [display]="displayConfigStart"></app-mentor-cards>
+    </ng-container>
+  </ng-container>
+
+
+<button class="btn-outlined" (click)="toggleShowAllSchedules()" *ngIf="!showAllSchedules && presentScheduleList.length > 3">{{'VIEW_ALL_SCHEDULES' | translate}}</button>
+
+<!-- overdue -->
+
+<ng-container *ngIf="overdueScheduleList.length > 0;">
+  <p class="division-title">{{'OVERDUE' | translate}}</p>
+  <ng-container *ngFor="let mentee of overdueScheduleList">
+    <app-mentor-cards [data]="mentee" [display]="displayConfigoverdue" [showSechdule] = 'true' ></app-mentor-cards>
+  </ng-container>
+</ng-container>
+
+
+<!-- Upcoming Schedules -->
+
+<ng-container *ngIf="upComingScheduleList.length > 0;">
+  <p class="division-title">{{'UPCOMMING_SCHEDULES' | translate}}</p>
+  <ng-container *ngFor="let mentee of upComingScheduleList">
+    <app-mentor-cards [data]="mentee" [display]="displayConfigupComing" [showSechdule] = 'true'></app-mentor-cards>
+  </ng-container>
+</ng-container>
+
+<ng-template #noData>
+  <div class="m-5">
+    <app-no-result-page title="NO_RESULT_FOUND"></app-no-result-page>
+  </div>
+</ng-template>
+
+</div>

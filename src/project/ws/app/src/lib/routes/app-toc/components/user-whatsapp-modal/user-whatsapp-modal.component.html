@@ -1,0 +1,28 @@
+<div class="whats-optin-container">
+  <div class="icon-container">
+    <img src="../../../../../../../../../assets/imgs/logos-whatsapp-icon.svg" alt="WhatsApp Icon" class="download-icon" />
+  </div>
+
+  <span class="whatsup-notification my-2">{{ 'ENABLE_WHATSUP_NOTIFICATION' | translate }}</span>
+
+  <!-- First Line -->
+  <div class="user-title">
+    {{ 'CERTIFICATE_AND_COMMUNICATION' | translate }}
+  </div>
+
+  <!-- Second Line -->
+  <div class="phone-display">
+    {{ 'WILL_BE_SENT_TO' | translate }} 
+    <span class="phone-number">{{ data?.maskedPhoneNumber }}</span>
+  </div>
+
+  <div class="btn-box mt-2">
+    <button class="btn button-outline"  (click)="ignoreWhatsAppOptIn()">
+      {{ 'IGNORE' | translate }}
+    </button>
+    <button class="btn btn-active" mat-raised-button (click)="enableWhatsAppOptIn()">
+      {{ 'ENABLE' | translate }}
+    </button>
+  </div>
+ <!--<a class="click-here mt-4" (click)="noWhatsUp()">{{'CLICK_HERE_IF_NOT_ON_WHATSUP' | translate}}</a>--> 
+</div>

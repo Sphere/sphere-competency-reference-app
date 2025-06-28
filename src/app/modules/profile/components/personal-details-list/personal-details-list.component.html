@@ -1,0 +1,79 @@
+
+<div class="personal-list-content">
+  <ws-mobile-profile-nav [trigerrNavigation]="true" [showbackButton]="true"
+    [showLogOutIcon]="false"></ws-mobile-profile-nav>
+  <div class="d-flex heading">
+    <p class="text-2xl mt-2 mb-2" i18n>{{'PRESONAL_DETAIL' | translate}}</p>
+    <div *ngIf="showEdit" class="edit-icon" (click)="editProfile()">
+      <img src="../../../../../assets/icons/edit-icon-outline.svg">
+    </div>
+  </div>
+
+
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.firstname">
+    <p class="profile-lable">{{'FIRST_NAME' | translate}}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.firstname}}</p>
+  </div>
+
+  <div class="d-flex flex-col"  *ngIf="userProfileData?.personalDetails?.surname">
+    <p class="profile-lable">{{ 'LAST_NAME' | translate }}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.surname}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.dob && showEdit">
+    <p class="profile-lable">{{ 'DOB' | translate}}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.dob}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.professionalDetails?.profession">
+    <p class="profile-lable">{{'POSITION' | translate}}</p>
+    <p class="profile-data">{{userProfileData?.professionalDetails?.profession}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.professionalDetails[0].name">
+    <p class="profile-lable">{{ 'ORG_NAME' | translate }}</p>
+    <p class="profile-data">{{userProfileData?.professionalDetails[0].name}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.nationality">
+    <p class="profile-lable">{{'NATIONALITY' | translate}}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.nationality}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.domicileMedium">
+    <p class="profile-lable">{{ 'MOTHER_TONGUE' | translate }}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.domicileMedium}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.gender">
+    <p class="profile-lable">{{ 'GENDER' | translate}}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.gender}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.maritalStatus">
+    <p class="profile-lable">{{ 'MARITAL_STATUS' | translate}}</p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.maritalStatus}}</p>
+  </div>
+  <!-- <div class="d-flex flex-col">
+    <p class="profile-lable">Language to learn in </p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.surname}}</p>
+  </div> -->
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.mobile">
+    <p class="profile-lable">{{ 'PHONE_NUMBER' | translate}} </p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.mobile}}</p>
+  </div>
+  <!-- <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.postalAddress">
+    <p class="profile-lable">{{'ADDRESS' | translate}} </p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.postalAddress}}</p> -->
+  <!-- </div> -->
+  <div class="d-flex flex-col" *ngIf="country">
+    <p class="profile-lable">{{'COUNTRY' | translate}} </p>
+    <p class="profile-data">{{country}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="state">
+    <p class="profile-lable">{{'STATE' | translate}} </p>
+    <p class="profile-data">{{state}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="distict">
+    <p class="profile-lable">{{'CITY_DISTRICT' | translate}} </p>
+    <p class="profile-data">{{distict}}</p>
+  </div>
+  <div class="d-flex flex-col" *ngIf="userProfileData?.personalDetails?.pincode">
+    <p class="profile-lable">{{ 'PINCODE' | translate }} </p>
+    <p class="profile-data">{{userProfileData?.personalDetails?.pincode}}</p>
+  </div>
+
+</div>

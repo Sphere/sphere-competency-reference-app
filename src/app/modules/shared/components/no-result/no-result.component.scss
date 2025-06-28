@@ -1,0 +1,14 @@
+.no-data-container {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    --background: transparent;
+    .no-data-text {
+        font-size: 13px;
+        font-weight: 400;
+    }
+}

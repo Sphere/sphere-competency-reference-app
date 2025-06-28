@@ -1,0 +1,166 @@
+@import 'styles/_ws-mixins.scss';
+
+.tnc-main-container{
+  padding: 22px 24px;
+}
+
+.tnc-bottom-navbar {
+  padding: 12px 0;
+  background-color: #DFEDF9;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.decline-div,
+.accept-div {
+  display: inline-block;
+  text-align: right;
+}
+
+.decline-div {
+  padding-right: 5px;
+  color: #2E6491;
+}
+
+.decline-btn {
+  background: none;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1C5D95;
+  border: none;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.accept-btn {
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  padding: 8px 32px;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: #BFBFBF;
+}
+.active{
+  background: #1C5D95;
+}
+
+.page-title{
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+  padding-bottom: 19px;
+}
+.page-thumb {
+  padding-bottom: 16px;
+  img{
+    width: 165.47px;
+    height: 141px;
+  }
+}
+.text-container{
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  .text_1{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: left;
+  }
+  .text_link{
+    padding-top: 8px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    display: list-item;
+    margin-left: 14px;
+    color: #1C5D95;
+    border-bottom: 1px solid;
+    width: fit-content;
+  }
+}
+.check-box-container{
+  display: inline-flex;
+  .check-box-text{
+    padding-left: 8px;  
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}
+
+.tnc-render-content {
+  // height: 465px;
+  padding-top: 15px;
+  overflow-y: scroll;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.back-button{
+  position: absolute;
+  padding-left: 18px;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 13px;
+}
+
+// @media screen and (min-width:600px) {
+//   .tnc-main {
+//     margin: auto;
+//     margin-top: 2rem;
+//     width: 70%;
+//   }
+// }
+
+// @media screen and (min-width:1600px) {
+//   .tnc-main {
+//     margin-top: 2rem;
+//     width: 60%;
+//   }
+// }
+
+@media screen and (max-width:599px) {
+  // .tnc-header {
+  //   display: none;
+  // }
+
+  // .tnc-render-content {
+  //   border: none;
+  //   height: unset;
+  //   max-height: calc(100vh - 170px);
+  // }
+
+  // .tnc-main {
+  //   margin-top: 50px;
+  // }
+
+  // .tnc-bottom-navbar {
+  //   z-index: 100;
+  //   position: fixed;
+  //   bottom: 0;
+  //   width: 100%;
+  // }
+
+  // .accept-div {
+  //   margin-right: 10px;
+  // }
+}

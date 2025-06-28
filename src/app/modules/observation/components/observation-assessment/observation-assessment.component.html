@@ -1,0 +1,46 @@
+<div>
+  <header class="obsevation-header">
+    <!-- TODO: Draft section -->
+    <!-- <div class="flex flex-row justify-end items-center gap-3">
+      <img src="../../../../../assets/icons/save-draft.svg" alt="">
+      <button class="save-btn" type="button">Save as Draft</button>
+    </div> -->
+    <ws-mobile-profile-nav [showbackButton]="true" [showLogOutIcon]="false"
+    [emitNavigateBack]="true" (navigateBack)="navigateBack()"></ws-mobile-profile-nav>
+
+    <div class="assesment-progress-bar d-none">
+      <span>{{this.currentSectionIndex + 1}}/{{this.questionData.sections.length}}</span>
+      <mat-progress-bar class="audio-progress-bar" color="primary" [mode]="'determinate'" [value]="progressbarValue">
+      </mat-progress-bar>
+    </div>
+    
+    <ng-container *ngIf="showTimer">
+      <div class="timer-chip"> <span><img src="../../../../../assets/icons/timer.svg" alt=""></span>
+        {{timerText}}</div>
+    </ng-container>
+    <ng-container *ngIf="showChip">
+      <div class="chip-container">
+        <span [ngClass]="[(result_percentage > 60)? 'pass':'fail']">{{result_percentage}}% {{(result_percentage > 60)?
+          ('COMPETENT' | translate):('MENTORING_REQUIRED_BRACKET' | translate)}}</span>
+      </div>
+    </ng-container>
+  </header>
+  <div id="observationQuestionSection" class="scrollable-div">
+    <ng-container *ngIf="currentSection && currentSection.pageQuestions">
+      <ng-container *ngFor="let question of currentSection.pageQuestions; let i = index;">
+        <app-viwer-observation-questions [readOnly]="!canSubmit" [question]="question" [questionIndex]="i"
+          (onValueChage)="saveAnswer($event, i)"></app-viwer-observation-questions>
+      </ng-container>
+    </ng-container>
+  </div>
+  <footer>
+    <!-- <button *ngIf="questionData.sections.length > 1" class="outlined-btn" [disabled]='diablePrevious || isAnsSubmitting'  (click)="previousQuestion()"
+      i18n>{{'PREVIOUS' | translate }}</button>
+    <button class="filled-btn" [disabled]='disableNext || isAnsSubmitting' 
+      (click)="(isCurrentSectionFormValid)?nextQuestion(): showRequiredMessage()" i18n>{{(showSubmit && canSubmit)? ('SUBMIT' | translate): ('NEXT' | translate)}}</button> -->
+    <button class="filled-btn" [ngClass]="(showSubmit && canSubmit)? 'd-block' : 'd-none'"
+      [disabled]='disableNext || isAnsSubmitting'
+      (click)="(isCurrentSectionFormValid)?nextQuestion(): showRequiredMessage()" i18n>{{(showSubmit && canSubmit)?
+      ('SUBMIT' | translate): ('NEXT' | translate)}}</button>
+  </footer>
+</div>

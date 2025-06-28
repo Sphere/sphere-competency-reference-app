@@ -1,0 +1,24 @@
+<div class="obsevation-report">
+  <header class="obsevation-report-header">
+    <ws-mobile-profile-nav [showbackButton]="true" [showLogOutIcon]="false"
+    [emitNavigateBack]="true" (navigateBack)="navigateBack()"></ws-mobile-profile-nav>
+
+    <div  class="assesment-progress-bar d-none">
+      <span>{{currentSectionIndex + 1}}/{{questionData.sections.length}}</span>
+      <mat-progress-bar class="audio-progress-bar" color="primary" [mode]="'determinate'" [value]="progressbarValue">
+      </mat-progress-bar>
+    </div>
+    <ng-container *ngIf="showChip">
+      <div class="chip-container">
+        <span [ngClass]="[(result_percentage > 60)? 'pass':'fail']">{{result_percentage}}% {{(result_percentage > 60)? ('COMPETENT' | translate):('MENTORING_REQUIRED_BRACKET' | translate)}}</span>
+      </div>
+    </ng-container>
+  </header>
+  <div id="observationQuestionSection" class="scrollable-div">
+    <ng-container *ngIf="questionData && questionData.sections && questionData.sections[currentSectionIndex].pageQuestions">
+      <ng-container *ngFor="let _question of questionData.sections[currentSectionIndex].pageQuestions; let i = index;">
+        <app-viwer-observation-questions [readOnly]="!canSubmit" [question]="_question" [questionIndex]="i" (onValueChage)="saveAnswer($event, i)"></app-viwer-observation-questions>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

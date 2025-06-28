@@ -1,0 +1,277 @@
+.content {
+  padding: 0px 20px 0px;
+}
+
+.bottom-nav-bar {
+position: fixed;
+width: 100%;
+bottom: 0;
+}
+.header2{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+}
+.how-work-content {
+box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+border-radius: 10px;
+padding: 10px;
+display: flex;
+margin-bottom: 15px;
+}
+video {
+border-radius: 10px;
+}
+.videoTitle {
+font-weight: 400;
+font-size: 14px;
+color: #000;
+margin-bottom: 5px !important;
+}
+
+.videoDes {
+color: #808080;
+font-size: 12px;
+font-weight: 400;
+}
+.horizontal-scroll-content {
+overflow-x: auto;
+height: 100%;
+flex-wrap: nowrap;
+display: flex;
+align-items: stretch;
+padding-left: 5px;
+-webkit-overflow-scrolling: touch;
+-ms-overflow-style: none;
+}
+.header-font  {
+  font-size: 24px !important;
+}
+.grey-color {
+  color:#808080;
+
+}
+.header2{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+.lable1{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.bg-grey {
+  background-color: #F7F7F7;
+}
+
+.home-footer-container {
+  display: flex;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+  flex: 1;
+  margin: 25px;
+  height: 50px;
+  justify-content: center;
+}
+
+.logos {
+  width: 45%;
+  padding: 10px;
+}
+
+.uptsu-logo {
+  height: 50px;
+}
+
+.vertical-line {
+  border: 1px solid;
+  margin: 12px;
+  border-radius: 1px;
+}
+
+.line-label {
+  position: relative;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.line-label::before,
+.line-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background: #CBC9B5;
+}
+
+.line-label span {
+  position: relative;
+  display: inline-block;
+  padding: 0px 15px;
+  background: #F6F3D9;
+  z-index: 9;
+  color: #4B4B4B;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28.8px;
+  font-family: 'Roboto';
+}
+
+.btn-underline{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16.41px;
+  color: #2E6491;
+  margin: 20px;
+  text-decoration: underline;
+  text-align: center;
+}
+.btn-content-center{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+
+.banner-container{
+  background: linear-gradient(to bottom, #e0f7fa, #fffde7);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.banner-logs{
+  display: flex;
+    justify-content: space-around;
+    gap: 200px;
+}
+
+.banner-log-main{
+  place-self: center;
+  padding-top: 12%;
+}
+
+.bottom-banner{
+  margin: 35px 35px 0 35px;
+  display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title{
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.sub-title{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+
+}
+
+.info-title{
+  font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.44px;
+    text-align: center;
+    color: #1C5D95;
+}
+
+.lg-btn{
+  background-color: #1C5D95;
+  width: 100%;
+  color: #ffffff !important;
+  // margin: 10px;
+  place-self: center;
+}
+
+.logo-foundation{
+  // margin: 20px 100px;
+  width: 120px;
+  place-self: center;
+
+}
+
+.logo-img{
+  height: 100px;
+  margin: 0 20px;
+}
+
+.info-aling{
+  place-self: center;
+}
+
+.tab-img-position{
+  width: 74vw;
+  height: 27vh;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tablet-banner-container{
+height: 46vh;
+position: relative;
+}
+
+.tab-title{
+  width: 50%;
+  font-size: 40px !important;
+  line-height: 2.7rem;
+}
+
+.tab-sub-title{
+  width: 60%;
+    margin-top: 10px;
+    line-height: 27.75px !important;
+    font-size: 20px !important;
+}
+
+.tab-login{
+  width: 59%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.tab-logo-img{
+  position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 14vh !important;
+}
+
+.tab-space{
+  gap: 8px !important;
+}
+
+.tab-logo-found{
+  width: 23vw !important;
+}
+
+.pt-6 {
+  padding-top: 1.5rem !important;
+}
+
+.login-info{
+  text-align: center;
+}

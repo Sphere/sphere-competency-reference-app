@@ -1,0 +1,267 @@
+<div class="org-edit-content">
+  <ws-mobile-profile-nav [trigerrNavigation]="false" [showbackButton]="true" [navigateToWorkInfo]="true"
+    [showLogOutIcon]="false"></ws-mobile-profile-nav>
+
+  <p class="text-2xl mt-2 mb-2" i18n>{{'ORGANIZATION_DETAILS' | translate }}</p>
+
+  <!-- form fields -->
+  <div>
+    <form [formGroup]="orgForm">
+      <!-- background select -->
+      <mat-form-field appearance="outline" class="field-fullwidth">
+        <mat-select formControlName="profession" i18n-placeholder placeholder="{{ 'BACKGROUND' | translate }}"
+          (selectionChange)="backgroundChange($event.value)">
+          <mat-option [value]="background.name" *ngFor="let background of backgroundDetails">{{background.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- background Healthcare Worker  -->
+      <ng-container *ngIf="orgForm.get('profession').value === 'Healthcare Worker'">
+        <!-- profession details -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="professSelected" i18n-placeholder placeholder="{{'PROFESSION' | translate}}">
+            <mat-option [value]="profession" *ngFor="let profession of healthWorkerProfessions">{{profession}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- other profession -->
+        <ng-container *ngIf="orgForm.get('professSelected').value === 'Others'">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="professionOtherSpecify"
+              placeholder="{{ 'PLEASE_SPECIFY_PROFESSION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+        </ng-container>
+
+        <!-- org type -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="orgType" i18n-placeholder placeholder="{{'ORGANIZATIONAL_TYPE' | translate }}">
+            <mat-option [value]="org" *ngFor="let org of orgTypes">{{org}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <ng-container *ngIf="orgForm.get('orgType').value === 'Others'">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="orgOtherSpecify"
+              placeholder="{{ 'PLEASE_SPECIFY_ORGANIZATION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+        </ng-container>
+
+        <!-- org Name -->
+        <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="orgName" placeholder="{{ 'ORGANIZATIONAL_NAME' | translate }}"
+            autocomplete="off" i18n-placeholder>
+        </mat-form-field>
+        <!-- rn number -->
+        <ng-container
+          *ngIf="orgForm.get('professSelected').value === 'Midwives' ||  orgForm.get('professSelected').value === 'GNM' || orgForm.get('professSelected').value === 'BSC Nurse'  || orgForm.get('professSelected').value === 'ANM/MPW' ">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="rnNumber" placeholder="{{'RN_NUM' | translate}}"
+              autocomplete="off" i18n-placeholder [readonly]="isRNFieldDisabled()">
+          </mat-form-field>
+        </ng-container>
+      </ng-container>
+
+      <!-- background Healthcare Volunteerr  -->
+
+      <ng-container *ngIf="orgForm.get('profession').value === 'Healthcare Volunteer'">
+        <!-- profession details -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="professSelected" i18n-placeholder placeholder="{{'PROFESSION' | translate }}">
+            <mat-option [value]="profession" *ngFor="let profession of healthVolunteerProfessions">{{profession}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- other profession -->
+        <ng-container *ngIf="orgForm.get('professSelected').value === 'Others'">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="professionOtherSpecify"
+              placeholder="{{ 'PLEASE_SPECIFY_PROFESSION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+        </ng-container>
+
+        <!-- org type -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="orgType" i18n-placeholder placeholder="{{ 'ORGANIZATIONAL_TYPE' | translate }}">
+            <mat-option [value]="org" *ngFor="let org of orgTypes">{{org}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <ng-container *ngIf="orgForm.get('orgType').value === 'Others'">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="orgOtherSpecify"
+              placeholder="{{ 'PLEASE_SPECIFY_ORGANIZATION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+        </ng-container>
+
+        <!-- org Name -->
+        <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="orgName" placeholder="{{ 'ORGANIZATIONAL_NAME' | translate }}"
+            autocomplete="off" i18n-placeholder>
+        </mat-form-field>
+
+      </ng-container>
+      <!-- background Mother/Family Member  -->
+      <!-- <ng-container *ngIf="orgForm.get('profession').value === 'Healthcare Volunteer'"></ng-container> -->
+      <!-- background Student  -->
+      <ng-container *ngIf="orgForm.get('profession').value === 'Student'">
+        <!-- profession details -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="professSelected" i18n-placeholder placeholder="{{'DESIGNATION' | translate}}">
+            <mat-option [value]="profession" *ngFor="let profession of studentVolunteerProfessions">{{profession}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- other profession -->
+        <!-- <ng-container *ngIf="orgForm.get('professSelected').value === 'Others'">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="professionOtherSpecify"
+              placeholder="{{ 'PLEASE_SPECIFY_PROFESSION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+        </ng-container> -->
+
+        <!-- qualification -->
+        <!-- <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="courseName" placeholder="{{'QUALIFICATION' | translate }}" autocomplete="off"
+            i18n-placeholder>
+        </mat-form-field> -->
+
+        <!-- institute name -->
+        <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="instituteName" placeholder="{{'INSTITUE_NAME' | translate }}"
+            autocomplete="off" i18n-placeholder>
+        </mat-form-field>
+
+      </ng-container>
+
+      <!-- background Faculty  -->
+      <ng-container *ngIf="orgForm.get('profession').value === 'Faculty'">
+        <!-- profession details -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="professSelected" i18n-placeholder placeholder="{{'DESIGNATION' | translate}}">
+            <mat-option [value]="profession" *ngFor="let profession of facultyVolunteerProfessions">{{profession}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- other profession -->
+        <!-- <ng-container *ngIf="orgForm.get('professSelected').value === 'Others'">
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="professionOtherSpecify"
+              placeholder="{{ 'PLEASE_SPECIFY_PROFESSION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+        </ng-container> -->
+
+        <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="orgName" placeholder="{{ 'INSTITUE_NAME' | translate}}">
+        </mat-form-field>
+      </ng-container>
+
+      <!-- background Asha -->
+      <ng-container *ngIf="orgForm.get('profession').value === 'ASHA'">
+        <!-- profession details -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="professSelected" i18n-placeholder placeholder="{{'DESIGNATION' | translate}}">
+            <mat-option [value]="profession" *ngFor="let profession of ashaVolunteerProfessions">{{profession}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- CITY_DISTRICT  -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="locationselect" i18n-placeholder placeholder="{{'CITY_DISTRICT' | translate}}">
+            <mat-option [value]="distict" *ngFor="let distict of disticts">{{distict}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- block name -->
+        <!-- <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="block" placeholder="{{'FRMELEMNTS_LBL_BLOCK' | translate }}"
+            autocomplete="off" i18n-placeholder>
+        </mat-form-field> -->
+
+        <!-- subcentre name -->
+        <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+          <input type="text" matInput formControlName="subcentre" placeholder="{{ 'SUB_CENTRE' | translate }}"
+            autocomplete="off" i18n-placeholder>
+        </mat-form-field>
+
+      </ng-container>
+      <!-- background Others  -->
+      <ng-container *ngIf="orgForm.get('profession').value === 'Others'">
+        <!-- other background select -->
+        <mat-form-field appearance="outline" class="field-fullwidth">
+          <mat-select formControlName="orgType" i18n-placeholder
+            placeholder="{{ 'ORGANIZATIONAL_TYPE' | translate }}">
+            <mat-option [value]="other" *ngFor="let other of otherBackground">{{other}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!--Asha Facilitator | Asha Trainer  -->
+        <ng-container
+          *ngIf="orgForm.get('selectBackground').value === 'Asha Facilitator' || orgForm.get('selectBackground').value === 'Asha Trainer'">
+          <!-- block name -->
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="block" placeholder="{{'FRMELEMNTS_LBL_BLOCK' | translate }}"
+              autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+
+          <!-- institute name -->
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="subcentre" placeholder="{{ 'SUB_CENTRE' | translate }}"
+              autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+
+        </ng-container>
+
+        <!-- other -->
+        <ng-container *ngIf="orgForm.get('selectBackground').value === 'Other'">
+          <!-- professSelected-->
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="professSelected"
+              placeholder="{{ 'PLEASE_SPECIFY_PROFESSION' | translate }}" autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+
+          <!-- org type -->
+          <mat-form-field appearance="outline" class="field-fullwidth">
+            <mat-select formControlName="orgType" i18n-placeholder
+              placeholder="{{ 'ORGANIZATIONAL_TYPE' | translate }}">
+              <mat-option [value]="org" *ngFor="let org of orgTypes">{{org}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <ng-container *ngIf="orgForm.get('orgType').value === 'Others'">
+            <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+              <input type="text" matInput formControlName="orgOtherSpecify"
+                placeholder="{{ 'PLEASE_SPECIFY_ORGANIZATION' | translate }}" autocomplete="off" i18n-placeholder>
+            </mat-form-field>
+          </ng-container>
+
+          <!-- org Name -->
+          <mat-form-field appearance="outline" class="margin-top-xs field-fullwidth">
+            <input type="text" matInput formControlName="orgName" placeholder="{{ 'ORGANIZATIONAL_NAME' | translate }}"
+              autocomplete="off" i18n-placeholder>
+          </mat-form-field>
+
+
+
+        </ng-container>
+
+      </ng-container>
+
+      <button class="save-btn" [ngClass]="{'disabled_btn': orgForm.invalid}" 
+          [disabled]="orgForm.invalid" 
+          (click)="onsubmit(orgForm)">
+          {{ 'FRMELEMNTS_BTN_SAVE' | translate }}
+      </button>
+    </form>
+  </div>
+</div>

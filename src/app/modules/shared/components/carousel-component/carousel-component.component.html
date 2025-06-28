@@ -1,0 +1,15 @@
+<div [ngClass]="isTablet ? 'carousel tab-carousel' : 'carousel'">
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let data of dataCarousel; let i = index">
+      <div class="carousel-slide" (click)="scrollToContent(data.scrollEmit)">
+        <img class="banner-image" [src]="data.img" alt="Carousel Image" loading="lazy">
+        <div class="tutorials-container">
+          <!-- <p class="tutorials-text">
+            {{data.title | translate}}
+            <span> > </span>
+          </p> -->
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</div>

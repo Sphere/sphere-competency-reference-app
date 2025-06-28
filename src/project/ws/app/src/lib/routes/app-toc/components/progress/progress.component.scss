@@ -1,0 +1,21 @@
+.progress__svg {
+  transform: rotate(-90deg);
+}
+
+.progress__meter,
+.progress__value {
+  fill: none;
+}
+
+.progress__meter {
+  stroke:#D6E4F2;
+}
+
+.progress__value {
+  stroke: #1C5D95;
+  transition: all;
+}
+
+.pause{
+  fill: #010002;
+}

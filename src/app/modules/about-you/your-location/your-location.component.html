@@ -1,0 +1,73 @@
+
+<div class="login-page-content " *ngIf="!yourBackground">
+  <div class="pl-4 top-bg"><ws-mobile-profile-nav  [showbackButton] = true [navigateToPreviesPage]= true></ws-mobile-profile-nav></div>
+  <div class="login-card">
+
+    <div class="create-acct-text mb-4" name="location-detail-heading"><span i18n>{{'MORE_ABOUT_YOU' | translate}}</span>
+      <!-- <p style="font-size: 16px;" i18n>{{'UNLOCK_COURSE' | translate}}</p> -->
+    </div>
+
+    <div class="img-box">
+      <img alt="logo" width="155" height="105" src="../../../../assets/imgs/about_you_main.svg">
+    </div>
+
+    <div class="input-content  mt-4">
+      <div class="input-content-wrapper">
+        <form [formGroup]="aboutYouForm">
+          <h3 class="mb-1" for="dob" i18n>{{'DOB' | translate}}</h3>
+          <div class="form-group mb-0">
+            <ws-dropdown-dob (dobValue)="dobData($event)"></ws-dropdown-dob>
+          </div>
+          <div>
+            <pre *ngIf="invalidDob" class="text-danger">{{'AGE_LIMIT' | translate}}</pre>
+          </div>
+
+          <h3 class="mb-1">{{'YOUR_LOCATION' | translate}}</h3>
+          <div class="form-group input-box ">
+            <select id="country" formControlName="country" class="form-control select-box" name="country-input-field"
+              (change)="countrySelect($event.target.value);disableNextBtn()">
+              <option [value]=null disabled>{{'COUNTRY' | translate}}</option>
+              <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+            </select>
+          </div>
+
+          <div class="form-group input-box">
+            <select id="state" formControlName="state" class="form-control select-box" name="state-input-field"
+              (change)="stateSelect($event.target.value);disableNextBtn()"
+              [disabled]="selectDisable">
+              <option [value]=null disabled>{{'STATE' | translate}}</option>
+              <ng-container *ngFor="let state of states">
+                <option [value]="state.name">{{ state.name }}</option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="form-group input-box">
+            <select id="distict" formControlName="distict" class="form-control select-box" name="distict-input-field"
+            [disabled]="selectDisable" (change)="disableNextBtn()">
+              <option [value]=null disabled>{{'CITY_DISTRICT' | translate}}</option>
+              <ng-container *ngFor="let distict of disticts">
+                <option [value]="distict">{{ distict }}</option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="next-btn-div">
+            <button class="form-group login-button" name="login" type="submit" id="next-btn"
+              [disabled]="!aboutYouForm?.valid || nextBtnDisable " (click)="onsubmit(aboutYouForm)">{{'NEXT' | translate}}</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- About You Form Close-->
+
+<ng-container *ngIf="yourBackground">
+  <div class="">
+    <ws-your-background [aboutYou]="aboutYouForm" (redirectToParent)="changelocation()"></ws-your-background>
+  </div>
+</ng-container>

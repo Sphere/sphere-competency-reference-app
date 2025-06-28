@@ -1,0 +1,81 @@
+.action-btn {
+    background-color: #1C5D95;
+    color: #ffffff;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    width: 105px;
+    padding: 10px;
+    margin: 0;
+    line-height: 21px !important;
+    // text-transform: capitalize;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 10px;
+    min-height: 80px;
+    padding: 10px 0px 4px;
+    //margin-top: 10px;
+    border-bottom: 1px solid #cccccc5e;
+}
+
+.sub-title {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    color: #696969;
+    // -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    padding-right: 5px;
+    line-height: 21px !important;
+}
+
+.title {
+    font-family: Roboto;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #000000;
+    // -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    padding-right: 5px;
+}
+.chip-container{
+    justify-content: center;
+    display: flex;
+    padding-bottom: 10px;
+    font-size: 12px;
+    text-align: center;
+    span{
+        padding: 3px 10px;
+        border-radius: 14px;
+    }
+    span.pass{
+        background: #48B845;
+        color: #fff;
+    }
+    span.fail{
+        background: #fc2e2e;
+        color: #fff;
+    }
+}
+
+
+.sechedule-icon{
+    width: 20px;
+    height: 20px;
+}
+
+.link-btn{
+    color: #1C5D95;
+    text-decoration: underline;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+}

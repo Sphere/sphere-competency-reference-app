@@ -1,0 +1,76 @@
+{
+    "public": {
+        "content": [
+            {
+                "type":"cne",
+                "title": "CNE_BANNER_TITLE",
+                "img": "https://aastar-app-assets.s3.ap-south-1.amazonaws.com/cne_new.svg",
+                "scrollEmit": "scrollToCneCourses"
+            },
+            {
+                "type":"tutorial",
+                "title": "TUTORIAL_BANNER_TITLE",
+                "img": "https://aastar-app-assets.s3.ap-south-1.amazonaws.com/how_works_new.svg",
+                "scrollEmit": "scrollToHowSphereWorks"
+            }
+        ],
+        "videoData": [
+            {
+                "url": "https://www.youtube.com/embed/1fqlys8mkHg",
+                "title": "VIDEO_1_TITLE",
+                "description": "VIDEO_1_DESCRIPTION"
+            },
+            {
+                "url": "https://www.youtube.com/embed/Kl28R7m2k50",
+                "title": "VIDEO_2_TITLE",
+                "description": "VIDEO_2_DESCRIPTION"
+            },
+            {
+                "url": "https://www.youtube.com/embed/JTGzCkEXlmU",
+                "title": "VIDEO_3_TITLE",
+                "description": "VIDEO_3_DESCRIPTION"
+            }
+        ],
+        "bannerStats": {
+            "lang_options": "12",
+            "cne_points": "55",
+            "certificates_issues": "1900",
+            "course": "200+",
+            "cert_course": "2200+",
+            "learner_onboard": "100,000+"
+        }
+    },
+    "private": {
+        "content": [
+            {
+                "type":"cne",
+                "title": "CNE_BANNER_TITLE",
+                "img": "https://aastar-app-assets.s3.ap-south-1.amazonaws.com/cne_new.svg",
+                "scrollEmit": "scrollToCneCourses"
+            },
+            {
+                "type":"tutorial",
+                "title": "TUTORIAL_BANNER_TITLE",
+                "img": "https://aastar-app-assets.s3.ap-south-1.amazonaws.com/how_works_new.svg",
+                "scrollEmit": "scrollToHowSphereWorks"
+            }
+        ],
+        "videoData": [
+            {
+                "url": "https://www.youtube.com/embed/1fqlys8mkHg",
+                "title": "VIDEO_1_TITLE",
+                "description": "VIDEO_1_DESCRIPTION"
+            },
+            {
+                "url": "https://www.youtube.com/embed/Kl28R7m2k50",
+                "title": "VIDEO_2_TITLE",
+                "description": "VIDEO_2_DESCRIPTION"
+            },
+            {
+                "url": "https://www.youtube.com/embed/JTGzCkEXlmU",
+                "title": "VIDEO_3_TITLE",
+                "description": "VIDEO_3_DESCRIPTION"
+            }
+        ]     
+    }
+}

@@ -1,0 +1,30 @@
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { DragDropModule } from '@angular/cdk/drag-drop'
+import { SharedModule } from '@ws/author/src/lib/modules/shared/shared.module'
+import { EditorSharedModule } from '@ws/author/src/lib/routing/modules/editor/shared/shared.module'
+import { AuthViewerModule } from '@ws/author/src/lib/modules/viewer/viewer.module'
+import { WebPageRoutingModule } from './web-page-routing.module'
+import { WebModuleEditorComponent } from './components/web-module-editor/web-module-editor.component'
+import { UploadAudioComponent } from './components/upload-audio/upload-audio.component'
+import { AudioStripsComponent } from './shared/component/audio-strips/audio-strips.component'
+import { HorizontalScrollerModule } from '../../../../../../../../../../../library/ws-widget/utils/src/lib/helpers/horizontal-scroller/horizontal-scroller.module'
+
+@NgModule({
+    declarations: [
+        WebModuleEditorComponent,
+        UploadAudioComponent,
+        AudioStripsComponent,
+    ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        EditorSharedModule,
+        DragDropModule,
+        AuthViewerModule,
+        WebPageRoutingModule,
+        HorizontalScrollerModule,
+    ],
+    exports: [WebModuleEditorComponent]
+})
+export class WebPageModule { }

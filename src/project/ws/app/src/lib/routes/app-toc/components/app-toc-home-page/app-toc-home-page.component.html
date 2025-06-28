@@ -1,0 +1,76 @@
+<ion-content overflow-scroll="true">
+ <ws-widget-btn-page-back [widgetData]="{ url: 'home',titles:[{title:'Details',url:'none'}] }">
+  </ws-widget-btn-page-back>
+
+  <!-- <ng-container *ngIf="loader">
+    <div class="mt-55 flex flex-center ">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-container> -->
+
+  <!-- <ws-app-toc-banner role="banner" [banners]="banners" [forPreview]="forPreview" [content]="content"
+    [analytics]="analytics" [resumeData]="resumeData" [batchData]="batchData">
+  </ws-app-toc-banner> -->
+  <!-- <ng-container *ngIf="!loader"> -->
+    <ws-app-app-toc-desktop role="banner" [banners]="banners" [forPreview]="forPreview" [content]="content" [ashaData]="ashaData" [navigateAshaHome]="navigateAshaHome"
+      [analytics]="analytics" [resumeResource]="resumeResource" [resumeData]="resumeData" [batchData]="batchData"></ws-app-app-toc-desktop>
+
+    <ng-container>
+      <div role="main" class="toc-body" *ngIf="!errorCode; else tocError">
+        <nav mat-tab-nav-bar id="mat-nav" class="toc-links mt-8 mat-app-background">
+          <a mat-tab-link (click)="toggleComponent('overview')" id="overview-link"
+            [ngClass]="{'ws-mat-primary-text link-active':  routelinK === 'overview'}" wsAppRetainScroll i18n>{{'OVERVIEW' | translate}}</a>
+
+          <a mat-tab-link *ngIf="content?.resourceType === 'Certification'" [routerLink]="'./certification'"
+            routerLinkActive="ws-mat-primary-text link-active">
+            <ng-container *ngIf="content?.isExternal === true" i18n>Certification</ng-container>
+            <ng-container *ngIf="content?.isExternal === false" i18n>Take Certification</ng-container>
+          </a>
+
+          <a *ngIf="content?.children?.length" mat-tab-link (click)="toggleComponent('chapters')"
+            [ngClass]="{'ws-mat-primary-text link-active': routelinK === 'chapters'}" wsAppRetainScroll i18n>{{'MODULES' | translate}}</a>
+
+            <a *ngIf="content?.references" mat-tab-link (click)="toggleComponent('references')" [routerLink]="'./references'"
+            [queryParams]="{batchId: batchId ,contentId: content.identifier}"
+            [ngClass]="{'ws-mat-primary-text link-active': routelinK === 'references'}" id="reference-link" wsAppRetainScroll
+            >{{'REFERENCE' | translate}}</a>
+          <!-- <a mat-tab-link (click)="toggleComponent('license')" [routerLink]="'./license'" [queryParams]="{license: license}"
+          [ngClass]="{'ws-mat-primary-text link-active': routelinK === 'license'}" wsAppRetainScroll i18n>License</a> -->
+
+          <a mat-tab-link (click)="redirectTo()" [ngClass]="{'ws-mat-primary-text link-active': routelinK === 'discuss'}"
+            (click)="generateInteractEvent('Discussion')" id="license-link" wsAppRetainScroll i18n>{{'DISCUSSION' | translate}}</a>
+
+        </nav>
+
+        <all-discussion-widget *ngIf="loadDiscussionWidget" style=' width: 100%;' [config]="discussionConfig">
+        </all-discussion-widget>
+
+        <router-outlet></router-outlet>
+        <ng-container>
+
+        </ng-container>
+      </div>
+    </ng-container>
+  <!-- </ng-container> -->
+
+  <ng-template #tocError>
+    <div [wsResolverWidget]="errorWidgetData"></div>
+  </ng-template>
+
+  <ng-container *ngIf="appFramework === 'Ekshamata' && showUptuLogo">
+    <app-ekshamata-footer [appName]="appFramework" [isLogo]="showUptuLogo" ></app-ekshamata-footer>
+    <!-- <div class="flex justify-center items-center flex-col">
+      <h5>Supported By</h5>
+    </div>
+    <section class="toc-footer-container">
+  
+      <div class="flex justify-center items-center flex-col logos">
+        <a class="padding-remove-small uptsu">
+          <img src="./assets/imgs/UPTSU.png" class="uptsu-logo" />
+          <span>UP-TSU</span>
+        </a>
+      </div>
+    </section> -->
+  </ng-container>
+ 
+</ion-content>

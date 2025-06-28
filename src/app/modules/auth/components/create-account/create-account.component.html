@@ -1,0 +1,222 @@
+<!-- <ws-header class="header-align"></ws-header> -->
+<div class="ca-container">
+  <ng-container>
+    <div class="d-flex justify-between items-center">
+      <ws-mobile-profile-nav [showbackButton]="true" [showLogOutIcon]="false" [emitNavigateBack]="!languagePage"
+        (navigateBack)="!languagePage && showLanguageSelection($event)" [navigateToSphereHome] = "languagePage"></ws-mobile-profile-nav>
+      <button mat-raised-button class="border-button-sm" (click)="getHelp()">
+        {{ "HELP" | translate }}
+        <span><img src="../../../../../assets/imgs/support-agent-blue.svg" alt="" /></span>
+      </button>
+    </div>
+  </ng-container>
+  <!-- Language Form -->
+  <ng-container *ngIf="languagePage">
+    <ws-app-language-selection class="h-full" [showbackButton]="false" [navigateToPreviesPage]="false"
+      [navigateTohome]="false" [trigerrNavigation]="trigerrNavigation" [showLogOutIcon]="showLogOutIcon" [navigateTohome]="true"
+      (selectedLanguage)="selectLanguage($event)" ></ws-app-language-selection>
+  </ng-container>
+  <!-- Language Form closes -->
+  <!-- Create Account Form -->
+  <ng-container *ngIf="accountPage && !otpPage && !languagePage">
+    <ng-container *ngIf="!otpPage">
+      <div class="login-card">
+        <div>
+          <span class="ca-title" i18n>{{
+            "CREATE_YOUR_ACCOUNT" | translate
+            }}</span>
+        </div>
+        <div>
+          <span class="ca-sub-title">{{
+            "START_BY_ENTERING_YOUR_DETAILS" | translate
+            }}</span>
+        </div>
+        <!-- <div class="input-content"> -->
+        <!-- <div class="input-content-wrapper"> -->
+        <form class="d-flex flex-col gap-4 mt-3" [formGroup]="createAccountForm" id="form-login" action=""
+          method="post">
+          <div class="form-group">
+            <input id="firstname-field" #firstnameInput i18n class="form-control" formControlName="firstname"
+              type="text" i18n-placeholder placeholder="{{ 'FIRST_NAME' | translate }}" autocomplete="off" />
+            <mat-error class="text-danger" i18n *ngIf="
+                createAccountForm.controls['firstname'].hasError('required') &&
+                (createAccountForm.controls['firstname'].dirty ||
+                  createAccountForm.controls['firstname'].touched)
+              ">
+              {{ "FIELD_REQUIRED" | translate }}</mat-error>
+            <mat-error class="text-danger" i18n *ngIf="
+                createAccountForm.controls['firstname'].hasError('pattern') &&
+                (createAccountForm.controls['firstname'].dirty ||
+                  createAccountForm.controls['firstname'].touched)
+              ">
+              {{ "INVALID_NAME_FORMAT" | translate }}</mat-error>
+          </div>
+          <div class="form-group">
+            <input id="lastname-field" class="form-control" i18n-placeholder formControlName="lastname" type="text"
+              placeholder="{{ 'LAST_NAME' | translate }}" autocomplete="off" />
+            <mat-error class="text-danger" i18n *ngIf="
+                createAccountForm.controls['lastname'].hasError('required') &&
+                (createAccountForm.controls['lastname'].dirty ||
+                  createAccountForm.controls['lastname'].touched)
+              ">
+              {{ "FIELD_REQUIRED" | translate }}</mat-error>
+            <mat-error class="text-danger" i18n *ngIf="
+                createAccountForm.controls['lastname'].hasError('pattern') &&
+                (createAccountForm.controls['lastname'].dirty ||
+                  createAccountForm.controls['lastname'].touched)
+              ">
+              {{ "INVALID_NAME_FORMAT" | translate }}</mat-error>
+            <!-- <label class="label-text">
+              <span i18n>( {{ "CERTIFICATE_NAME" | translate }} )</span>
+            </label> -->
+          </div>
+          <div class="form-group">
+            <input id="email-field" #emailInput class="form-control" i18n formControlName="emailOrMobile" type="text"
+              i18n-placeholder placeholder="{{ 'PHONE_OR_EMAIL' | translate }}" autocomplete="off"
+              (blur)="validateEmailOrMobile()" />
+            <mat-error class="text-danger" i18n *ngIf="
+                createAccountForm.controls['emailOrMobile'].hasError(
+                  'required'
+                ) &&
+                (createAccountForm.controls['emailOrMobile'].dirty ||
+                  createAccountForm.controls['emailOrMobile'].touched)
+              ">
+              {{ "FIELD_REQUIRED" | translate }}</mat-error>
+            <mat-error class="text-danger" i18n *ngIf="
+                createAccountForm.controls['emailOrMobile'].hasError('pattern') &&
+                createAccountForm.controls['emailOrMobile'].touched
+              ">
+              {{ "INVALID_PHONE_OR_MAIL" | translate }}</mat-error>
+          </div>
+          <div class="">
+            <div class="mb-2 ca-sub-title"><span>{{'CHOOSE_YOUR_LOGIN_METHOD' | translate}}</span></div>
+            <mat-radio-group class="d-flex flex-col gap-4" [(ngModel)]="loginSelected"
+              [ngModelOptions]="{ standalone: true }">
+              <mat-radio-button [value]="'otp'" i18n (change)="loginSelected = 'otp'">{{ "WITH_OTP" | translate
+                }}</mat-radio-button>
+              <mat-radio-button [value]="'password'" i18n (change)="loginSelected = 'password'">{{ "WITH_PASSWORD" |
+                translate }}</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="nxt-btn">
+            <button mat-raised-button [ngClass]="['solid-button', (createAccountForm.valid)?'':'btn-disabled']"
+              id="next-btn" name="login" type="submit" [disabled]="!createAccountForm?.valid"
+              (click)="optionSelected()">
+              {{ "NEXT" | translate }}
+            </button>
+          </div>
+        </form>
+
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </ng-container>
+  </ng-container>
+  <!-- Create Account Form Close-->
+
+  <input type="hidden" i18-value i18-aria-value aria-value="Signup successful"
+    value="{{ 'THANSKS_FOR_SIGNING_UP' | translate }}" #toastSuccess />
+  <input type="hidden" i18-value i18-aria-value aria-value="unable to signup" value="{{ 'ERROR_INSIGN' | translate }}"
+    #toastError />
+
+  <!-- OTP Form -->
+  <ng-container *ngIf="otpPage">
+    <ws-login-otp class="h-full" [preferedLanguage]="preferedLanguage" [signUpdata]="createAccountForm"
+      (redirectToParent)="showParentForm($event)" (showCreateAccount)="showCreateAccount($event)"
+      (showOtpPage)="showOtpPage($event)" [showbackButton]="false" [trigerrNavigation]="trigerrNavigation"
+      [showLogOutIcon]="showLogOutIcon"></ws-login-otp>
+  </ng-container>
+
+  <!-- OTP Form Close-->
+
+  <!-- confirm password open -->
+  <ng-container *ngIf="confirmPassword && !accountPage && !otpPage && !languagePage">
+    <!-- <div class="login-page-content"> -->
+    <div class="login-card">
+      <div class="lang-subtitle">
+        <h1 class="display-3 mb-1" i18n>{{ "SET_YOUR_PASSWORD" | translate }}</h1>
+      </div>
+      <form [formGroup]="createAccountWithPasswordForm" id="form-login" action="" method="post"
+        class="d-flex flex-col gap-4">
+        <div class="form-group">
+          <div class="input-group pwd" id="show_hide_password_1">
+            <input class="form-control" i18n formControlName="password" placeholder="{{ 'PASSWORD' | translate }}"
+              id="password-field" i18n-placeholder type="{{(showPassword)?'text':'password'}}" autocomplete="off" />
+            <i class="material-icons" *ngIf="!showPassword" (click)="managePasswordView()">visibility_off</i>
+            <i class="material-icons" *ngIf="showPassword" (click)="managePasswordView()">visibility</i>
+            <!-- <div class="input-group-addon iconPosition1">
+                <a href="javascript:void(0)" (click)="toggle1()">
+                  <i class="material-icons" aria-hidden="true">{{ iconChange1 }}</i>
+                </a>
+              </div> -->
+          </div>
+          <label class="label-text d-none">
+            <span i18n>{{ "PASSWORD_HINT" | translate }}</span>
+          </label>
+          <mat-error class="text-danger" i18n *ngIf="
+                createAccountWithPasswordForm.controls['password'].hasError('required') &&
+                (createAccountWithPasswordForm.controls['password'].dirty ||
+                  createAccountWithPasswordForm.controls['password'].touched)
+              ">
+            {{ "FIELD_REQUIRED" | translate }}
+          </mat-error>
+          <mat-error class="text-danger" i18n *ngIf="
+                createAccountWithPasswordForm.controls['password'].hasError('pattern') &&
+                (createAccountWithPasswordForm.controls['password'].dirty ||
+                  createAccountWithPasswordForm.controls['password'].touched)
+              ">
+            {{ "INVALID_PASSWORD" | translate }}
+          </mat-error>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group pwd">
+            <input class="form-control" formControlName="confirmPassword" type="{{(showPasswordTwo)?'text':'password'}}"
+              i18n-placeholder placeholder="{{ 'CONFIRM_PASSWORD' | translate }}" id="confpassword-field"
+              autocomplete="off" />
+            <i class="material-icons" *ngIf="!showPasswordTwo" (click)="managePasswordViewTwo()">visibility_off</i>
+            <i class="material-icons" *ngIf="showPasswordTwo" (click)="managePasswordViewTwo()">visibility</i>
+            <!-- <div class="input-group-addon iconPosition1">
+                <a href="javascript:void(0)" (click)="toggle2()">
+                  <i class="material-icons" aria-hidden="true">{{ iconChange2 }}</i>
+                </a>
+              </div> -->
+          </div>
+          <mat-error class="text-danger" i18n *ngIf="
+                createAccountWithPasswordForm.controls['confirmPassword'].hasError('required') &&
+                (createAccountWithPasswordForm.controls['confirmPassword'].dirty ||
+                  createAccountWithPasswordForm.controls['confirmPassword'].touched)
+              ">
+            {{ "FIELD_REQUIRED" | translate }}
+          </mat-error>
+          <mat-error class="text-danger" i18n *ngIf="
+                createAccountWithPasswordForm.controls['confirmPassword'].hasError('mustMatch') &&
+                (createAccountWithPasswordForm.controls['confirmPassword'].dirty ||
+                  createAccountWithPasswordForm.controls['confirmPassword'].touched)
+              ">
+            {{ "DOES_NOT_MATCH" | translate }}
+          </mat-error>
+        </div>
+
+        <div class="password-requirements">
+          <label>{{'PASSWORD_REQUIREMENTS' | translate}}:</label>
+          <ul class="d-flex gap-3 flex-col mt-2">
+            <li [ngClass]="isValidState(passwordValidations.isValidLength)">{{'MINIMUM_EIGHT_CHARACTERS' | translate}}
+            </li>
+            <li [ngClass]="isValidState(passwordValidations.hasUpper)">{{'ONE_CAPITAL_LATTER' | translate}}</li>
+            <li [ngClass]="isValidState(passwordValidations.hasNumber)">{{'ON_NUMBER' | translate}}</li>
+            <li [ngClass]="isValidState(passwordValidations.hasSpecial)">{{'ONE_SPECIAL_CHAR' | translate}}</li>
+          </ul>
+        </div>
+        <div class="nxt-btn">
+          <button [ngClass]="['solid-button', createAccountWithPasswordForm.valid ? '' : 'btn-disabled']" name="login"
+            type="submit" id="next-btn" i18n [disabled]="!createAccountWithPasswordForm?.valid"
+            (click)="onSubmit(createAccountWithPasswordForm, createAccountForm); eventTrigger('Create Account Page', 'next-btn', createAccountForm)">
+            {{ "NEXT" | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- </div> -->
+  </ng-container>
+</div>

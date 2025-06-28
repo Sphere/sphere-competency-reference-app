@@ -1,0 +1,14 @@
+<section #scrollToHowSphereWorks [ngClass]="{'tab-video-card' : isTablet}">
+  <div class="mt-2" *ngFor="let video of data;let videoIndex = index ">
+    <div [ngClass]="isTablet ? 'how-work-content tab-card' : 'how-work-content'" (click)="openVideoPopup(video)">
+      <iframe width="103" height="64" [ngClass]="isTablet ? 'how-work-iframe tab-iframe' : 'how-work-iframe'" [src]="video.url" allowfullscreen webkitallowfullscreen mozAllowFullScreen
+        allow="autoplay *; fullscreen *; encrypted-media *; microphone; camera;" frameborder="0"
+        [title]="video.title"></iframe>
+      <div [ngClass]="isTablet ? 'video-div tab-info-text': 'video-div'">
+        <p class="videoTitle">{{video.title | translate}}</p>
+        <p class="leading-snug videoDes">{{video.description | translate}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

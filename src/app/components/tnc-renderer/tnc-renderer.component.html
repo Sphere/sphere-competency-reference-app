@@ -1,0 +1,68 @@
+<div class="tnc-container" id="tnc">
+  <ng-container *ngIf="showAccordian">
+    <mat-accordion [multi]="false">
+      <mat-expansion-panel [expanded]="currentPanel === 'tnc'" (opened)="currentPanel = 'tnc'"
+        (closed)="currentPanel = 'dp'" *ngIf="generalTnc">
+        <mat-expansion-panel-header class="tnc">
+          <mat-panel-title>
+            <h2 class="mat-title tnc-title">
+              <mat-icon *ngIf="generalTnc?.isAccepted" class="accept-btn-icon ws-mat-green-text">check_circle_outline
+              </mat-icon>
+              <ng-container i18n="tnc heading" *ngIf="termsOfUser">{{'TERMS_OF_USE' | translate}}</ng-container>
+              <ng-container i18n="tnc heading" *ngIf="!termsOfUser">Terms & Conditions</ng-container>
+            </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-app-background padding-s margin-bottom-s">
+          <h3 *ngIf="!generalTnc?.isAccepted && generalTnc?.acceptedVersion.length" class="ws-mat-primary-text" i18n>
+            Terms and Conditions have been updated.
+          </h3>
+          <div class="flex items-center justify-between">
+            <div *ngIf="generalTnc?.version">
+              <ng-container i18n>{{'TC_VERSION' | translate}} </ng-container>
+              <span class="ws-mat-primary-text">{{ generalTnc?.version }}</span>
+            </div>
+          </div>
+        </div>
+        <article [innerHTML]="generalTnc?.content" class="text-justify"></article>
+        <mat-action-row>
+          <button class="policy-btn" mat-button *ngIf="termsOfUser" (click)="currentPanel = 'dp'" i18n="data privacy view">
+            {{'VIEW_PROIVACY_POLICY' | translate}}
+          </button>
+          <button mat-button *ngIf="!termsOfUser" (click)="currentPanel = 'dp'" i18n="data privacy view">
+            Data Privacy
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="currentPanel === 'dp'" (closed)="currentPanel = 'tnc'"
+        (opened)="currentPanel = 'dp'" (afterExpand)="reCenterPanel()" *ngIf="dpTnc">
+        <mat-expansion-panel-header class="tnc">
+          <mat-panel-title>
+            <h2 class="mat-title tnc-title">
+              <mat-icon *ngIf="dpTnc?.isAccepted" class="accept-btn-icon ws-mat-green-text">check_circle_outline
+              </mat-icon>
+              <ng-container i18n="data privacy heading" *ngIf="termsOfUser">{{'PRIVACY_POLICY' | translate}}</ng-container>
+              <ng-container i18n="data privacy heading" *ngIf="!termsOfUser">Data Privacy</ng-container>
+            </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-app-background padding-s margin-bottom-s">
+          <h3 *ngIf="!dpTnc?.isAccepted && dpTnc?.acceptedVersion.length" class="ws-mat-primary-text" i18n>
+            Data privacy has been upgraded.
+          </h3>
+          <div class="flex items-center justify-between">
+            <div *ngIf="dpTnc?.version">
+              <ng-container i18n>{{'DATA_PRIVACY_VERSION' | translate}} </ng-container>
+              <span class="ws-mat-primary-text">{{ dpTnc?.version }}</span>
+            </div>
+          </div>
+        </div>
+        <article [innerHTML]="dpTnc?.content | pipeSafeSanitizer: 'html'" class="text-justify"></article>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-container>
+  <ng-container *ngIf="!showAccordian">
+    <article *ngIf="currentPanel === 'tnc'" [innerHTML]="generalTnc?.content" class="text-justify"></article>
+    <article *ngIf="currentPanel === 'dp'" [innerHTML]="dpTnc?.content | pipeSafeSanitizer: 'html'" class="text-justify"></article>
+  </ng-container>
+</div>

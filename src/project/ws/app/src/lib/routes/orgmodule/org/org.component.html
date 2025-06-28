@@ -1,0 +1,60 @@
+<ng-container *ngIf="currentOrgData">
+  <div class="banner-container">
+    <div class="default-banner">
+      <ws-mobile-profile-nav [showbackButton] = "true" [navigateToPreviesPage]="true" ></ws-mobile-profile-nav>
+      <img src="assets/fusion-assets/images/Frame.svg" class="default-banner-img" *ngIf="!currentOrgData.bgImage" />
+    </div>
+    <img [src]="currentOrgData.bgImage" class="banner" *ngIf="currentOrgData.bgImage" />
+    <div class="flex-auto mr-4">
+      <div class="image-outer">
+        <img [src]="currentOrgData?.logo " alt=" Logo" class="org-logo" *ngIf="currentOrgData.logo !== ''" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="org-body ">
+    <p class="org-name mb-0">
+      {{currentOrgData.sourceName}}
+    </p>
+    <p class="org-desc mb-1">
+      {{currentOrgData?.about}}
+    </p>
+    <div class="org-details-block" *ngIf="courseCount&&courseCount.length">
+      <img src="assets/fusion-assets/icons/material-symbols_book-outline.svg">
+      <div class="org-details">
+        {{courseCount === 1 ? '1 '+ ('COURSE_OFFERED' | translate): courseCount.length + ' ' + ('COURSES_OFFERED' | translate)}}
+      </div>
+    </div>
+  </div>
+  <div class="course-container">
+    <div class="w-100">
+      <div class="flex flex-middle border-top">
+        <span class="course-header" i18n>{{'COURSES_CAPITALIZE' | translate}}</span>
+      </div>
+    </div>
+
+    <div class="mt-4 course-body" *ngIf="courseData">
+      <div>
+        <ng-container *ngFor="let widget of courseData.slice(0,cardLimit)">
+          <app-org-sourse-courses [cometencyData]="cometencyData" [btnText]="btnText" 
+          [widget]="widget" [currentOrgData]="currentOrgData"></app-org-sourse-courses>
+        </ng-container>
+
+      </div>
+      <div class="w-100 load-more-block" *ngIf="courseData&&courseData.length > 5">
+        <button class="load-more" (click)="toggleCardLimit()" *ngIf="cardLimit === 5">{{'LOAD_MORE' | translate}}</button>
+        <button class="load-more" (click)="toggleCardLimit()" *ngIf="cardLimit !== 5">{{'LOAD_LESS' | translate}}</button>
+      </div>
+
+    </div>
+
+  </div>
+</ng-container>
+<ng-container *ngIf="!currentOrgData">
+  <div class="container">
+    <div class="centered-div">
+      <h3 class="mt-15">{{'NO_ORG_DETAILS_FOUND' | translate}}</h3>
+    </div>
+  </div>
+</ng-container>

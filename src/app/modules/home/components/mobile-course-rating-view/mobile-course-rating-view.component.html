@@ -1,0 +1,40 @@
+<section class="course-container">
+  <div class="m-6">
+    <div class="box">
+      <img class="img-size" src="{{courseData.thumbnail? courseData.thumbnail : courseData.appIcon}}">
+     <p class="name pl-2">{{courseData.name}}</p>
+    </div>
+      <p class="p-align pt-4">By Nationwide Quality Of Care Network</p>
+      <div class="flex flex-row pb-2">
+        <div class="my-auto pr-2">{{rating}}</div>
+      <button mat-icon-button class="btn" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" [matTooltip]="ratingId+1" matTooltipPosition="above">
+        <mat-icon>
+          {{showIcon(i)}}
+        </mat-icon>
+      </button>
+    </div>
+      <div class="xl\:m-0">
+        <div class="cne-style">
+          <img class="format" src="assets/icons/vector.svg" alt="vector">
+          By Organization name
+        </div>
+        <div class="cne-style ml-2">
+          Certified
+        </div>
+      </div>
+      <div class="divider my-3"></div>
+      <ng-container *ngIf="courseData.competencies_v1 && cometencyData.length > 0  && showCompentencyDetails">
+        <div class="flex flex-row pb-2">
+              <img class="format mr-2" src="assets/icons/competency-icon.svg"> 
+            <div  class="flex flex-column sm\:font-semibold">
+              {{cometencyData[0].name}}
+                <ng-container *ngFor="let competency of cometencyData; let last = last; ">
+                  <div>{{competency.levels}}
+                    <span *ngIf="!last">, </span>
+                  </div>
+                </ng-container>
+            </div>
+          </div>
+      </ng-container>
+  </div>
+</section>

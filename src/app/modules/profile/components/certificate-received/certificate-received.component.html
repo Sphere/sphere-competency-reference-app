@@ -1,0 +1,36 @@
+<div class="certi-content">
+  <ws-mobile-profile-nav [trigerrNavigation]="trigerrNavigation" [showbackButton]="showbackButton"
+    [showLogOutIcon]="showLogOutIcon">
+  </ws-mobile-profile-nav>
+  <p class="text-2xl mt-2 mb-2" i18n>{{ 'MY_CERTIFICATES' | translate }}</p>
+  <ng-container *ngIf="certificates && certificates.length>0; else noData">
+    <div *ngFor="let certificate of certificates">
+      <div class="column py-2 px-0" *ngIf="certificate.image">
+        <div class="flex">
+          <div class="certificate-img-box">
+            <img [src]="certificate.image" width="100px" height="auto" />
+          </div>
+          <div class="info">
+            <div class="mx-0">
+              <p class="text-base mb-0 name">{{certificate.name}}</p>
+            </div>
+            <button mat-icon-button (click)="convertToJpeg(certificate,certificate.name)">
+              <img src="../../../../../assets/icons/download_blue.svg" alt="download">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <canvas id="certCanvas"></canvas>
+  </ng-container>
+
+  <ng-template #noData>
+    <ng-container>
+      <app-no-result [data]="noResultData"></app-no-result>
+    </ng-container>
+  </ng-template>
+
+  <!-- </div> -->
+
+
+</div>

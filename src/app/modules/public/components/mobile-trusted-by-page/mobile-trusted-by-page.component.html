@@ -1,0 +1,29 @@
+<!--trusted by banner-->
+<div class="trusted-by-container">
+  <div class="trusted-by-heading">
+    {{'TRUSTED_BY' | translate}}
+  </div>
+  <div class="trusted-by-ord-heading">
+    {{'PARTNER_ORGANIZATIONS_AND_GROWING' | translate}}
+  </div>
+  <div [ngClass]="isTablet ? 'tab-img-container' : 'trusted-by-img-container'">
+    <img src="../../../../../assets/imgs/trusted-banner-sphere.png"
+      [ngClass]="isTablet ? 'tab-image1' : 'trusted-by-img'" alt="Sphere" />
+    <div [ngClass]="isTablet ? 'tab-image2' : 'trusted-by-img2'">
+      <img src="../../../../../assets/imgs/partner-banner-compressed.jpg " alt="Sphere" />
+      <div *ngIf="isTablet" class="rmc-container tab-display">
+        <img class="tab-trusted-by-img3" src="../../../../../assets/icons/wrai.jpg " alt="Sphere" />
+        <span class="rmc-text tab-margin ">{{'WE_ARE_ENDORSING_THE_WRAI' | translate}}</span>
+        <a target="_blank" href="https://www.c3india.org/wrai-rmc-charter"
+          class="button-wrai-rmc tab-display">{{'READ_CHARTER' |
+          translate}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!isTablet" class="rmc-container">
+  <img class="trusted-by-img3" src="../../../../../assets/icons/wrai.jpg " alt="Sphere" />
+  <span class="rmc-text">{{'WE_ARE_ENDORSING_THE_WRAI' | translate}}</span>
+  <a target="_blank" href="https://www.c3india.org/wrai-rmc-charter" class="button-wrai-rmc">{{'READ_CHARTER' |
+    translate}}</a>
+</div>

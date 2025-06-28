@@ -1,0 +1,49 @@
+@import 'styles/_ws-common.scss';
+@import 'styles/_ws-vars.scss';
+@import 'styles/_ws-mixins.scss';
+
+.next-b {
+  width: $size-s;
+  height: $size-m;
+  transform: matrix(0, 1, -1, 0, 0, 0);
+  background: #00a9f4 0% 0% no-repeat padding-box;
+}
+
+.home-icon {
+  margin: auto 20px auto 20px;
+}
+
+.back-icon {
+  margin: auto 20px auto 20px;
+}
+
+.min-width {
+  min-width: 55px;
+}
+
+.bottom-arrow a {
+  position: absolute;
+  bottom: -51px;
+  z-index: 9;
+  left: 0;
+  font-size: 1em;
+  background-color: #d8d8d8;
+}
+
+a.floating-back-btn {
+  // background-color: #d8d8d8 !important;
+  margin-left: -25px;
+  border-radius: 0;
+  border: none;
+  padding: 6px 6px 6px 25px;
+
+  &:hover {
+    .text {
+      display: inline;
+    }
+  }
+
+  .text {
+    display: none;
+  }
+}

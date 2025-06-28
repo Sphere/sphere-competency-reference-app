@@ -1,0 +1,67 @@
+@import 'styles/_ws-mixins.scss';
+
+.edu-list-content {
+  padding: 0px 20px 0px;
+  // margin: auto;
+}
+
+.head-2,
+.head-3 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.02em;
+  margin: 0 !important;
+  color: #808080;
+}
+
+.heading {
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.02em;
+  color: #000000;
+  margin: 10px 0 0 !important;
+  
+}
+
+.head-2 {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.head-3 {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.add-edu-txt {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1C5D95;
+}
+
+.pencil {
+  font-size: 1.2rem !important;
+}
+
+.add-icon {
+  color: #1C5D95;
+  font-size: 20px;
+}
+
+// .edit-icon {
+//   padding: 5px 10px;
+// }
+
+
+.edit-icon {
+  width: 25px;
+  padding: 12px 0 0 10px;
+}

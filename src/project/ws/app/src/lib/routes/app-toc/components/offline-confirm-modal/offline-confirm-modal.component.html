@@ -1,0 +1,11 @@
+<div class="overview-container">
+  <div class="storage-info">
+     <span class="storage-value">{{'AVAIALABLE_STROAGE' | translate}}: {{freeSpace}}</span>
+  </div>
+  <span class="size-info">{{'SIZE_COLON' | translate}}{{courseSize}} </span>
+  <span class="sub-title">{{'CONTINUE_DOWNLOAD_USING_MOBILE_DATA' | translate}}</span>
+  <div class="btn-box">
+    <button class="btn" mat-raised-button (click)="closeNo()"> {{ 'NO' | translate }} </button>
+    <button class="btn btn-active" mat-raised-button (click)="downloadAllContent()">{{'DOWNLOADS_OFFLINE' | translate}}</button>
+  </div>
+</div>

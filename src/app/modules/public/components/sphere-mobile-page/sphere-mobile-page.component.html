@@ -1,0 +1,120 @@
+<!--banner and up skill section-->
+<app-sphere-mobile-home></app-sphere-mobile-home>
+
+<!-- Top courses -->
+<section class="px-4 flex flex-col justify-content-center">
+  <div class="line-label" i18n>
+    <span>{{ "TOP_CERTIFIED_COURSE" | translate }}</span>
+  </div>
+  <ng-container *ngIf="!(topCertifiedCourse && topCertifiedCourse.length > 0)">
+    <div *ngIf="!isTablet">
+      <app-skeleton-card></app-skeleton-card>
+      <app-skeleton-card></app-skeleton-card>
+      <app-skeleton-card></app-skeleton-card>
+    </div>
+    <div *ngIf="isTablet" class="tablet-flex">
+      <div class="tab-card-width">
+        <app-skeleton-card></app-skeleton-card>
+      </div>
+      <div class="tab-card-width">
+        <app-skeleton-card></app-skeleton-card>
+      </div>
+      <div class="tab-card-width">
+        <app-skeleton-card></app-skeleton-card>
+      </div>
+      <div class="tab-card-width">
+        <app-skeleton-card></app-skeleton-card>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="topCertifiedCourse && topCertifiedCourse.length > 0">
+    <div [ngClass]="{ 'tablet-flex' : isTablet}">
+      <div [ngClass]="{'tab-card-width': isTablet }"
+        *ngFor="let course of (viewTopcourses ? topCertifiedCourse : (isTablet ? topCertifiedCourse.slice(0, 4) : topCertifiedCourse.slice(0, 3)))">
+        <ws-mobile-course-view [courseData]="course" [showCompentencyDetails]="true"
+          [displayConfig]="displayConfig"></ws-mobile-course-view>
+      </div>
+    </div>
+  </ng-container>
+  <button class="btn-underline" (click)="toggleViewTopCourses()"
+    *ngIf="!viewTopcourses && (isTablet ? topCertifiedCourse.length > 4 : topCertifiedCourse.length > 3)">
+    {{ "VIEW_ALL" | translate
+    }}<span>
+      <mat-icon> expand_circle_down </mat-icon>
+    </span>
+  </button>
+</section>
+
+<!--featured course-->
+<!-- <section class="px-4">
+  <div class="line-label" i18n>
+    <span>{{'FEATURED'|translate}}</span>
+  </div>
+  <ng-container *ngIf="!(featuredCourse)">
+    <app-skeleton-card></app-skeleton-card>
+  </ng-container>
+  <ng-container *ngIf="featuredCourse" style="background-color: #FFF;">
+    <ws-mobile-course-view [enableConfig]="true" [courseData]="featuredCourse" [showCompentencyDetails]="true"
+      [displayConfig]="displayConfig"></ws-mobile-course-view>
+  </ng-container>
+</section> -->
+
+<!--CNE course-->
+<section #scrollToCneCourses class="px-4 flex flex-col justify-content-center">
+  <div class="line-label" i18n>
+    <span>CNE {{ "COURSES" | translate }}</span>
+  </div>
+  <!-- <p class="text-2xl" i18n>CNE {{'COURSES' | translate}}</p>
+  <p class="text-xl mt-1">{{'CURATED_STARTED' |translate }}</p> -->
+  <ng-container *ngIf="cneCourse && cneCourse.length > 0">
+    <div [ngClass]="{ 'tablet-flex' : isTablet}">
+      <div [ngClass]="{'tab-card-width': isTablet }"
+        *ngFor="let course of (viewCnecourses ? cneCourse : (isTablet ? cneCourse.slice(0, 4) : cneCourse.slice(0, 3)))">
+        <ws-mobile-course-view [courseData]="course" [showCompentencyDetails]="true"
+          [displayConfig]="displayConfigCNE"></ws-mobile-course-view>
+      </div>
+    </div>
+  </ng-container>
+
+  <button class="btn-underline" (click)="toggleViewCneCourses()" *ngIf="!viewCnecourses && (isTablet ? cneCourse.length > 4 : cneCourse.length > 3)">
+    {{ "VIEW_ALL" | translate }}
+    <span>
+      <mat-icon> expand_circle_down </mat-icon>
+    </span>
+  </button>
+  <!-- <a (click)="naviagateToviewAllCourse()">
+    <p class="text-center blue-color text-xl" i18n> {{'VIEW_ALL_Course' | translate}}</p>
+  </a> -->
+</section>
+
+<div class="mx-4">
+  <section class="mt-4">
+    <ws-mobile-trusted-by-page></ws-mobile-trusted-by-page>
+  </section>
+  <!--50+ organization-->
+  <section class="mt-4" [hidden]="true">
+    <!-- <ws-mobile-organization></ws-mobile-organization> -->
+  </section>
+</div>
+<div class="content">
+  <!-- How does it work section -->
+  <section class="mt-4">
+    <!-- <ng-container> -->
+    <p class="header2 mb-0">{{'HOW_DOES_IT_WORK' | translate}}?</p>
+    <p class="lable1 grey-color">{{'THREE_SIMPLE_STEPS' | translate}}</p>
+    <ws-mobile-how-does-work [data]="videoData"></ws-mobile-how-does-work>
+    <!-- </ng-container> -->
+  </section>
+</div>
+
+<app-sphere-footer [isHomePage]="isHomePage"></app-sphere-footer>
+<!--FAQ section-->
+<!-- <section class="mt-4 mb-10">
+  <ws-mobile-page-faq></ws-mobile-page-faq>
+</section> -->
+<!-- <section class="mt-4 mb-10">
+  <ws-mobile-latest-comment></ws-mobile-latest-comment>
+</section> -->
+<!-- <section class="mt-4 mb-10">
+  <ws-mobile-testimonials></ws-mobile-testimonials>
+</section> -->

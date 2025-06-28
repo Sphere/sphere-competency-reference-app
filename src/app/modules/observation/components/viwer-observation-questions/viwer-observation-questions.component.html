@@ -1,0 +1,36 @@
+<div [ngClass]="['px-4', (readOnly)?'pointer-none':'']">
+  <p class="question-text">{{ question.questionNumber }}. {{ question.question[0] }}</p>
+  <div *ngIf="question.responseType === 'text'">
+    <mat-form-field appearance="outline" class="margin-top-xs w-full" >
+      <textarea matInput placeholder="Enter your text here"  [(ngModel)]="inputValue" (input)="handleChange($event)"></textarea>
+    </mat-form-field>
+  </div>
+  <div *ngIf="question.responseType === 'number'">
+    <mat-form-field appearance="outline" class="margin-top-xs w-full" >
+      <input matInput type="number" placeholder="Enter a number" [(ngModel)]="inputValue" (input)="handleChange($event)" />
+    </mat-form-field>
+  </div>
+  <mat-radio-group *ngIf="question.responseType === 'radio'" [(ngModel)]="inputValue" (change)="handleChange($event)">
+    <div *ngFor="let option of question.options">
+      <mat-radio-button class="example-radio-button" [value]="option.value"> {{ option.label }}</mat-radio-button>
+    </div>
+  </mat-radio-group>
+  <div *ngIf="question.responseType === 'multiselect'">
+    <div *ngFor="let option of question.options; let i = index">
+        <mat-checkbox [value]="option.value" [(ngModel)]="inputValue[i].checked" (change)="handleChange($event)">
+          {{ option.label }}</mat-checkbox>
+    </div>
+  </div>
+  <div  *ngIf="question.responseType === 'date'">
+    <mat-form-field appearance="outline" class="w-full ">
+      <mat-label>Choose a date</mat-label>
+      <input readonly matInput [matDatepicker]="picker" [(ngModel)]="inputValue" (dateInput)="handleChange($event)">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+  
+   
+  

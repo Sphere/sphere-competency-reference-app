@@ -1,0 +1,224 @@
+<!-- <div *ngIf="loader" class="mt-55 flex flex-center ">
+  <mat-spinner></mat-spinner>
+</div> -->
+<!-- ******************* role as obs_mentor ********************* -->
+<ng-container *ngIf="role == 'obs_mentor'">
+  <div class="role-select">
+    <div *ngIf="roleSelected == 'learner'" class="px-2"> <img src="../../../../../assets/icons/student.svg"> {{'LEARNER'
+      | translate}} {{'TAB_2' | translate }}</div>
+    <div *ngIf="roleSelected == 'mentor'" class="px-2"> <img src="../../../../../assets/icons/group.svg"> {{'MENTOR' |
+      translate}} {{'TAB_2' | translate }}</div>
+    <button class="d-flex items-center" [matMenuTriggerFor]="menu" (menuOpened)="preventCloseOnClickOut()"
+      (menuClosed)="allowCloseOnClickOut()"> {{'CHANGE_ROLE' | translate}} <mat-icon
+        class="material-symbols-outlined">expand_more</mat-icon> </button>
+  </div>
+  <mat-menu #menu="matMenu">
+    <div class="menu-btn">
+      <button class="btn-select" (click)="learner(); closeMenu(menu)">{{'LEARNER' | translate}} <img
+          src="../../../../../assets/icons/student.svg"> </button>
+      <button class="btn-select mt-3" (click)="mentor(); closeMenu(menu)">{{'MENTOR' | translate}} <img
+          src="../../../../../assets/icons/group.svg"> </button>
+    </div>
+  </mat-menu>
+</ng-container>
+
+<div class="content-home">
+
+  <ng-container *ngIf="roleSelected == 'learner' ||  roleSelected == 'public'">
+
+    <!-- ************** designation as ASHA ********************* -->
+    <ng-container *ngIf="(designation === 'ANM-BIHAR' || designation === 'ANM-STUDENT-BIHAR' || designation === 'ANM-FACULTY-BIHAR' || designation === 'GNM-Bihar' || designation === 'GNM-BIHAR') && showanmHome; else oldHome"  >
+      <div class="px-4">
+       
+          <div class="heading-container mb-3">
+            <span class="heading">{{'WELCOME' | translate}} {{firstName}}</span>
+            <!-- <span class="sub-heading"> {{'YOUR_PLANS' | translate}}</span> -->
+          </div>
+          <ng-container *ngIf="ashaData.length > 0">
+            
+             
+              <!-- Section for ongoing courses -->
+              <ng-container *ngIf="inProgressCourses.length > 0">
+                <div class="asha-course-list">
+                  <div class="line-label active">
+                    <span>{{ 'YOUR_PLANS' | translate }} ({{ inProgressCourses?.length }})</span>
+                  </div>
+              
+                  <ng-container *ngFor="let cardData of (showAllCourses ? inProgressCourses : inProgressCourses.slice(0, 4)); let i = index">
+                    <app-asha-learning
+                      [ashaData]="cardData"
+                      [inProgressCoursesCount]="inProgressCourses.length"
+                      [expand]="cardData?.expand">
+                    </app-asha-learning>
+                  </ng-container>
+              
+                  <button i18n (click)="viewAll()" class="btn-underline my-2" ion-button icon-only>
+                    {{ showAllCourses ? ("VIEW_LESS" | translate) : ("VIEW_ALL" | translate) }}
+                    <span class="icon-circle">
+                      <ion-icon [name]="showAllCourses ? 'chevron-up' : 'chevron-down'"></ion-icon>
+                    </span>
+                  </button>
+                </div>
+              </ng-container>
+              
+                <!-- Section for completed courses -->
+              <ng-container *ngIf="completedCourses.length > 0">
+                <div class="line-label line-label--completed active" >
+                  <span> {{ 'COMPLETED' | translate }} ({{ completedCourses?.length }})</span>
+                </div>
+                <ng-container *ngFor="let cardData of completedCourses">
+                  <app-asha-learning-completed [ashaData]="cardData" [completedCount] ="completedCourses.length" [expand]="false"></app-asha-learning-completed>
+                </ng-container>
+              </ng-container>
+              <!-- <app-asha-home [ashaData]="cardData" [expand]="true"></app-asha-home> -->
+          </ng-container>
+  
+      
+      </div>
+     
+    </ng-container>
+     <!-- ************** designation as not ASHA ********************* -->
+    <ng-template #oldHome>
+      <!-- <ng-container *ngIf="designation !== 'ANM-BIHAR' && designation !== 'ANM-STUDENT-BIHAR'"> -->
+        <div class="home-content">
+          <div class="heading-container">
+            <span class="heading">{{'WELCOME' | translate}} {{firstName}}</span>
+            <span class="sub-heading"> {{'START_LEARNING' | translate}}</span>
+          </div>
+  
+          <ng-container *ngIf="userEnrollCourse && userEnrollCourse.length>0">
+            <div class="line-label active">
+              <span> {{ 'CONTINUE_LEARNING' | translate }}</span>
+            </div>
+            <div [ngClass]="{ 'tablet-flex' : isTablet}">
+              <div [ngClass]="{'tab-card-width': isTablet }">
+                <ws-mobile-course-view [courseData]="userEnrollCourse[latestCourseIndex]" [showCompentencyDetails]="false"
+                [showProgress]="true" [displayConfig]="displayConfigContinue"></ws-mobile-course-view>
+              </div>
+            </div>
+          </ng-container>
+  
+          <!-- Top certified courses -->
+          <section class="mt-4" *ngIf="forYouCourses && forYouCourses.length>0">
+            <div class="line-label">
+              <span> {{'YOUR_COURSES' | translate }}</span>
+            </div>
+            <!-- <ng-container *ngIf="topCertifiedCourse && topCertifiedCourse.length>0">
+            <div *ngFor="let course of topCertifiedCourse">
+              <ws-mobile-course-view [courseData]="course" [showCompentencyDetails]="false"
+                [displayConfig]="displayConfig"></ws-mobile-course-view>
+            </div>
+          </ng-container> -->
+  
+            <ng-container *ngIf="forYouCourses && forYouCourses.length>0">
+              <div [ngClass]="{ 'tablet-flex' : isTablet}">
+                <div [ngClass]="{'tab-card-width': isTablet }" *ngFor="let course of forYouCourses">
+                  <ws-mobile-course-view [courseData]="course" [showCompentencyDetails]="false"
+                    [displayConfig]="displayConfig"></ws-mobile-course-view>
+                </div>
+              </div>
+            </ng-container>
+  
+            <!-- <div class="view-all-text">
+            <a (click)="naviagateToviewAllCourse()">
+              <span class="text-center blue-color text-xl" i18n> {{'VIEW_ALL_Course' | translate}}</span>
+            </a>
+          </div> -->
+            <button i18n (click)="naviagateToviewAllCourse()" class="btn-underline my-3 ">
+              {{ "VIEW_ALL" | translate }}
+              <span>
+                <mat-icon> expand_circle_down </mat-icon>
+              </span>
+            </button>
+          </section>
+        </div>
+  
+        <!-- Featured Section-->
+        <section class="p-4" style="background-color: #F7F7F7;" [hidden]=true>
+          <div class="line-label">
+            <span> {{'FEATURED' | translate }}</span>
+          </div>
+          <ng-container *ngIf="featuredCourse" style="background-color: #FFF;">
+            <div [ngClass]="{ 'tablet-flex' : isTablet}">
+              <div [ngClass]="{'tab-card-width': isTablet }">
+                <ws-mobile-course-view [enableConfig]="true" [courseData]="featuredCourse" [showCompentencyDetails]="false"
+                [displayConfig]="displayConfig"></ws-mobile-course-view>
+              </div>
+            </div>
+          </ng-container>
+  
+        </section>
+  
+        <!-- People follow Section -->
+        <!-- <section class="p-4" [hidden]=true>
+        <p class="text-2xl" i18n>People you may want to follow</p>
+        <p i18n>because you saw Manyata for Mothers</p>
+        <div class="horizontal-scroll-content">
+          <div *ngFor="let i of [1,2,3,4,5,6,7]" style="height: 260px;">
+            <div class="card follow-card">
+              <img src="../../../../../assets/imgs/about-you.png" alt="Course image" width="85" height="85"
+                class="follow-img">
+              <div class="card-body py-1 px-4">
+                <p class="card-title blue-color text-base">Rahul Patel</p>
+                <p class="font-normal grey-color text-xs">Completed Manyata for Mothers</p>
+                <a href="#" class="btn follow-btn">Follow</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+  
+        <!-- <div class="py-1 px-4 mb-4">
+        <ng-container *ngIf="userEnrollCourse && userEnrollCourse.length>1">
+          <div class="line-label active">
+            <span> {{'MY_COURSE' | translate }}</span>
+          </div>
+          <ws-mobile-course-view [courseData]="userEnrollCourse[1]" [showCompentencyDetails]="false"
+            [displayConfig]="displayConfig"></ws-mobile-course-view>
+        </ng-container>
+      </div> -->
+  
+        <ng-container *ngIf="orgName && videoLink">
+          <p class="header2 mb-0 px-4 pt-3">{{'HOW_EKSHMATA_WORKS' | translate}}?</p>
+          <div [ngClass]="{'tab-video-card' : isTablet}">
+            <div [ngClass]="isTablet ? 'how-work-content tab-card' : 'how-work-content'" (click)="openVideoPopup(orgName.startVideo)">
+              <iframe [ngClass]="isTablet ? 'how-work-iframe tab-iframe' : 'how-work-iframe'" [src]="videoLink" allowfullscreen webkitallowfullscreen mozAllowFullScreen
+                allow="autoplay *; fullscreen *; encrypted-media *; microphone; camera;" frameborder="0"></iframe>
+              <div [ngClass]="isTablet ? 'video-div tab-info-text': 'video-div'">
+                <p class="video-title">{{'HOW_DOES_IT_WORK' | translate}}?</p>
+    
+              </div>
+            </div>
+          </div>
+        </ng-container>
+  
+        <app-ekshamata-footer [appName]="appName" [isLogo]="true"></app-ekshamata-footer>
+      <!-- </ng-container> -->
+    </ng-template>
+ 
+  </ng-container>
+
+  <!-- ******************* role as Mentor ********************* -->
+  <ng-container *ngIf="roleSelected == 'mentor'">
+    <!-- <app-mentees-list [showBackMentee]="showBackMentee"></app-mentees-list> -->
+    <app-schedule-dashboard [firstName]="firstName"></app-schedule-dashboard>
+  </ng-container>
+
+</div>
+
+
+<!-- <div class="flex justify-center items-center flex-col" >
+  <h5> {{ 'SUPPORT_BY' | translate }}</h5>
+</div>
+<section class="dashboard-footer-container">
+  
+  <div class="flex justify-center items-center flex-col logos">
+    <a class="padding-remove-small uptsu">
+      <img src="./assets/imgs/UPTSU.png" class="uptsu-logo" />
+      <span>UP-TSU</span>
+    </a>
+  </div>
+</section> -->
+<!-- <ng-container>
+  <app-footer></app-footer>
+</ng-container> -->

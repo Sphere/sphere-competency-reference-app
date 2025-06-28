@@ -1,0 +1,34 @@
+<mat-toolbar class="mat-header-container" *ngIf="showPublicNavbar && !showSignInCard" [color]="navBar?.color"
+  [ngStyle]="navBar?.styles">
+  <ng-container *ngIf="!showSphereFoundation; else ekshmatalogo">
+    <a name="application-logo" class="padding-remove-small application-logo" (click)="goHomePage()" i18n-matTooltip
+      matTooltip="Home">
+      <img src="../../../assets/imgs/sphere-logo.svg" class="app-icon" *ngIf="(isXSmall$ | async) || isTablet === true"
+        appImageCache />
+    </a>
+  </ng-container>
+  <ng-template #ekshmatalogo>
+    <a name="application-logo" class="padding-remove-small application-logo" (click)="goHomePage()" i18n-matTooltip
+      matTooltip="Home">
+      <img src="../../../assets/imgs/Foundation-secondary.svg" class="app-icon"
+        *ngIf="(isXSmall$ | async) || isTablet === true" appImageCache />
+    </a>
+  </ng-template>
+  <ng-container [ngTemplateOutlet]="navbarSide" [ngTemplateOutletContext]="{ item: item }"
+    *ngFor="let item of primaryNavbarConfig?.mediumScreen?.right">
+  </ng-container>
+  <span class="spacer"></span>
+  <div class="flex justify-center flex-col login-btn"
+    *ngIf="showLoginButton && isUserProfileNull && commonUtilService.networkInfo.isNetworkAvailable && appFramework === 'Sphere'">
+    <button name="login_client_button" mat-raised-button i18n="login: client" (click)="login()"
+      class="login-btn-xs sphere-login-btn">
+      {{'LOGIN' | translate}}
+    </button>
+  </div>
+</mat-toolbar>
+<ng-template #navbarSide let-item="item">
+  <ng-container *ngIf="item.type === 'widgetButton'">
+    <ng-container *ngIf="item.config.widgetSubType === 'actionButtonCatalog'" [wsExploreResolverWidget]="item.config">
+    </ng-container>
+  </ng-container>
+</ng-template>

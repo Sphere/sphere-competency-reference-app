@@ -1,0 +1,132 @@
+.save-btn {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1C5D95;
+}
+
+.scrollable-div {
+  overflow: scroll;
+  height: calc(100vh - 163px);
+  padding-top: 10px;
+}
+
+
+.audio-progress-bar {
+  &.mat-progress-bar {
+    width: 128.03px;
+    height: 12.6px;
+    border-radius: 3.97614px;
+  }
+
+  .mat-progress-bar .mat-progress-bar-fill::after {
+    background: #1c5d95 !important;
+  }
+
+  .mat-progress-bar-fill::after {
+    background: #1c5d95 !important;
+  }
+
+  .mat-progress-bar-buffer {
+    background: #e4e8eb !important;
+  }
+}
+
+::ng-deep.theme-sphere.day-mode .mat-progress-bar-fill::after {
+  background: #1c5d95 0% 0% no-repeat padding-box;
+}
+
+::ng-deep.theme-sphere.day-mode .mat-progress-bar-buffer {
+  background-color: #F0F0F0;
+  // background-color: #E7E6E6 !important;
+}
+
+
+.filled-btn {
+  background-color: #1C5D95;
+  width: 35%;
+  height: 40px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+
+  margin-bottom: 20px;
+}
+
+.outlined-btn {
+  color: #808080;
+  height: 35px;
+  width: 35%;
+  border: 1px solid #808080;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+footer {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  //margin-bottom: 10px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #ffffff;
+  gap: 10px;
+  justify-content: end;
+  padding: 10px;
+}
+
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  height: 80px;
+  background-color: #F7F7F7;
+  z-index: 999;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.timer-chip{
+  background-color: #3B88A0;
+  padding: 5px;
+  border-radius: 50px;
+  width: 65px;
+  color: #ffffff;
+  height: 26px;
+  text-align: center;
+  font-size: 13px;
+
+  span{
+    padding-bottom: 2px;
+  }
+}
+
+.chip-container{
+  justify-content: center;
+  display: flex;
+  padding-bottom: 10px;
+  font-size: 12px;
+  text-align: center;
+  span{
+      padding: 3px 10px;
+      border-radius: 14px;
+  }
+  span.pass{
+      background: #48B845;
+      color: #fff;
+  }
+  span.fail{
+      background: #fc2e2e;
+      color: #fff;
+  }
+}

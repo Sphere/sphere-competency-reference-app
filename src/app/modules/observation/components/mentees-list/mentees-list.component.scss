@@ -1,0 +1,38 @@
+.mat-tab-label-content {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    display: block !important;
+}
+
+::ng-deep .mat-tab-label-active {
+    border-bottom: solid 3px #000000;
+    color: #000000 !important;
+}
+
+.search-container{
+    padding-right: 14px;
+    ion-item::part(native){
+        background: transparent;
+        border: none;
+        --highlight-color-valid: #42424240;
+    }
+    ion-item.item-has-focus{
+        border-bottom: 1px solid #42424240;
+    }
+}
+
+#page-title{
+    margin-bottom: 0 !important;
+}
+
+.count-row{
+    
+    align-items: center;
+    p{
+        font-size: 16px !important;
+        font-weight: 400;
+        margin-bottom: 0px;
+    }
+}

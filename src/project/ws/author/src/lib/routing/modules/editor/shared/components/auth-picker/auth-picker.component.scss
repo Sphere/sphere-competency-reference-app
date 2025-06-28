@@ -1,0 +1,31 @@
+@use 'sass:math';
+@import 'styles/_ws-common.scss';
+@import 'styles/_ws-vars.scss';
+
+.btn-filter {
+  padding-bottom: 1.34375em;
+}
+
+.margin-bottom-xxs {
+  margin-bottom: math.div($size-xs, 2) !important;
+}
+
+.leading-none {
+  line-height: 1 !important;
+}
+
+.resize-none {
+  resize: none;
+}
+
+mat-dialog-content {
+  max-height: 60vh;
+}
+
+.mat-dialog-container {
+  overflow: hidden;
+}
+
+.mat-raised-button {
+  margin-left: 10px;
+}

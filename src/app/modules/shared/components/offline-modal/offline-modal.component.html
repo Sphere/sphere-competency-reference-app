@@ -1,0 +1,13 @@
+<div class="flex flex-col justify-center items-center dialog-vertical-middle">
+
+  <img class="" src="../../../../../assets/imgs/clarity_disconnected-solid.svg" alt="offline">
+
+  <h2 class="mt-2">You are offline</h2>
+  <p class="text-center mb-4">You can still access your downloaded content in the meantime.</p>
+  <button class="btn-download" (click)="navigateToDownloadCourse()">Go to Downloads</button>
+  <div class="refresh-area" (click)="refreshContent()">
+    <h4 class="m-0">Refresh </h4>
+    <ion-spinner *ngIf="showSpinner" name="bubbles"></ion-spinner>
+    <img *ngIf="!showSpinner" src="../../../../../assets/icons/refresh.svg" alt="refresh">
+  </div>
+</div>

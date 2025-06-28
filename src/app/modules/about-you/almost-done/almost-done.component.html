@@ -1,0 +1,259 @@
+<div class="login-page-content" *ngIf="!whatsupNotification">
+  <div class="cursor-pointer content-back ">
+    <mat-icon (click)='redirectToYourBackground()'>chevron_left</mat-icon>
+  </div>
+  <div class="login-card">
+    <h1 i18n>{{'ALMOST_DONE' | translate}}</h1>
+    <p class="sub-title-ad"><span>{{'BELOW_CHANGE_ROLE'| translate}}</span></p>
+    <div class="ad-bg-container">
+      <img class="ad-bg-img first" [src]="selectedBackground.image" alt="selectedBackground.name">
+      <div class="flex flex-col word-wrap middle">
+        <p class="bg-selected-text">{{selectedBackground.name}}</p>
+        <p *ngIf="selectedProfession" class="bg-selected-prof text-trunk"><span>Role:</span> <span
+            style="color: #1C5D95;">{{selectedProfession}}</span></p>
+      </div>
+      <button class="bg-btn-outline last" (click)='redirectToYourBackground()'>{{'CHANGE' | translate}}</button>
+    </div>
+    <!-- <p><span style="float:left;"><span i18n>{{'BACKGROUND' | translate}}</span>: {{backgroundSelect}}</span>
+      <span style="float:right;color: #1C5D95; cursor: pointer;" i18n (click)='redirectToYourBackground()'>{{'CHANGE' | translate}}</span>
+    </p> -->
+
+    <div class="bg-form-title">{{'TELL_US_ROLE' | translate}}</div>
+    <div class="input-content">
+      <div class="input-content-wrapper">
+        <form [formGroup]="almostDoneForm">
+
+          <!-- Background: Healthcare Worker -->
+          <div *ngIf="backgroundSelect ==='Healthcare Worker'">
+            <!-- <div class="form-group input-box ">
+              <select id="profession" formControlName="professSelected" class="form-control select-box"
+                (change)="professionSelect($event.target.value); assignFields('profession', $event.target.value, $event)"
+                required>
+                <option [value]="null" style="color:#808080;" i18n>{{'PROFESSION' | translate}}</option>
+                <option *ngFor="let profession of healthWorkerProfessions" [value]="profession">{{ profession }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group input-box" *ngIf="professionOthersField">
+              <input type="text" formControlName="professionOtherSpecify" i18n class="form-control" i18n-placeholder
+                placeholder="Please Specify*" autocomplete="off">
+            </div>
+            <mat-error class="text-danger mb-4"
+              *ngIf="almostDoneForm.controls['professionOtherSpecify'].hasError('pattern')">
+              {{errorMsg}}</mat-error> -->
+
+            <!-- rn number -->
+            <ng-container *ngIf="isRnNumber">
+              <!-- <ion-item>
+                <ion-label position="floating">{{'RN_NUM' | translate}}</ion-label>
+                <ion-input  type="text" formControlName="rnNumber" autofocus></ion-input>
+              </ion-item> -->
+              <!-- <ion-text color="danger" *ngIf="almostDoneForm.controls['rnNumber'].hasError('pattern')" > {{errorMsg}}</ion-text> -->
+
+              <div class="form-group input-box">
+                <input type="text" formControlName="rnNumber" class="form-control rnField"
+                  placeholder="{{'RN_NUM' | translate}}" i18n-placeholder autocomplete="off" autofocus>
+              </div>
+              <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['rnNumber'].hasError('pattern')">
+                {{errorMsg}}</mat-error>
+            </ng-container>
+
+
+            <!-- org type -->
+            <div class="form-group input-box">
+              <select id="orgType" formControlName="orgType" class="form-control select-box"
+                (change)="orgTypeSelect($event.target.value); assignFields('organizationType',$event.target.value, $event)"
+                required>
+                <option [value]="null" i18n>{{'ORG_TYPE' | translate}} <span class="col-red">*</span></option>
+                <option *ngFor="let orgType of orgTypes" [value]="orgType">{{ orgType }}</option>
+              </select>
+            </div>
+
+            <!-- org name -->
+
+            <div class="form-group input-box">
+              <input type="text" name="orgName" formControlName="orgName" i18n class="form-control"
+                placeholder="{{'ORGANIZATIONS_NAME' | translate}}" autocomplete="off"
+                (change)="assignFields('organizationName',almostDoneForm.controls['orgName'].value, $event)">
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['orgName'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+
+            <!-- <div class="form-group input-box" *ngIf="orgOthersField">
+              <input type="text" formControlName="orgOtherSpecify" class="form-control " i18n-placeholder
+                placeholder="Please Specify*" autocomplete="off">
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['orgOtherSpecify'].hasError('pattern')">
+              {{errorMsg}}</mat-error> -->
+
+
+          </div>
+          <!-- Background: ASHA -->
+
+          <div *ngIf="backgroundSelect === 'ASHA'">
+            <!-- <div class="form-group input-box">
+              <select id="profession" formControlName="professSelected" class="form-control select-box" required
+                (change)="professionSelect($event.target.value); assignFields('profession', $event.target.value, $event)">
+                <option [value]="null" i18n>Profession*</option>
+                <option *ngFor="let profession of ashaVolunteerProfessions" [value]="profession">{{ profession }}
+                </option>
+              </select>
+            </div> -->
+            <div class="form-group input-box">
+              <select id="locationselect" formControlName="locationselect" class="form-control select-box" required
+                (change)="assignFields('locationselect', $event.target.value, $event)">
+                <option [value]=null disabled i18n>{{'CITY_DISTRICT' | translate}}</option>
+                <option *ngFor="let distict of disticts" [value]="distict">{{ distict }}</option>
+              </select>
+            </div>
+            <!-- <div class="form-group input-box">
+              <input type="text" name="block" formControlName="block" class="form-control"
+                placeholder="{{'FRMELEMNTS_LBL_BLOCK' | translate}}" autocomplete="off" i18n-placeholder
+                (change)="assignFields('block',almostDoneForm.controls['block'].value, $event)">
+            </div> -->
+            <div class="form-group input-box">
+              <input type="text" name="subcentre" formControlName="subcentre" class="form-control"
+                placeholder="{{'SUB_CENTRE' | translate}}" autocomplete="off" i18n-placeholder
+                (change)="assignFields('subcentre',almostDoneForm.controls['subcentre'].value, $event)">
+            </div>
+          </div>
+
+          <!-- Background: Healthcare Volunteer -->
+          <div *ngIf="backgroundSelect ==='Healthcare Volunteer'">
+            <div class="form-group input-box">
+              <select id="profession" formControlName="professSelected" class="form-control select-box" required
+                (change)="professionSelect($event.target.value); assignFields('profession', $event.target.value, $event)">
+                <option [value]="null" i18n>Profession*</option>
+                <option *ngFor="let profession of healthVolunteerProfessions" [value]="profession">{{ profession }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group input-box" *ngIf="professionOthersField">
+              <input type="text" formControlName="professionOtherSpecify" class="form-control"
+                placeholder="Please Specify*" autocomplete="off">
+            </div>
+            <mat-error class="text-danger mb-4"
+              *ngIf="almostDoneForm.controls['professionOtherSpecify'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+
+            <div class="form-group input-box">
+              <select id="orgType" formControlName="orgType" class="form-control select-box" required
+                (change)="orgTypeSelect($event.target.value); assignFields('organizationType',$event.target.value, $event)">
+                <option [value]="null" i18n>Organization Type*</option>
+                <option *ngFor="let orgType of orgTypes" [value]="orgType">{{ orgType }}</option>
+              </select>
+            </div>
+            <div class="form-group input-box" *ngIf="orgOthersField">
+              <input type="text" formControlName="orgOtherSpecify" class="form-control " placeholder="Please Specify*"
+                i18n-placeholder autocomplete="off">
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['orgOtherSpecify'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+
+            <div class="form-group input-box">
+              <input type="text" name="orgName" i18n formControlName="orgName" class="form-control"
+                placeholder="{{'ORGANIZATIONS_NAME' | translate}}" autocomplete="off"
+                (change)="assignFields('organizationName',almostDoneForm.controls['orgName'].value, $event)">
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['orgName'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+          </div>
+
+
+          <!-- Background: Student -->
+          <div *ngIf="backgroundSelect ==='Student'">
+            <!-- <div class="form-group input-box">
+              <select id="profession" formControlName="professSelected" class="form-control select-box"
+                (change)="professionSelect($event.target.value); assignFields('profession', $event.target.value, $event)"
+                required>
+                <option [value]="null" style="color:#808080;" i18n>{{'DESIGNATION' | translate}}</option>
+                <option *ngFor="let profession of studentVolunteerProfessions" [value]="profession">{{ profession }}
+                </option>
+              </select>
+            </div> -->
+
+            <!-- <div class="form-group input-box" *ngIf="professionOthersField">
+              <input type="text" formControlName="professionOtherSpecify" i18n class="form-control" i18n-placeholder
+                placeholder="Please Specify*" autocomplete="off">
+            </div>
+            <mat-error class="text-danger mb-4"
+              *ngIf="almostDoneForm.controls['professionOtherSpecify'].hasError('pattern')">
+              {{errorMsg}}</mat-error> -->
+
+            <!-- <div class="form-group mt-4 input-box">
+              <input type="text" class="form-control" i18n-placeholder formControlName="courseName"
+                placeholder="Qualification"
+                (change)="assignFields('coursename',almostDoneForm.controls['courseName'].value, $event)">
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['courseName'].hasError('pattern')">
+              {{errorMsg}}</mat-error> -->
+
+            <!-- institute name -->
+            <div class="form-group mt-4 input-box">
+              <input type="text" class="form-control" formControlName="instituteName" placeholder="Institution Name"
+                i18n-placeholder
+                (change)="assignFields('institutionName',almostDoneForm.controls['instituteName'].value, $event)"
+                required>
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['instituteName'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+          </div>
+          <!-- Background: Student -->
+
+          <!-- Background: Faculty -->
+          <div *ngIf="backgroundSelect ==='Faculty'">
+            <!-- institute name -->
+            <div class="form-group mt-4 input-box">
+              <input type="text" class="form-control" formControlName="instituteName" placeholder="Institution Name"
+                i18n-placeholder
+                (change)="assignFields('institutionName',almostDoneForm.controls['instituteName'].value, $event)"
+                required>
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['instituteName'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+          </div>
+          <!-- Background: Faculty -->
+
+          <!-- Background: Others -->
+          <div *ngIf="backgroundSelect ==='Others'">
+            <div *ngIf="isOthers">
+              <div class="form-group mt-4 input-box">
+                <input type="text" class="form-control" formControlName="profession" placeholder="Designation*"
+                  required>
+              </div>
+              <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['profession'].hasError('pattern')">
+                {{errorMsg}}</mat-error>
+
+              <div class="form-group input-box">
+                <select id="orgType" formControlName="orgType" class="form-control select-box"
+                  (change)="orgTypeSelect($event.target.value)" required>
+                  <option [value]="null" i18n>Organization Type*</option>
+                  <option *ngFor="let orgType of orgTypes" [value]="orgType">{{ orgType }}</option>
+                </select>
+              </div>
+            </div>
+            <!-- org Name -->
+            <div class="form-group input-box">
+              <input type="text" name="orgName" formControlName="orgName" class="form-control"
+                placeholder="{{'ORGANIZATIONS_NAME' | translate}}" autocomplete="off" i18n-placeholder>
+            </div>
+            <mat-error class="text-danger mb-4" *ngIf="almostDoneForm.controls['orgName'].hasError('pattern')">
+              {{errorMsg}}</mat-error>
+          </div>
+          <!-- Background: Others -->
+
+          <div class="next-btn-div">
+            <button class="form-group login-button" type="submit" (click)='onsubmit()' id="done-btn"
+              [disabled]="!almostDoneForm?.valid || enableSubmit" i18n>{{'DONE' | translate}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="whatsupNotification">
+    <app-whatsapp-notification (redirectToParent)="changeWhatsupNotifification()"></app-whatsapp-notification>
+</ng-container>

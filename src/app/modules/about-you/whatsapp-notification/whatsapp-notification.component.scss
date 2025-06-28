@@ -1,0 +1,88 @@
+/* whatsapp-notifications.component.scss */
+.whatsapp-notifications-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+
+  .notification-card {
+    background-color: #fff;
+    border-radius: 40px 40px 0 0;
+    padding: 0 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+
+    h2 {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .certificate-title {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
+
+
+.login-button {
+  width: 98px;
+  height: 38px;
+  background: #1C5D95;
+  border-radius: 50px;
+  color: #fff;
+  border: 0;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+.login-button:disabled {
+  background: #BFBFBF;
+  color: #808080;
+  cursor: default;
+}
+
+.next-btn-div {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-display {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.phone-number {
+  color: #45ACAC;
+  font-weight: 400;
+}
+
+
+
+/* Background ripple effect when checked */
+:host ::ng-deep .radio-group .mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before {
+  background-color: #1C5D95 !important;
+}
+
+/* Outer circle border (not background) when checked */
+:host ::ng-deep .radio-group .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle {
+  border-color: #1C5D95 !important;
+  /* This should be border-color, not background-color */
+}
+
+/* Inner circle background when checked */
+:host ::ng-deep .radio-group .mat-mdc-radio-button
+
+/* Missing a space after day-mode */
+.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__inner-circle {
+  background-color: #1C5D95 !important;
+  border-color: #1C5D95 !important;
+  /* Add this selector */
+}

@@ -1,0 +1,30 @@
+{
+  "professions": [
+    {
+      "name": "Healthcare Worker", 
+      "image": "/assets/imgs/bg_Healthcare.svg",
+      "roles": ["GNM", "Doctor", "Midwife", "ANM/MPW", "B. Sc Nurse", "Pharmacist", "Paramedical", "Community health officer", "Public health professional", "Others"]
+    },    
+    {
+      "name": "Student",
+      "image": "/assets/imgs/bg_Student.svg",
+      "roles": ["B. Sc Nursing", "GNM", "ANM/MPW", "Midwife", "Medical student", "Post graduate", "Others"]
+    },
+    {
+      "name": "Faculty",
+      "image": "/assets/imgs/bg_Faculty.svg",
+      "roles": ["Nursing Faculty", "Medical Faculty", "Others"]
+    },
+    {
+      "name": "Others",
+      "image": "/assets/imgs/bg_others.svg",
+      "roles": ["ASHA trainer", "ASHA facilitator", "Anganwadi Worker", "Mukhya Sevika (MS)", "District programme officer (DPO)", "Child development project officer (CDPO)", "Others"]
+    },
+    {
+      "name": "ASHA",
+      "image": "/assets/imgs/bg_Asha.svg"
+      
+    }
+    
+  ]
+}

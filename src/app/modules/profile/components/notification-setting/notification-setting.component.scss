@@ -1,0 +1,25 @@
+@import 'styles/_ws-mixins.scss';
+
+.notification-card {
+  padding: 0px 20px 0px;
+}
+:host ::ng-deep ion-toggle.custom-toggle {
+  --handle-background: #ffffff;
+  --handle-background-checked: #ffffff;
+  --track-background: #cccccc;
+  --track-background-checked: #1c5d95;
+
+  --handle-border-radius: 50%;
+  --track-border-radius: 20px;
+  width: 50px;
+  height: 28px;
+  --background-checked:#1c5d95!important;
+  --background-checked:#1c5d95;
+  --handle-width: 24px;
+    --handle-height: 24px;
+    --handle-spacing: 2px;
+}
+
+.whatsapp-icon{
+  width: 22px;
+}

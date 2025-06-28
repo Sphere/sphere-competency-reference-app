@@ -1,0 +1,122 @@
+<div style="background-image:url('../../../../../assets/imgs/Group-people.png')" *ngIf="isHomePage"
+  [ngClass]="isTablet ? 'footer-container tab-display-size' : 'flex footer-container'">
+  <div [ngClass]="isTablet ? 'transform-header tab-header' : 'transform-header'" i18n>
+    {{'FOOTER_TAG_LINE_1' | translate}}
+  </div>
+  <button (click)="createAcct()" class="start-today-button" i18n>{{'START_TODAY' | translate}}</button>
+</div>
+<div class="flex-container">
+  <div class="part-a-partner center-partner">
+    <div class="text-partners" i18n>
+      {{'AN_INITIATIVE_OF' | translate}}
+    </div>
+    <div class="flex-prop">
+      <img class="part-a-img" src="../../../../../assets/icons/nike.png" alt="Card image cap">
+    </div>
+  </div>
+  <div class="part-b-partner center-partner">
+    <div class="text-partners" i18n>
+      {{'A_COLLABORATION_WITH' | translate}}
+    </div>
+    <div class="flex-prop">
+      <img class="part-b-img" src="../../../../../assets/icons/sci.png" alt="Card image cap">
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-column " *ngIf="!isTablet">
+  <img class="footer-logo" src="../../../../../assets/imgs/sphere-new-logo.svg">
+  <div class="flex flex-column link-container">
+    <a class="footer-heading" i18n>{{'QUICK_LINKS' | translate}}</a>
+    <a class="link-text" (click)="navigateToPublcTOC('dp')" i18n>{{'PRIVACY_POLICY' | translate}} </a>
+    <a class="link-text" (click)="navigateToPublcTOC('tnc')" i18n>{{'TERMS_OF_USE' | translate}}</a>
+    <hr class="new1">
+    <a class="footer-heading" i18n>{{'HELP_AND_CONTACT' | translate}}</a>
+    <a class="link-text underline-text " (click)="openDefaultMailApp()">support@aastrika.org</a>
+    <a i18n class="whatsapp-logo-container" href="https://wa.me/919632013414?text=Hi" target="_blank">
+      <img class="fa fa-whatsapp whatsapp-logo" src="../../../../../assets/icons/whatsapp.png" />
+      {{'TALK_TO_US_ON_WHATSAPP' | translate}}
+    </a>
+    <hr class="new1">
+    <div class="flex flex-column">
+      <span class="footer-heading" i18n>{{'ADDITIONAL_LINKS' | translate}}</span>
+      <div class="flex foundation-link">
+        <span i18n>{{'AASTRIKA_FOUNDATION' | translate}} </span>:&nbsp; <a class="foundation-text"
+          href="https://www.aastrika.org/" target="_blank">
+          https://www.aastrika.org/ </a>
+      </div>
+    </div>
+    <div class="footer-social-icon">
+      <a class="" href="https://twitter.com/aastrika_fndn?s=21&t=I9xN5rzMahavP0R1Fp7VwA" target="_blank">
+        <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/twitter.svg" />
+      </a>
+      <a class="" href="https://www.facebook.com/aastrikasphere?mibextid=LQQJ4d" target="_blank">
+        <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/facebook.svg" />
+      </a>
+      <a class="" href="https://instagram.com/sphere.aastrika?igshid=MmJiY2I4NDBkZg==" target="_blank">
+        <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/Instagram-Logo.wine.svg" />
+      </a>
+      <a class="" href="https://www.linkedin.com/company/aastrika-foundation/" target="_blank">
+        <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/linked-in.svg" />
+      </a>
+    </div>
+    <div class="footer-text-container">
+      <div i18n class="footer-text">
+        &copy; <span>{{currentYear}}</span>
+        <span>{{'FOOTER_TAG_LINE_2' | translate}} </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-column tab-margin" *ngIf="isTablet">
+  <div class="flex">
+    <div class="tab-logo-container">
+      <img class="footer-logo tab-logo" src="../../../../../assets/imgs/sphere-new-logo.svg">
+    </div>
+    <div class="tab-link-info">
+      <a class="footer-heading" i18n>{{'QUICK_LINKS' | translate}}</a>
+      <a class="link-text" (click)="navigateToPublcTOC('dp')" i18n>{{'PRIVACY_POLICY' | translate}} </a>
+      <a class="link-text" (click)="navigateToPublcTOC('tnc')" i18n>{{'TERMS_OF_USE' | translate}}</a>
+    </div>
+    <div class="tab-link-info">
+      <a class="footer-heading" i18n>{{'HELP_AND_CONTACT' | translate}}</a>
+      <a class="link-text underline-text " (click)="openDefaultMailApp()">support@aastrika.org</a>
+      <a i18n class="whatsapp-logo-container" href="https://wa.me/919632013414?text=Hi" target="_blank">
+        <img class="fa fa-whatsapp whatsapp-logo" src="../../../../../assets/icons/whatsapp.png" />
+        {{'TALK_TO_US_ON_WHATSAPP' | translate}}
+      </a>
+    </div>
+  </div>
+    <hr class="new1">
+    <div class="flex flex-column mx-6">
+      <span class="footer-heading" i18n>{{'ADDITIONAL_LINKS' | translate}}</span>
+      <div class="flex foundation-link">
+        <span i18n>{{'AASTRIKA_FOUNDATION' | translate}} </span>:&nbsp; <a class="foundation-text"
+          href="https://www.aastrika.org/" target="_blank">
+          https://www.aastrika.org/ </a>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="footer-social-icon tab-social-icon">
+        <a class="" href="https://twitter.com/aastrika_fndn?s=21&t=I9xN5rzMahavP0R1Fp7VwA" target="_blank">
+          <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/twitter.svg" />
+        </a>
+        <a class="" href="https://www.facebook.com/aastrikasphere?mibextid=LQQJ4d" target="_blank">
+          <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/facebook.svg" />
+        </a>
+        <a class="" href="https://instagram.com/sphere.aastrika?igshid=MmJiY2I4NDBkZg==" target="_blank">
+          <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/Instagram-Logo.wine.svg" />
+        </a>
+        <a class="" href="https://www.linkedin.com/company/aastrika-foundation/" target="_blank">
+          <img class="fa fa-whatsapp social-logo" src="../../../../../assets/icons/linked-in.svg" />
+        </a>
+      </div>
+      <div class="footer-text-container">
+        <div i18n class="footer-text tab-footer-text">
+          &copy; <span>{{currentYear}}</span>
+          <span>{{'FOOTER_TAG_LINE_2' | translate}} </span>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="flex flex-col">
+  <div class="header-container">
+    <ws-mobile-profile-nav [showbackButton]="true" [showLogOutIcon]="false"  [navigateToPreviesPage]="true"></ws-mobile-profile-nav>
+    <h1 class="page-title">{{attempList.solution_name}}</h1>
+    <p class="mb-1 mentee-info ">{{'ATTEMPTS_NO' | translate}} {{attempList.attempt_serial_number}}</p>
+  </div>
+
+  <div style="padding: 0px 20px ">
+   <!-- <ng-container *ngIf="attempList.length > 0; else noData"> -->
+    <ng-container *ngFor="let attemps of attempList.attemptList">
+      <app-mentor-cards [viewByLearner]="viewByLearner" [data]="attemps" [display]="displayConfig" [showResultWithPercentage]="true" [showCreatedAt]="true"></app-mentor-cards>
+    </ng-container>
+  <!-- </ng-container> -->
+
+
+  <ng-template #noData>
+    <div class="m-5">
+      <app-no-result-page title="NO_RESULT_FOUND"></app-no-result-page>
+    </div>
+  </ng-template>
+  </div>
+  
+</div>

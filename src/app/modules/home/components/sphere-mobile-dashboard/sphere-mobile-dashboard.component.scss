@@ -1,0 +1,424 @@
+@import 'styles/_ws-mixins.scss';
+
+.banner-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.banner-heading {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  /* or 120% */
+  padding: 0px 0px 0px 25px !important;
+  color: #000000;
+}
+
+.banner-mini-heading {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  color: #000000;
+  padding-left: 25px !important;
+}
+
+p {
+  margin: 0 !important;
+  font-weight: 400;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.blue-color {
+  color: #1C5D95;
+}
+
+.grey-color {
+  color: #808080
+}
+
+.follow-btn {
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 5px 25px;
+  margin-top: 20px;
+  border: 1px solid #1C5D95;
+  color: #1C5D95;
+  cursor: pointer;
+}
+
+.card {
+  margin-top: 10px;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+  padding: 20px 0;
+  border: none;
+}
+
+.follow-card {
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 185px;
+  text-align: center;
+  padding: 15px 0;
+  margin-right: 15px;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+}
+
+.follow-img {
+  border: 1px solid grey;
+  border-radius: 50%;
+  position: relative;
+  left: 30%;
+}
+
+.horizontal-scroll-content {
+  overflow-x: auto;
+  height: 100%;
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: stretch;
+  padding-left: 5px;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+}
+
+.box-shadow-radius {
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+}
+
+.appIcon {
+  min-width: 276px;
+  max-width: 276px;
+}
+
+.box {
+  margin: 20px 0;
+  padding-bottom: 5px;
+}
+
+.courseName {
+  color: #1C5D95;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0 !important;
+}
+
+span.language-text {
+  /* background-color: #bcdede; */
+  padding: 6px;
+  color: #277cc8 !important;
+}
+
+img.lang-img {
+  width: 35px;
+  height: 24px;
+}
+
+.banner-image {
+  max-width: 400px;
+}
+
+@media (min-width:320px) {
+  .banner-image {
+    max-width: 300px;
+  }
+
+  .info-container {
+    width: 160px;
+  }
+}
+
+@media (min-width:375px) {
+  .banner-image {
+    max-width: 360px;
+  }
+
+  .info-container {
+    width: 187.5px;
+  }
+}
+
+// @media (min-width:425px) {
+//   .banner-image {
+//     max-width: 410px;
+//   }
+
+//   .info-container {
+//     width: 212.5px;
+//   }
+// }
+
+.tutorials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: #469788;
+  height: 51px;
+  position: relative;
+  top: -10px;
+}
+
+.tutorials-text {
+  /* Body */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #FFFFFF !important;
+  margin: 0px !important;
+}
+
+.header2 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.lable1 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17px;
+}
+
+.view-all-course {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #2E6491;
+
+  mix-blend-mode: normal;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #2E6491;
+  padding: 8px 18px;
+  border-radius: 30px;
+  color: #2E6491;
+  background-color: #FFFFFF;
+  margin: auto;
+}
+
+.role-select {
+  background-color: #1C5D95;
+  color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.btn-select {
+  display: flex;
+  background-color: #1C5D95;
+  color: #ffffff;
+  height: 35px;
+  width: 310px;
+  // margin-top: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  img {
+    width: 24px;
+  }
+
+  &:first-of-type+img {
+    width: 16px; // Width for the second img following .btn-select
+  }
+
+}
+
+.disable-backdrop-click .cdk-overlay-backdrop.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing {
+  pointer-events: none;
+}
+
+.blur-background {
+  filter: blur(5px);
+  /* Adjust the blur amount as needed */
+  pointer-events: none;
+  /* Prevents the blurred overlay from capturing clicks */
+}
+
+.blur-background::before {
+  content: '';
+  /* Pseudo-element to cover the entire page */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  /* Adjust the alpha value for the level of blur */
+  pointer-events: none;
+  /* Allows clicks to pass through the overlay */
+}
+
+.f-16-w-400 {
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+
+.role-title {
+  padding-left: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.role-img {
+  width: 17px !important;
+  height: 17px;
+}
+
+.line-label {
+  position: relative;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.line-label::before,
+.line-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background: #CBC9B5;
+}
+
+.line-label span {
+  position: relative;
+  display: inline-block;
+  padding: 0px 15px;
+  // background: #A4DFCA;
+  background: #F6F3D9;
+  z-index: 9;
+  color: #4B4B4B;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28.8px;
+  font-family: 'Roboto';
+  text-transform: uppercase;
+}
+
+
+ .line-label.active span {
+  position: relative;
+    display: inline-block;
+    padding: 0px 15px;
+    z-index: 9;
+    color: #4B4B4B;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28.8px;
+    font-family: 'Roboto';
+    background: #A4DFCA;
+    text-transform: uppercase;
+}
+
+
+
+
+.carousel-skeleton {
+  height: 180px;
+  width: 100%;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.how-does-section {
+  background: #DCEFEC;
+}
+
+.btn-underline {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16.41px;
+  color: #2E6491;
+  //margin: 20px;
+  text-decoration: underline;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+
+}
+
+.tablet-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.tab-card-width {
+  width: 48%
+}
+
+.tab-bottom{
+  margin-bottom: 10px;
+}
+
+.tab-access-info {
+  padding: 3rem 1rem;
+  width: 44%;
+}
+
+.tab-banner-size {
+  width: 38vh;
+}
+
+.tab-banner-heading{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 3rem;
+  /* or 120% */
+  padding: 0px 0px 0px 25px !important;
+  color: #000000;
+}
+
+.tab-title-size{
+  font-size: 28px !important;
+}
+.tab-text{
+  display: grid;
+}
+
+.role-select-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

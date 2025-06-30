@@ -864,6 +864,6 @@
         }
     ],
     "API": {
-        "secret_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJTNHNNVFdjZUZqYkxUWGxiczkzUzk4dmFtODBhdkRPUiJ9.nPOCY0-bVX28iNcxxnYbGpihY3ZzfNwx0-SFCnJwjas"
+        "secret_key": "SECRET_KEY"
     }
 }

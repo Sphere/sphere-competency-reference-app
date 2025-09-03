@@ -80,7 +80,7 @@ Node JS Version - 18.20.3
     NOTE: For M1 chipset users please go through FAQ section for ROSETA 2 compatibility and usage.
     
 ## Steps
-    1. Checkout sphere-mobile-app repo from https://github.com/Sphere/mobile-app-v2
+    1. Checkout sphere-mobile-app repo from https://github.com/Sphere/sphere-competency-reference-app
     2. cd to <mobile-app-v2> local path
     Update appId and appName in capacitor.config.ts file
     3. update NAMESPACE, APPLICATION_ID, BASE_URL, CHANNEL_ID, VERSION_NAME and SITEPATH in configurations/configuration.stag.ts file for staging build.
